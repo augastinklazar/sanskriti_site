@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Outfit:wght@300;400;500;600;700&family=Rozha+One&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-midnight: #0A0D14;
+  --color-terracotta: #1F110E;
+  --color-sandstone: #F5EFE6;
+  --color-gold: #D4AF37;
+  --color-saffron: #FF7722;
+  --color-vermillion: #C41E3A;
+  --color-prana: #00F0FF;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0A0D14;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2018;
+  border-radius: 4px;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D4AF37;
+}
+
+/* Base resets & typography */
+html {
+  scroll-behavior: smooth;
+  background-color: #0A0D14;
+  color: #F5EFE6;
+  font-family: 'Outfit', sans-serif;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: #0A0D14;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Custom cursor hide default only on non-touch pointer devices */
+@media (pointer: fine) {
+  body {
+    cursor: none;
+  }
+  a, button, input, select, textarea, [role="button"], .cursor-pointer {
+    cursor: none;
+  }
+}
+
+/* Noise overlay canvas */
+#noise-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9990;
+  opacity: 0.045;
+  mix-blend-mode: overlay;
+}
+
+/* Custom cursor canvas */
+#cursor-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Vedic Card and Glassmorphism */
+.vedic-glass {
+  background: rgba(15, 18, 26, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(212, 175, 55, 0.18);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7), 0 0 20px -5px rgba(212, 175, 55, 0.05);
+}
+
+.vedic-glass-gold {
+  background: radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.12), rgba(15, 18, 26, 0.85));
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  box-shadow: 0 12px 36px -8px rgba(0, 0, 0, 0.8), 0 0 35px -5px rgba(212, 175, 55, 0.15);
+}
+
+.vedic-gold-text {
+  background: linear-gradient(135deg, #FFF1C5 0%, #D4AF37 50%, #AA8222 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.vedic-glow-hover {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.vedic-glow-hover:hover {
+  border-color: rgba(212, 175, 55, 0.6);
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.25), inset 0 0 15px rgba(212, 175, 55, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Jharokha arch clip path */
+.jharokha-frame {
+  clip-path: polygon(
+    0% 25%,
+    15% 15%,
+    30% 7%,
+    50% 0%,
+    70% 7%,
+    85% 15%,
+    100% 25%,
+    100% 100%,
+    0% 100%
+  );
+}
+
+/* Glowing text keyframes */
+@keyframes subtle-breath {
+  0%, 100% { opacity: 0.85; filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.3)); }
+  50% { opacity: 1; filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.65)); }
+}
+
+.animate-breath {
+  animation: subtle-breath 4s ease-in-out infinite;
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  #cursor-canvas {
+    display: none !important;
+  }
+}
