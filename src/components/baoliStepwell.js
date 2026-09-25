@@ -6,7 +6,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 /**
  * Section 4: Architecture & Stepwells ("The Baoli: The Depth of Time")
- * Procedural 3D Stepwell with GSAP ScrollTrigger camera descent through fractal tiers
+ * Procedural 3D Stepwell utilizing the authentic reference palette:
+ * Sandstone Cinnamon (#99582A), Espresso (#432818), Sand Gold (#BB9457), and Cream (#FFE6A7).
  */
 export function initBaoliStepwell() {
   const container = document.getElementById('baoli-canvas-container');
@@ -17,7 +18,7 @@ export function initBaoliStepwell() {
   const height = container.clientHeight || window.innerHeight;
 
   const scene = new THREE.Scene();
-  scene.fog = new THREE.FogExp2(0x0C0D12, 0.038);
+  scene.fog = new THREE.FogExp2(0x140A06, 0.036);
 
   const camera = new THREE.PerspectiveCamera(50, width / height, 0.1, 100);
   camera.position.set(0, 14, 18);
@@ -30,35 +31,36 @@ export function initBaoliStepwell() {
   renderer.toneMappingExposure = 1.35;
   container.appendChild(renderer.domElement);
 
-  const ambientLight = new THREE.AmbientLight(0xedd9c0, 0.45);
+  const ambientLight = new THREE.AmbientLight(0x5c3722, 0.55);
   scene.add(ambientLight);
 
-  const sunLight = new THREE.DirectionalLight(0xFFE4B5, 2.2);
+  const sunLight = new THREE.DirectionalLight(0xFFE6A7, 2.2);
   sunLight.position.set(8, 25, 10);
   scene.add(sunLight);
 
-  const waterGlowLight = new THREE.PointLight(0x00F0FF, 1.8, 16, 1.4);
+  const waterGlowLight = new THREE.PointLight(0xBB9457, 2.2, 18, 1.4);
   waterGlowLight.position.set(0, -9.5, 0);
   scene.add(waterGlowLight);
 
+  // Palette Materials
   const sandstoneMat = new THREE.MeshStandardMaterial({
-    color: 0xBA9875,
-    roughness: 0.85,
-    metalness: 0.12,
+    color: 0x99582A, // Rich Cinnamon Terracotta
+    roughness: 0.82,
+    metalness: 0.15,
   });
 
   const darkSandstoneMat = new THREE.MeshStandardMaterial({
-    color: 0x73553C,
+    color: 0x432818, // Roasted Espresso Umber
     roughness: 0.9,
-    metalness: 0.08,
+    metalness: 0.1,
   });
 
   const goldTrimMat = new THREE.MeshStandardMaterial({
-    color: 0xD4AF37,
+    color: 0xBB9457, // Sand Gold
     roughness: 0.3,
     metalness: 0.85,
-    emissive: 0x3d2c07,
-    emissiveIntensity: 0.2
+    emissive: 0x3d2711,
+    emissiveIntensity: 0.3
   });
 
   const baoliGroup = new THREE.Group();
@@ -170,26 +172,26 @@ export function initBaoliStepwell() {
   // 4. Subterranean Water Mirror
   const waterGeo = new THREE.PlaneGeometry(12, 12, 32, 32);
   const waterMat = new THREE.MeshStandardMaterial({
-    color: 0x052B35,
-    roughness: 0.15,
-    metalness: 0.85,
+    color: 0x1A0D08,
+    roughness: 0.18,
+    metalness: 0.82,
     transparent: true,
-    opacity: 0.88,
-    emissive: 0x002B30,
-    emissiveIntensity: 0.4
+    opacity: 0.9,
+    emissive: 0x33170D,
+    emissiveIntensity: 0.35
   });
   const waterMesh = new THREE.Mesh(waterGeo, waterMat);
   waterMesh.rotation.x = -Math.PI / 2;
   waterMesh.position.y = -10.5;
   baoliGroup.add(waterMesh);
 
-  // Floating Diyas
+  // Floating Diyas with warm cream-gold glow
   const diyaCount = 14;
   const diyas = [];
   const diyaDishGeo = new THREE.CylinderGeometry(0.2, 0.1, 0.08, 12);
-  const diyaMat = new THREE.MeshStandardMaterial({ color: 0xB8673B, roughness: 0.5 });
-  const flameGeo = new THREE.SphereGeometry(0.06, 8, 8);
-  const flameMat = new THREE.MeshBasicMaterial({ color: 0xFFD54F });
+  const diyaMat = new THREE.MeshStandardMaterial({ color: 0x6F1D1B, roughness: 0.6 });
+  const flameGeo = new THREE.SphereGeometry(0.065, 8, 8);
+  const flameMat = new THREE.MeshBasicMaterial({ color: 0xFFE6A7 });
 
   for (let d = 0; d < diyaCount; d++) {
     const dGroup = new THREE.Group();
@@ -217,7 +219,7 @@ export function initBaoliStepwell() {
     diyas.push(dGroup);
   }
 
-  // 5. Motes
+  // 5. Volumetric Sand-Gold Dust Motes
   const moteCount = 600;
   const moteGeo = new THREE.BufferGeometry();
   const motePos = new Float32Array(moteCount * 3);
@@ -228,10 +230,10 @@ export function initBaoliStepwell() {
   }
   moteGeo.setAttribute('position', new THREE.BufferAttribute(motePos, 3));
   const moteMat = new THREE.PointsMaterial({
-    size: 0.12,
-    color: 0xF5EFE6,
+    size: 0.14,
+    color: 0xFFE6A7,
     transparent: true,
-    opacity: 0.6,
+    opacity: 0.65,
     blending: THREE.AdditiveBlending
   });
   const motes = new THREE.Points(moteGeo, moteMat);
@@ -353,4 +355,3 @@ export function initBaoliStepwell() {
     renderer.dispose();
   };
 }
-

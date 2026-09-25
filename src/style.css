@@ -5,44 +5,48 @@
 @tailwind utilities;
 
 :root {
-  --color-midnight: #0A0D14;
-  --color-terracotta: #1F110E;
-  --color-sandstone: #F5EFE6;
-  --color-gold: #D4AF37;
-  --color-saffron: #FF7722;
-  --color-vermillion: #C41E3A;
-  --color-prana: #00F0FF;
+  --color-crimson: #6F1D1B;
+  --color-sand-gold: #BB9457;
+  --color-espresso: #432818;
+  --color-cinnamon: #99582A;
+  --color-cream: #FFE6A7;
+  --color-abyss: #140A06;
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 9px;
 }
 ::-webkit-scrollbar-track {
-  background: #0A0D14;
+  background: #140A06;
 }
 ::-webkit-scrollbar-thumb {
-  background: #2a2018;
+  background: #432818;
   border-radius: 4px;
-  border: 1px solid rgba(212, 175, 55, 0.2);
+  border: 1px solid rgba(187, 148, 87, 0.3);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #D4AF37;
+  background: #99582A;
 }
 
 /* Base resets & typography */
 html {
   scroll-behavior: smooth;
-  background-color: #0A0D14;
-  color: #F5EFE6;
+  background-color: #140A06;
+  color: #FFE6A7;
   font-family: 'Outfit', sans-serif;
   overflow-x: hidden;
 }
 
 body {
-  background-color: #0A0D14;
+  background-color: #140A06;
   overflow-x: hidden;
   position: relative;
+  background-image: 
+    radial-gradient(circle at 15% 20%, rgba(111, 29, 27, 0.18) 0%, transparent 40%),
+    radial-gradient(circle at 85% 65%, rgba(153, 88, 42, 0.14) 0%, transparent 45%),
+    radial-gradient(circle at 50% 90%, rgba(187, 148, 87, 0.12) 0%, transparent 50%);
+  background-attachment: fixed;
 }
 
 /* Custom cursor hide default only on non-touch pointer devices */
@@ -64,7 +68,7 @@ body {
   height: 100vh;
   pointer-events: none;
   z-index: 9990;
-  opacity: 0.045;
+  opacity: 0.055;
   mix-blend-mode: overlay;
 }
 
@@ -81,23 +85,39 @@ body {
 
 /* Vedic Card and Glassmorphism */
 .vedic-glass {
-  background: rgba(15, 18, 26, 0.75);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(212, 175, 55, 0.18);
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7), 0 0 20px -5px rgba(212, 175, 55, 0.05);
+  background: rgba(38, 21, 13, 0.78);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(187, 148, 87, 0.22);
+  box-shadow: 0 12px 35px -8px rgba(10, 5, 2, 0.8), 0 0 25px -5px rgba(111, 29, 27, 0.12);
 }
 
 .vedic-glass-gold {
-  background: radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.12), rgba(15, 18, 26, 0.85));
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(212, 175, 55, 0.35);
-  box-shadow: 0 12px 36px -8px rgba(0, 0, 0, 0.8), 0 0 35px -5px rgba(212, 175, 55, 0.15);
+  background: radial-gradient(circle at 50% 0%, rgba(187, 148, 87, 0.15), rgba(38, 21, 13, 0.88));
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  border: 1px solid rgba(187, 148, 87, 0.38);
+  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.85), 0 0 35px -5px rgba(187, 148, 87, 0.18), inset 0 1px 0 rgba(255, 230, 167, 0.15);
 }
 
+.vedic-glass-crimson {
+  background: radial-gradient(circle at 50% 0%, rgba(111, 29, 27, 0.3), rgba(28, 15, 9, 0.92));
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(111, 29, 27, 0.5);
+  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.9), 0 0 35px 2px rgba(111, 29, 27, 0.25);
+}
+
+/* High Contrast Gold & Cream Typography */
 .vedic-gold-text {
-  background: linear-gradient(135deg, #FFF1C5 0%, #D4AF37 50%, #AA8222 100%);
+  background: linear-gradient(135deg, #FFF4D4 0%, #FFE6A7 35%, #BB9457 70%, #99582A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.85));
+}
+
+.vedic-crimson-text {
+  background: linear-gradient(135deg, #FF8E8B 0%, #E54B4B 40%, #6F1D1B 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -106,12 +126,54 @@ body {
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .vedic-glow-hover:hover {
-  border-color: rgba(212, 175, 55, 0.6);
-  box-shadow: 0 0 30px rgba(212, 175, 55, 0.25), inset 0 0 15px rgba(212, 175, 55, 0.1);
-  transform: translateY(-2px);
+  border-color: rgba(187, 148, 87, 0.7);
+  box-shadow: 0 0 30px rgba(187, 148, 87, 0.3), 0 0 15px rgba(111, 29, 27, 0.25), inset 0 0 15px rgba(187, 148, 87, 0.15);
+  transform: translateY(-3px);
 }
 
-/* Jharokha arch clip path */
+/* Ornate Corner Accents */
+.ornate-corner-tl {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: 18px;
+  height: 18px;
+  border-top: 2px solid #BB9457;
+  border-left: 2px solid #BB9457;
+  border-top-left-radius: 4px;
+}
+.ornate-corner-tr {
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  width: 18px;
+  height: 18px;
+  border-top: 2px solid #BB9457;
+  border-right: 2px solid #BB9457;
+  border-top-right-radius: 4px;
+}
+.ornate-corner-bl {
+  position: absolute;
+  bottom: -1px;
+  left: -1px;
+  width: 18px;
+  height: 18px;
+  border-bottom: 2px solid #BB9457;
+  border-left: 2px solid #BB9457;
+  border-bottom-left-radius: 4px;
+}
+.ornate-corner-br {
+  position: absolute;
+  bottom: -1px;
+  right: -1px;
+  width: 18px;
+  height: 18px;
+  border-bottom: 2px solid #BB9457;
+  border-right: 2px solid #BB9457;
+  border-bottom-right-radius: 4px;
+}
+
+/* Jharokha Arch Clip Path */
 .jharokha-frame {
   clip-path: polygon(
     0% 25%,
@@ -126,14 +188,22 @@ body {
   );
 }
 
-/* Glowing text keyframes */
+/* Indian Lattice / Jaali Screen Background */
+.jaali-pattern {
+  background-image: radial-gradient(circle, rgba(187, 148, 87, 0.15) 1.5px, transparent 1.5px),
+                    radial-gradient(circle, rgba(111, 29, 27, 0.12) 1.5px, transparent 1.5px);
+  background-size: 32px 32px;
+  background-position: 0 0, 16px 16px;
+}
+
+/* Subtle Glowing Breathing Keyframes */
 @keyframes subtle-breath {
-  0%, 100% { opacity: 0.85; filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.3)); }
-  50% { opacity: 1; filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.65)); }
+  0%, 100% { opacity: 0.85; filter: drop-shadow(0 0 10px rgba(187, 148, 87, 0.35)); }
+  50% { opacity: 1; filter: drop-shadow(0 0 25px rgba(187, 148, 87, 0.7)) drop-shadow(0 0 15px rgba(111, 29, 27, 0.5)); }
 }
 
 .animate-breath {
-  animation: subtle-breath 4s ease-in-out infinite;
+  animation: subtle-breath 4.5s ease-in-out infinite;
 }
 
 /* Respect prefers-reduced-motion */
