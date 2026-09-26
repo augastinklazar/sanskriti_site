@@ -2,8 +2,7 @@ import * as THREE from 'three';
 
 /**
  * Hero Section 3D Parametric Sacred Lotus & Mandala
- * Built with rich Deep Crimson (#6F1D1B), Burnt Cinnamon (#99582A), and Antique Brass (#BB9457)
- * perfectly complementing the high-contrast Cream (#FFE6A7) typography.
+ * Built purely with Three.js procedural geometry & shaders
  */
 export function initHeroScene() {
   const container = document.getElementById('hero-canvas-container');
@@ -13,43 +12,36 @@ export function initHeroScene() {
   const height = container.clientHeight || window.innerHeight;
 
   const scene = new THREE.Scene();
-  scene.fog = new THREE.FogExp2(0x140A06, 0.026);
+  scene.fog = new THREE.FogExp2(0x0A0D14, 0.025);
 
-  const camera = new THREE.PerspectiveCamera(46, width / height, 0.1, 100);
-  camera.position.set(0, 2.6, 9.6);
-  camera.lookAt(0, -0.2, 0);
+  const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 100);
+  camera.position.set(0, 3.5, 9.5);
+  camera.lookAt(0, 0, 0);
 
   const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' });
   renderer.setSize(width, height);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.3;
+  renderer.toneMappingExposure = 1.25;
   container.appendChild(renderer.domElement);
 
   const masterGroup = new THREE.Group();
-  masterGroup.position.set(0, -0.3, 0);
   scene.add(masterGroup);
 
-  // Lighting - Warm Amber, Crimson Aura & Soft Overhead Fill
-  const ambientLight = new THREE.AmbientLight(0x5c331f, 0.7);
+  const ambientLight = new THREE.AmbientLight(0xffeedd, 0.6);
   scene.add(ambientLight);
 
-  const centralPointLight = new THREE.PointLight(0xFFB85C, 3.2, 22, 1.2);
-  centralPointLight.position.set(0, 1.4, 0);
+  const centralPointLight = new THREE.PointLight(0xF5D77F, 3.5, 20, 1.2);
+  centralPointLight.position.set(0, 1.5, 0);
   masterGroup.add(centralPointLight);
 
-  // Deep Crimson & Cinnamon Underglow Light
-  const crimsonAuraLight = new THREE.PointLight(0x6F1D1B, 4.5, 16, 1.5);
-  crimsonAuraLight.position.set(0, -0.5, 0);
-  masterGroup.add(crimsonAuraLight);
+  const coreGlowLight = new THREE.PointLight(0xFF6F3C, 2.5, 12, 1.5);
+  coreGlowLight.position.set(0, 0.2, 0);
+  masterGroup.add(coreGlowLight);
 
-  const cinnamonRimLight = new THREE.DirectionalLight(0x99582A, 1.6);
-  cinnamonRimLight.position.set(-6, 8, 4);
-  scene.add(cinnamonRimLight);
-
-  const brassHighlightLight = new THREE.DirectionalLight(0xBB9457, 1.4);
-  brassHighlightLight.position.set(6, 6, -4);
-  scene.add(brassHighlightLight);
+  const rimLight = new THREE.DirectionalLight(0x00F0FF, 0.8);
+  rimLight.position.set(-6, 8, -4);
+  scene.add(rimLight);
 
   // 1. Procedural 3D Lotus Petals
   const petalGroup = new THREE.Group();
@@ -100,41 +92,28 @@ export function initHeroScene() {
     return geo;
   }
 
-  // Complementary Materials from Reference Palette:
-  // Outer layer: Deep Royal Crimson (#6F1D1B) with burnt edges
-  const crimsonMaterial = new THREE.MeshStandardMaterial({
-    color: 0x6F1D1B,
-    roughness: 0.38,
-    metalness: 0.75,
-    emissive: 0x2A0807,
-    emissiveIntensity: 0.5,
+  const goldMaterial = new THREE.MeshStandardMaterial({
+    color: 0xD4AF37,
+    roughness: 0.28,
+    metalness: 0.92,
+    emissive: 0x4a360a,
+    emissiveIntensity: 0.35,
     side: THREE.DoubleSide
   });
 
-  // Middle layer: Burnt Cinnamon Amber (#99582A)
-  const cinnamonMaterial = new THREE.MeshStandardMaterial({
-    color: 0x99582A,
-    roughness: 0.32,
-    metalness: 0.82,
-    emissive: 0x3D1E0C,
-    emissiveIntensity: 0.45,
-    side: THREE.DoubleSide
-  });
-
-  // Inner layer: Antique Brass / Sand Gold (#BB9457)
-  const brassMaterial = new THREE.MeshStandardMaterial({
-    color: 0xBB9457,
-    roughness: 0.25,
-    metalness: 0.88,
-    emissive: 0x473315,
+  const innerGoldMaterial = new THREE.MeshStandardMaterial({
+    color: 0xF5D77F,
+    roughness: 0.22,
+    metalness: 0.95,
+    emissive: 0x946b14,
     emissiveIntensity: 0.6,
     side: THREE.DoubleSide
   });
 
   const layers = [
-    { count: 8, radius: 0.65, tilt: 0.45, length: 1.65, width: 0.72, height: 0.55, mat: brassMaterial, speed: 1.0 },
-    { count: 16, radius: 1.35, tilt: 0.28, length: 2.3, width: 0.88, height: 0.68, mat: cinnamonMaterial, speed: -0.65 },
-    { count: 24, radius: 2.15, tilt: 0.12, length: 2.9, width: 1.05, height: 0.82, mat: crimsonMaterial, speed: 0.45 }
+    { count: 8, radius: 0.6, tilt: 0.45, length: 1.6, width: 0.7, height: 0.5, mat: innerGoldMaterial, speed: 1.0 },
+    { count: 16, radius: 1.3, tilt: 0.28, length: 2.2, width: 0.85, height: 0.65, mat: goldMaterial, speed: -0.7 },
+    { count: 24, radius: 2.1, tilt: 0.12, length: 2.8, width: 1.0, height: 0.8, mat: goldMaterial, speed: 0.5 }
   ];
 
   const petalLayers = [];
@@ -156,18 +135,17 @@ export function initHeroScene() {
     petalLayers.push(layerSubgroup);
   });
 
-  // 2. Central Bindu & Concentric Filigree Rings
+  // 2. Sacred Core
   const coreGroup = new THREE.Group();
   masterGroup.add(coreGroup);
 
-  // Central Bindu: Glowing warm amber-gold core with crimson inner pulse
-  const binduGeo = new THREE.SphereGeometry(0.56, 32, 32);
+  const binduGeo = new THREE.SphereGeometry(0.55, 32, 32);
   const binduMat = new THREE.MeshStandardMaterial({
-    color: 0xFFE6A7, // Cream highlight core
-    roughness: 0.15,
-    metalness: 0.85,
-    emissive: 0x99582A,
-    emissiveIntensity: 1.8,
+    color: 0xFFF1C5,
+    roughness: 0.1,
+    metalness: 0.9,
+    emissive: 0xF59E0B,
+    emissiveIntensity: 1.5,
   });
   const binduMesh = new THREE.Mesh(binduGeo, binduMat);
   coreGroup.add(binduMesh);
@@ -178,17 +156,16 @@ export function initHeroScene() {
   hitMesh.name = 'binduCore';
   coreGroup.add(hitMesh);
 
-  // Concentric Rings in Antique Brass and Cinnamon
   const rings = [];
-  function createMandalaRing(radius, tube, spokes = 16, colorHex = 0xBB9457) {
+  function createMandalaRing(radius, tube, spokes = 16) {
     const ringGroup = new THREE.Group();
     const torusGeo = new THREE.TorusGeometry(radius, tube, 16, 64);
     const ringMat = new THREE.MeshStandardMaterial({
-      color: colorHex,
-      metalness: 0.9,
-      roughness: 0.28,
-      emissive: 0x331F0F,
-      emissiveIntensity: 0.35
+      color: 0xD4AF37,
+      metalness: 0.95,
+      roughness: 0.25,
+      emissive: 0x826010,
+      emissiveIntensity: 0.4
     });
     const torus = new THREE.Mesh(torusGeo, ringMat);
     torus.rotation.x = Math.PI / 2;
@@ -206,45 +183,31 @@ export function initHeroScene() {
     return ringGroup;
   }
 
-  const ring1 = createMandalaRing(1.8, 0.025, 12, 0xBB9457);
-  const ring2 = createMandalaRing(3.2, 0.03, 24, 0x99582A);
-  const ring3 = createMandalaRing(4.5, 0.035, 36, 0x6F1D1B);
+  const ring1 = createMandalaRing(1.8, 0.025, 12);
+  const ring2 = createMandalaRing(3.2, 0.03, 24);
+  const ring3 = createMandalaRing(4.5, 0.035, 36);
   coreGroup.add(ring1);
   coreGroup.add(ring2);
   coreGroup.add(ring3);
   rings.push(ring1, ring2, ring3);
 
-  // 3. Dual-Hue Particle Field (Crimson Embers + Brass Sparks)
+  // 3. Golden Particle Field
   const particleCount = 2200;
   const particleGeo = new THREE.BufferGeometry();
   const particlePos = new Float32Array(particleCount * 3);
-  const particleColors = new Float32Array(particleCount * 3);
   const particleScales = new Float32Array(particleCount);
   const particleAngles = new Float32Array(particleCount);
   const particleRadii = new Float32Array(particleCount);
   const particleYVels = new Float32Array(particleCount);
 
-  // Palette colors for particles: Cream, Sand Gold, Cinnamon, Crimson
-  const pPalette = [
-    new THREE.Color(0xFFE6A7), // Cream
-    new THREE.Color(0xBB9457), // Sand Gold
-    new THREE.Color(0x99582A), // Cinnamon
-    new THREE.Color(0x6F1D1B)  // Crimson
-  ];
-
   for (let i = 0; i < particleCount; i++) {
     const angle = Math.random() * Math.PI * 2;
     const r = 0.8 + Math.pow(Math.random(), 1.5) * 6.5;
-    const y = (Math.random() - 0.5) * 4.2;
+    const y = (Math.random() - 0.5) * 4.0;
     
     particlePos[i * 3] = Math.cos(angle) * r;
     particlePos[i * 3 + 1] = y;
     particlePos[i * 3 + 2] = Math.sin(angle) * r;
-
-    const chosenColor = pPalette[Math.floor(Math.random() * pPalette.length)];
-    particleColors[i * 3] = chosenColor.r;
-    particleColors[i * 3 + 1] = chosenColor.g;
-    particleColors[i * 3 + 2] = chosenColor.b;
 
     particleRadii[i] = r;
     particleAngles[i] = angle;
@@ -253,7 +216,6 @@ export function initHeroScene() {
   }
 
   particleGeo.setAttribute('position', new THREE.BufferAttribute(particlePos, 3));
-  particleGeo.setAttribute('color', new THREE.BufferAttribute(particleColors, 3));
 
   const pCanvas = document.createElement('canvas');
   pCanvas.width = 32;
@@ -261,21 +223,21 @@ export function initHeroScene() {
   const pCtx = pCanvas.getContext('2d');
   const pGrad = pCtx.createRadialGradient(16, 16, 0, 16, 16, 16);
   pGrad.addColorStop(0, 'rgba(255, 245, 210, 1)');
-  pGrad.addColorStop(0.35, 'rgba(220, 160, 80, 0.85)');
-  pGrad.addColorStop(0.7, 'rgba(111, 29, 27, 0.4)');
-  pGrad.addColorStop(1, 'rgba(111, 29, 27, 0)');
+  pGrad.addColorStop(0.3, 'rgba(245, 210, 110, 0.8)');
+  pGrad.addColorStop(0.7, 'rgba(212, 175, 55, 0.3)');
+  pGrad.addColorStop(1, 'rgba(212, 175, 55, 0)');
   pCtx.fillStyle = pGrad;
   pCtx.fillRect(0, 0, 32, 32);
   const particleTexture = new THREE.CanvasTexture(pCanvas);
 
   const particleMat = new THREE.PointsMaterial({
-    size: 0.17,
+    size: 0.16,
     map: particleTexture,
-    vertexColors: true,
     transparent: true,
     opacity: 0.85,
     blending: THREE.AdditiveBlending,
-    depthWrite: false
+    depthWrite: false,
+    color: 0xFFE082
   });
 
   const particleSystem = new THREE.Points(particleGeo, particleMat);
@@ -329,21 +291,20 @@ export function initHeroScene() {
     const targetBloom = isHoveringCore ? 1.0 : 0.0;
     bloomFactor += (targetBloom - bloomFactor) * 0.08;
 
-    masterGroup.rotation.y = time * 0.1 + mouse.x * 0.4;
-    masterGroup.rotation.x = 0.32 + mouse.y * -0.2;
+    masterGroup.rotation.y = time * 0.12 + mouse.x * 0.45;
+    masterGroup.rotation.x = 0.35 + mouse.y * -0.25;
 
     ring1.rotation.y = time * -0.25;
     ring2.rotation.y = time * 0.15;
     ring3.rotation.y = time * -0.08;
 
     const pulse = 1.0 + Math.sin(time * 3.0) * 0.2 + bloomFactor * 0.8;
-    centralPointLight.intensity = 3.2 * pulse;
-    crimsonAuraLight.intensity = 4.5 * (1.0 + bloomFactor * 0.6);
-    binduMat.emissiveIntensity = 1.6 * pulse;
-    binduMesh.scale.setScalar(1.0 + Math.sin(time * 2.5) * 0.05 + bloomFactor * 0.22);
+    centralPointLight.intensity = 3.5 * pulse;
+    binduMat.emissiveIntensity = 1.2 * pulse;
+    binduMesh.scale.setScalar(1.0 + Math.sin(time * 2.5) * 0.05 + bloomFactor * 0.25);
 
     petalLayers.forEach((layerGroup, lIdx) => {
-      layerGroup.rotation.y = time * layers[lIdx].speed * 0.09;
+      layerGroup.rotation.y = time * layers[lIdx].speed * 0.1;
       layerGroup.children.forEach((mesh) => {
         const baseTilt = mesh.userData.initialTilt;
         const breathe = Math.sin(time * 1.5 + lIdx * 0.8) * 0.04;
@@ -354,7 +315,7 @@ export function initHeroScene() {
     const positions = particleGeo.attributes.position.array;
     for (let i = 0; i < particleCount; i++) {
       let angle = particleAngles[i];
-      const speed = (0.28 / (particleRadii[i] + 0.5)) + bloomFactor * 0.22;
+      const speed = (0.3 / (particleRadii[i] + 0.5)) + bloomFactor * 0.25;
       angle += speed * delta;
       particleAngles[i] = angle;
 
@@ -385,3 +346,4 @@ export function initHeroScene() {
     }
   };
 }
+

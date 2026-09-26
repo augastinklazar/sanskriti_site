@@ -3,7 +3,6 @@ import anime from 'animejs';
 /**
  * Procedural Sacred Geometry & Kolam/Rangoli Generator
  * Animated via Anime.js stroke-dashoffset with multiple classical symmetries
- * and palette derived from Royal Crimson, Sand Gold, Cinnamon, and Warm Silk Cream.
  */
 export function initKolamMatrix() {
   const container = document.getElementById('kolam-svg-container');
@@ -19,7 +18,7 @@ export function initKolamMatrix() {
 
   let currentSymmetry = '8-fold';
   let ringsCount = 5;
-  let currentColor = '#BB9457';
+  let currentColor = '#D4AF37';
   let animDuration = 2400;
   let currentAnimeInstance = null;
 
@@ -42,12 +41,12 @@ export function initKolamMatrix() {
       paths.push({
         d: `M ${center - bInner},${center} A ${bInner},${bInner} 0 1,0 ${center + bInner},${center} A ${bInner},${bInner} 0 1,0 ${center - bInner},${center}`,
         type: 'boundary',
-        width: 1.6
+        width: 1.5
       });
       paths.push({
         d: `M ${center - bInner + 10},${center} A ${bInner - 10},${bInner - 10} 0 1,0 ${center + bInner - 10},${center} A ${bInner - 10},${bInner - 10} 0 1,0 ${center - bInner + 10},${center}`,
         type: 'boundary',
-        width: 1.1
+        width: 1
       });
 
       const r16 = size * 0.38;
@@ -62,7 +61,7 @@ export function initKolamMatrix() {
         paths.push({
           d: `M ${p1.x},${p1.y} Q ${pTip.x},${pTip.y} ${p2.x},${p2.y}`,
           type: 'petal',
-          width: 1.3
+          width: 1.2
         });
       }
 
@@ -78,7 +77,7 @@ export function initKolamMatrix() {
         paths.push({
           d: `M ${p1.x},${p1.y} Q ${pTip.x},${pTip.y} ${p2.x},${p2.y}`,
           type: 'petal',
-          width: 1.5
+          width: 1.4
         });
       }
 
@@ -101,7 +100,7 @@ export function initKolamMatrix() {
         paths.push({
           d: `M ${center},${t.yApex} L ${center + t.halfWidth},${t.yBase} L ${center - t.halfWidth},${t.yBase} Z`,
           type: 'triangle',
-          width: 1.6
+          width: 1.5
         });
       });
 
@@ -109,14 +108,14 @@ export function initKolamMatrix() {
         paths.push({
           d: `M ${center},${t.yApex} L ${center + t.halfWidth},${t.yBase} L ${center - t.halfWidth},${t.yBase} Z`,
           type: 'triangle',
-          width: 1.6
+          width: 1.5
         });
       });
 
       paths.push({
         d: `M ${center - 5},${center} A 5,5 0 1,0 ${center + 5},${center} A 5,5 0 1,0 ${center - 5},${center}`,
         type: 'bindu',
-        width: 3.2
+        width: 3
       });
 
     } else if (currentSymmetry === 'sikku-knot') {
@@ -132,7 +131,7 @@ export function initKolamMatrix() {
           paths.push({
             d: `M ${px - 2},${py} A 2,2 0 1,0 ${px + 2},${py} A 2,2 0 1,0 ${px - 2},${py}`,
             type: 'dot',
-            width: 3.2
+            width: 3
           });
         }
       }
@@ -160,7 +159,7 @@ export function initKolamMatrix() {
             const midY = (prev.y + curr.y) / 2 + Math.sin(baseAngle) * 10;
             dStr += ` Q ${midX},${midY} ${curr.x},${curr.y}`;
           }
-          paths.push({ d: dStr, type: 'knot', width: 2.0 });
+          paths.push({ d: dStr, type: 'knot', width: 1.8 });
         }
       }
 
@@ -174,7 +173,7 @@ export function initKolamMatrix() {
         paths.push({
           d: `M ${center - r},${center} A ${r},${r} 0 1,0 ${center + r},${center} A ${r},${r} 0 1,0 ${center - r},${center}`,
           type: 'ring',
-          width: ring === ringsCount ? 1.6 : 0.9
+          width: ring === ringsCount ? 1.5 : 0.8
         });
 
         for (let f = 0; f < folds; f++) {
@@ -192,7 +191,7 @@ export function initKolamMatrix() {
           paths.push({
             d: `M ${p1.x},${p1.y} C ${ctrl1.x},${ctrl1.y} ${pApex.x},${pApex.y} ${pApex.x},${pApex.y} C ${pApex.x},${pApex.y} ${ctrl2.x},${ctrl2.y} ${p2.x},${p2.y}`,
             type: 'petal',
-            width: 1.4
+            width: 1.3
           });
 
           if (ring % 2 === 0) {
@@ -200,7 +199,7 @@ export function initKolamMatrix() {
             paths.push({
               d: `M ${pApex.x},${pApex.y} L ${pInner.x},${pInner.y}`,
               type: 'spoke',
-              width: 1.0
+              width: 0.9
             });
           }
         }
@@ -209,14 +208,14 @@ export function initKolamMatrix() {
       paths.push({
         d: `M ${center - 6},${center} A 6,6 0 1,0 ${center + 6},${center} A 6,6 0 1,0 ${center - 6},${center}`,
         type: 'bindu',
-        width: 3.5
+        width: 3
       });
     }
 
     const svgNS = 'http://www.w3.org/2000/svg';
     const svg = document.createElementNS(svgNS, 'svg');
     svg.setAttribute('viewBox', `0 0 ${size} ${size}`);
-    svg.setAttribute('class', 'w-full h-full max-w-[560px] max-h-[560px] mx-auto filter drop-shadow-[0_0_24px_rgba(187,148,87,0.35)]');
+    svg.setAttribute('class', 'w-full h-full max-w-[560px] max-h-[560px] mx-auto filter drop-shadow-[0_0_20px_rgba(212,175,55,0.25)]');
     svg.setAttribute('id', 'kolam-svg-element');
 
     paths.forEach((p) => {
@@ -259,11 +258,11 @@ export function initKolamMatrix() {
   symmetryBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       symmetryBtns.forEach(b => {
-        b.classList.remove('bg-vedic-sandGold', 'text-vedic-abyss', 'border-vedic-sandGold');
-        b.classList.add('border-vedic-sandGold/30', 'text-vedic-cream');
+        b.classList.remove('bg-vedic-gold', 'text-vedic-midnight', 'border-vedic-gold');
+        b.classList.add('border-vedic-gold/30', 'text-vedic-sandstone');
       });
-      btn.classList.add('bg-vedic-sandGold', 'text-vedic-abyss', 'border-vedic-sandGold');
-      btn.classList.remove('border-vedic-sandGold/30', 'text-vedic-cream');
+      btn.classList.add('bg-vedic-gold', 'text-vedic-midnight', 'border-vedic-gold');
+      btn.classList.remove('border-vedic-gold/30', 'text-vedic-sandstone');
 
       currentSymmetry = btn.dataset.kolamSymmetry;
       generateKolamSVG();
@@ -320,3 +319,4 @@ export function initKolamMatrix() {
 
   generateKolamSVG();
 }
+

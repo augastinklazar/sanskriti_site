@@ -1,11 +1,11 @@
 /**
  * Diya Flame Ember Cursor with Particle Trailing & Magnetic Snapping
- * Palette: Royal Crimson (#6F1D1B), Sand Gold (#BB9457), Cinnamon (#99582A), and Cream (#FFE6A7)
  */
 export function initCustomCursor() {
   const canvas = document.getElementById('cursor-canvas');
   if (!canvas) return;
 
+  // If touch device or reduced motion, disable custom cursor
   if (window.matchMedia('(pointer: coarse)').matches || 
       window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     canvas.style.display = 'none';
@@ -41,13 +41,11 @@ export function initCustomCursor() {
       this.size = Math.random() * 2.5 + 1.2;
       this.life = 1;
       this.decay = Math.random() * 0.02 + 0.015;
-      
-      // Exact reference palette
       const hues = [
-        { r: 255, g: 230, b: 167 }, // #FFE6A7 (Cream)
-        { r: 187, g: 148, b: 87 },  // #BB9457 (Sand Gold)
-        { r: 153, g: 88, b: 42 },   // #99582A (Cinnamon)
-        { r: 111, g: 29, b: 27 }    // #6F1D1B (Royal Crimson)
+        { r: 255, g: 235, b: 150 },
+        { r: 245, g: 190, b: 40 },
+        { r: 255, g: 119, b: 34 },
+        { r: 220, g: 45, b: 25 }
       ];
       this.color = hues[Math.floor(Math.random() * hues.length)];
     }
@@ -144,17 +142,15 @@ export function initCustomCursor() {
     const flameScale = isHoveringInteractive ? 1.4 : isPointerDown ? 0.8 : 1.0;
     const sway = Math.sin(Date.now() * 0.008) * 1.5 - (mouse.vx * 0.05);
 
-    // Outer glow aura
     const gradientOuter = ctx.createRadialGradient(0, 0, 1, 0, 0, 22 * flameScale);
-    gradientOuter.addColorStop(0, 'rgba(153, 88, 42, 0.45)');
-    gradientOuter.addColorStop(0.5, 'rgba(111, 29, 27, 0.25)');
-    gradientOuter.addColorStop(1, 'rgba(111, 29, 27, 0)');
+    gradientOuter.addColorStop(0, 'rgba(255, 140, 0, 0.45)');
+    gradientOuter.addColorStop(0.4, 'rgba(212, 175, 55, 0.25)');
+    gradientOuter.addColorStop(1, 'rgba(212, 175, 55, 0)');
     ctx.fillStyle = gradientOuter;
     ctx.beginPath();
     ctx.arc(0, 0, 22 * flameScale, 0, Math.PI * 2);
     ctx.fill();
 
-    // Diya Flame geometry
     ctx.beginPath();
     ctx.moveTo(0 + sway, -14 * flameScale);
     ctx.bezierCurveTo(
@@ -170,28 +166,27 @@ export function initCustomCursor() {
     ctx.closePath();
 
     const flameGradient = ctx.createLinearGradient(0, -14 * flameScale, 0, 8 * flameScale);
-    flameGradient.addColorStop(0, '#FFE6A7'); // Cream tip
-    flameGradient.addColorStop(0.35, '#BB9457'); // Sand gold
-    flameGradient.addColorStop(0.7, '#99582A'); // Cinnamon amber
-    flameGradient.addColorStop(1, '#6F1D1B'); // Crimson base
+    flameGradient.addColorStop(0, '#FFF5C0');
+    flameGradient.addColorStop(0.3, '#FFB300');
+    flameGradient.addColorStop(0.7, '#FF5722');
+    flameGradient.addColorStop(1, '#B71C1C');
 
     ctx.fillStyle = flameGradient;
-    ctx.shadowColor = '#99582A';
+    ctx.shadowColor = '#FF9800';
     ctx.shadowBlur = 12 * flameScale;
     ctx.fill();
 
-    // Inner bright cream-white wick seed
     ctx.beginPath();
     ctx.arc(0, 2 * flameScale, 2.2 * flameScale, 0, Math.PI * 2);
-    ctx.fillStyle = '#FFF5D6';
-    ctx.shadowColor = '#FFE6A7';
+    ctx.fillStyle = '#FFFFFF';
+    ctx.shadowColor = '#FFFFFF';
     ctx.shadowBlur = 8;
     ctx.fill();
 
     if (isHoveringInteractive) {
       ctx.beginPath();
       ctx.arc(0, 0, 26, 0, Math.PI * 2);
-      ctx.strokeStyle = 'rgba(187, 148, 87, 0.6)';
+      ctx.strokeStyle = 'rgba(212, 175, 55, 0.5)';
       ctx.lineWidth = 1;
       ctx.setLineDash([4, 4]);
       ctx.stroke();
@@ -204,3 +199,4 @@ export function initCustomCursor() {
 
   animate();
 }
+
