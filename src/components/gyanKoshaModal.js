@@ -1,62 +1,68 @@
 /**
- * Gyan Kosha: Cultural Trivia Modal & Living Vedic Knowledge Engine
+ * Gyan Kosha: Cultural Knowledge Vault & Educational Trivia Engine
+ * Light-theme cotton rag styling with deckled card borders and subcontinental wisdom
  */
 
 export const triviaQuizData = [
   {
-    question: "What mathematical property characterizes the complex continuous loop Kolams (Sikku Kolam)?",
+    topic: 'Food & Ayurveda',
+    question: 'In Ayurvedic culinary science, why does a traditional feast or thali always incorporate all "Shad Rasa" (Six Tastes)?',
     options: [
-      "Eulerian circuit paths where every line is traversed without lifting the hand",
-      "Fibonacci prime factorization grids",
-      "Non-Euclidean hyperbolic curved spaces",
-      "Cartesian discrete matrix inversions"
+      'To prevent sensory fatigue and ensure holistic biological satiety across all three Doshas',
+      'Because ancient kings prohibited eating single-flavor dishes by law',
+      'To speed up sugar metabolism artificially',
+      'To mask the taste of medicinal herbs with excess rock salt'
     ],
     answer: 0,
-    explanation: "Sikku Kolams follow Eulerian paths in graph theory. Drawn daily using white stone or rice flour, the uninterrupted line loops gracefully around fixed dot lattices (pullis), symbolizing cosmic infinity and protection of the threshold."
+    explanation: 'A balanced Indian meal begins with sweet (Madhura) to ignite digestion, moves through sour, salty, and pungent dishes, and finishes with astringent (Kashaya) or bitter (Tikta) notes like betel leaf (Paan). This activates all digestive secretions and prevents cravings.'
   },
   {
-    question: "In the architectural design of ancient Indian stepwells (Baolis), what thermodynamic phenomenon kept them cool?",
+    topic: 'Climate & Seasons',
+    question: 'How many distinct seasons (Ritus) are recognized in the classical Indian Vedic astronomical calendar?',
     options: [
-      "Solar radiation absorption through granite boulders",
-      "Evaporative subterranean cooling and microclimatic air stratification",
-      "Geothermal magma vents pushing cool steam upward",
-      "Passive chemical freon reactions within sandstone"
+      'Four seasons following the Gregorian solar solstices',
+      'Six seasons (Shad Ritu), each lasting approximately two lunar months',
+      'Three seasons (Dry, Monsoonal, and Mountain)',
+      'Twelve micro-seasons tied to agricultural paddy cycles'
     ],
     answer: 1,
-    explanation: "Because water evaporates in shaded, high-depth subterranean chambers with stone thermal mass, temperatures at the lowest tier of a Baoli remain 5°C to 7°C cooler than the blistering summer air above, functioning as an ancient zero-energy air conditioner."
+    explanation: 'The subcontinent recognizes Six Seasons: Vasant (Spring), Grishma (Summer), Varsha (Monsoon), Sharad (Autumn), Hemant (Pre-Winter), and Shishir (Winter). Each corresponds to specific dietary changes (Ritucharya) and classical musical ragas.'
   },
   {
-    question: "According to Sage Bharata's Natya Shastra, what is the 'Rasaraja' (supreme king of emotional essences)?",
+    topic: 'People & Living Traditions',
+    question: 'What distinguishes the traditional Patola silk sari of Patan, Gujarat from ordinary printed textiles?',
     options: [
-      "Veera (Valour and Heroism)",
-      "Shanta (Serenity and Samadhi)",
-      "Shringara (Love, Beauty & Divine Adoration)",
-      "Adbhuta (Wonder and Astonishment)"
-    ],
-    answer: 2,
-    explanation: "Shringara (शृङ्गार) is crowned the Rasaraja because all other emotional states arise from, reflect, or lead back into the aesthetic of sacred love, divine union, and creative beauty."
-  },
-  {
-    question: "How is real 'Zari' thread traditionally manufactured for Banarasi and Kanjeevaram weaves?",
-    options: [
-      "Dipping nylon threads in gold-colored acrylic resin",
-      "Flattening pure silver alloy wire and electro-gilding it over pure mulberry silk cores",
-      "Weaving thin leaves of beaten copper with cotton",
-      "Melting brass ingots directly into high-speed spinnerets"
+      'It is machine-embroidered using synthetic polyester gold threads',
+      'It uses Double-Ikat weaving where both warp and weft threads are individually tie-dyed before weaving',
+      'The silk is bleached in ocean saltwater for five months',
+      'It is painted exclusively with synthetic aniline colors'
     ],
     answer: 1,
-    explanation: "Authentic Zari uses pure silver drawn into micron-thin wire ('Badla'), flattened, tightly wrapped around a core of pure degummed mulberry silk thread, and electro-gilded with 24-karat gold leaf."
+    explanation: 'Patan Patola is one of humanity\'s most complex mathematical weaving feats. Both warp and weft threads are tie-dyed in precise mathematical alignment before they touch the loom. The resulting textile is completely identical on both sides and lasts over 300 years.'
   },
   {
-    question: "In classical Indian acoustics, which string of the Tanpura is tuned to the dominant fifth (Pancham)?",
+    topic: 'Sacred Architecture',
+    question: 'In subterranean stepwell (Baoli) engineering, what thermodynamic phenomenon creates a cool oasis in desert climates?',
     options: [
-      "The first string (Pa, ~1.5x tonic frequency)",
-      "The second string (Madhya Sa)",
-      "The third string (Chorusing unison)",
-      "The fourth string (Kharaj deep bass Sa)"
+      'Geothermal cold vents pumping alpine vapor',
+      'Evaporative subterranean cooling and microclimatic air stratification',
+      'Subsurface granite radiation absorption',
+      'Passive chemical reaction between sandstone and groundwater'
+    ],
+    answer: 1,
+    explanation: 'Because water evaporates in deep, shaded subterranean chambers insulated by thick sandstone walls, temperatures at the lowest water level of a stepwell remain 5°C to 8°C cooler than the blistering surface heat above.'
+  },
+  {
+    topic: 'Living Languages',
+    question: 'Which ancient script is the historical ancestor of modern Devanagari, Bengali, Tamil, and Southeast Asian scripts?',
+    options: [
+      'Brahmi Script (3rd Century BCE or earlier)',
+      'Phoenician Cuneiform',
+      'Hieratic Papyrus script',
+      'Sogdian Silk Road alphabet'
     ],
     answer: 0,
-    explanation: "The first string (Pancham) is tuned to the natural 3:2 fifth (Pa), while in ragas that omit Pa (such as Malkauns), it is tuned to the perfect fourth Madhyam (Ma)."
+    explanation: 'The Brahmi script, found on Emperor Ashoka\'s rock edicts across the subcontinent, gave birth to both Northern Nagari and Southern Grantha script families, as well as Tibetan, Burmese, Thai, and Javanese writing systems.'
   }
 ];
 
@@ -73,7 +79,7 @@ export function initGyanKoshaModal() {
     modal.classList.add('flex');
     document.body.style.overflow = 'hidden';
     renderQuizQuestion(0);
-    renderAstronomicalContext();
+    renderSeasonalWisdom();
   }
 
   function closeModal() {
@@ -107,7 +113,7 @@ export function initGyanKoshaModal() {
     if (!q || !quizQuestionEl || !quizOptionsEl) return;
 
     if (quizProgressEl) {
-      quizProgressEl.textContent = `Question ${idx + 1} of ${triviaQuizData.length}`;
+      quizProgressEl.textContent = `${q.topic} • Question ${idx + 1} of ${triviaQuizData.length}`;
     }
 
     quizQuestionEl.textContent = q.question;
@@ -120,8 +126,8 @@ export function initGyanKoshaModal() {
 
     q.options.forEach((optText, optIdx) => {
       const optBtn = document.createElement('button');
-      optBtn.className = 'w-full text-left p-3.5 rounded-xl border border-vedic-gold/25 bg-vedic-midnight/80 hover:border-vedic-gold hover:bg-vedic-gold/10 text-vedic-sandstone text-sm transition-all duration-300';
-      optBtn.innerHTML = `<span class="inline-block w-6 h-6 rounded-full border border-vedic-gold/40 text-center text-xs leading-5 text-vedic-gold mr-2 font-mono">${String.fromCharCode(65 + optIdx)}</span> ${optText}`;
+      optBtn.className = 'w-full text-left p-3.5 rounded-xl border border-[#E2D7C5] bg-[#FFFDF9] hover:border-[#1E2E48] hover:bg-[#F5EFEB] text-[#292524] text-xs sm:text-sm transition-all duration-200 cursor-pointer shadow-sm';
+      optBtn.innerHTML = `<span class="inline-block w-6 h-6 rounded-full border border-[#8E6E38] text-center text-xs leading-5 text-[#8E6E38] mr-2 font-mono font-bold">${String.fromCharCode(65 + optIdx)}</span> ${optText}`;
 
       optBtn.addEventListener('click', () => {
         handleOptionSelect(optIdx, q, optBtn);
@@ -137,23 +143,23 @@ export function initGyanKoshaModal() {
 
     const isCorrect = selectedIdx === q.answer;
     if (isCorrect) {
-      clickedBtn.classList.remove('border-vedic-gold/25', 'bg-vedic-midnight/80');
-      clickedBtn.classList.add('border-green-500', 'bg-green-500/20', 'text-green-300');
+      clickedBtn.classList.remove('border-[#E2D7C5]', 'bg-[#FFFDF9]');
+      clickedBtn.classList.add('border-[#2D5A27]', 'bg-[#2D5A27]/10', 'text-[#1F432B]');
       score++;
     } else {
-      clickedBtn.classList.remove('border-vedic-gold/25', 'bg-vedic-midnight/80');
-      clickedBtn.classList.add('border-red-500', 'bg-red-500/20', 'text-red-300');
+      clickedBtn.classList.remove('border-[#E2D7C5]', 'bg-[#FFFDF9]');
+      clickedBtn.classList.add('border-[#AC3B28]', 'bg-[#AC3B28]/10', 'text-[#7E2616]');
       if (allBtns[q.answer]) {
-        allBtns[q.answer].classList.add('border-green-500', 'bg-green-500/20', 'text-green-300');
+        allBtns[q.answer].classList.add('border-[#2D5A27]', 'bg-[#2D5A27]/10', 'text-[#1F432B]');
       }
     }
 
     if (quizFeedbackEl) {
       quizFeedbackEl.classList.remove('hidden');
       quizFeedbackEl.innerHTML = `
-        <div class="p-4 rounded-xl ${isCorrect ? 'bg-green-950/40 border border-green-500/40' : 'bg-vedic-terracotta/60 border border-vedic-saffron/40'}">
-          <p class="font-bold text-sm ${isCorrect ? 'text-green-400' : 'text-vedic-saffron'} mb-1">${isCorrect ? '✓ Praiseworthy Insight!' : '✗ Wisdom of the Sages:'}</p>
-          <p class="text-xs text-vedic-sandstone/90 leading-relaxed">${q.explanation}</p>
+        <div class="p-4 rounded-xl ${isCorrect ? 'bg-[#2D5A27]/10 border border-[#2D5A27]/30' : 'bg-[#AC3B28]/10 border border-[#AC3B28]/30'}">
+          <p class="font-bold text-xs sm:text-sm ${isCorrect ? 'text-[#2D5A27]' : 'text-[#AC3B28]'} mb-1">${isCorrect ? '✓ Praiseworthy Insight!' : '✗ Wisdom of the Sages:'}</p>
+          <p class="text-xs text-[#292524] leading-relaxed">${q.explanation}</p>
         </div>
       `;
     }
@@ -162,76 +168,34 @@ export function initGyanKoshaModal() {
       quizNextBtn.classList.remove('hidden');
       if (currentQuizIdx < triviaQuizData.length - 1) {
         quizNextBtn.textContent = 'Next Question →';
+        quizNextBtn.onclick = () => renderQuizQuestion(currentQuizIdx + 1);
       } else {
-        quizNextBtn.textContent = `Complete Trial (Score: ${score}/${triviaQuizData.length})`;
+        quizNextBtn.textContent = `Completed (${score}/${triviaQuizData.length}) • Retake`;
+        quizNextBtn.onclick = () => {
+          score = 0;
+          renderQuizQuestion(0);
+        };
       }
     }
   }
 
-  if (quizNextBtn) {
-    quizNextBtn.addEventListener('click', () => {
-      if (currentQuizIdx < triviaQuizData.length - 1) {
-        renderQuizQuestion(currentQuizIdx + 1);
-      } else {
-        if (quizQuestionEl) quizQuestionEl.textContent = '✨ You Have Traversed the Matrix of Wisdom';
-        if (quizOptionsEl) {
-          quizOptionsEl.innerHTML = `
-            <div class="text-center py-6">
-              <div class="text-4xl mb-3">🕉️</div>
-              <h4 class="font-display text-xl text-vedic-gold mb-2">Sacred Knowledge Mastery</h4>
-              <p class="text-sm text-vedic-sandstone/80 mb-4">You answered ${score} out of ${triviaQuizData.length} philosophical riddles correctly.</p>
-              <button id="quiz-restart-btn" class="px-6 py-2.5 rounded-full bg-vedic-gold text-vedic-midnight font-medium text-xs tracking-wider uppercase hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all">Begin Anew</button>
-            </div>
-          `;
-          document.getElementById('quiz-restart-btn')?.addEventListener('click', () => {
-            score = 0;
-            renderQuizQuestion(0);
-          });
-        }
-        if (quizFeedbackEl) quizFeedbackEl.classList.add('hidden');
-        quizNextBtn.classList.add('hidden');
-      }
-    });
-  }
+  function renderSeasonalWisdom() {
+    const wisdomEl = document.getElementById('astronomical-display');
+    if (!wisdomEl) return;
 
-  function renderAstronomicalContext() {
-    const astroContainer = document.getElementById('vedic-astro-details');
-    if (!astroContainer) return;
-
-    const now = new Date();
-    const month = now.getMonth();
-
-    const ritus = [
-      { name: 'Shishira (Winter / Cold)', months: [0, 1], sanskrit: 'शिशिर', dosha: 'Kapha Accumulating' },
-      { name: 'Vasanta (Spring Awakening)', months: [2, 3], sanskrit: 'वसन्त', dosha: 'Kapha Pacification' },
-      { name: 'Grishma (Summer Radiance)', months: [4, 5], sanskrit: 'ग्रीष्म', dosha: 'Pitta Accumulating' },
-      { name: 'Varsha (Monsoon Deluge)', months: [6, 7], sanskrit: 'वर्षा', dosha: 'Vata Aggravation' },
-      { name: 'Sharad (Autumn Clarity)', months: [8, 9], sanskrit: 'शरद्', dosha: 'Pitta Pacification' },
-      { name: 'Hemanta (Early Winter Frost)', months: [10, 11], sanskrit: 'हेमन्त', dosha: 'Agni Igniting' },
+    const proverbs = [
+      { text: "अन्नं वै प्राणाः — Food verily is the vital breath of living beings.", source: "Taittiriya Upanishad" },
+      { text: "मातृ देवो भव, पितृ देवो भव — Revere the mother, revere the father, revere the teacher.", source: "Vedic Sikshavalli" },
+      { text: "वसुधैव कुटुम्बकम् — The entire living world is one interconnected family.", source: "Maha Upanishad" }
     ];
+    const item = proverbs[Math.floor(Math.random() * proverbs.length)];
 
-    const currentRitu = ritus.find(r => r.months.includes(month)) || ritus[4];
-    const isUttarayana = month >= 1 && month <= 6;
-
-    astroContainer.innerHTML = `
-      <div class="grid grid-cols-2 gap-3 text-xs">
-        <div class="p-3 rounded-lg bg-vedic-midnight/60 border border-vedic-gold/20">
-          <span class="text-vedic-sandstone/50 block text-[10px] uppercase">Ritu (Season)</span>
-          <span class="font-headline text-vedic-gold text-base font-bold">${currentRitu.sanskrit}</span>
-          <span class="text-vedic-sandstone block">${currentRitu.name}</span>
-        </div>
-        <div class="p-3 rounded-lg bg-vedic-midnight/60 border border-vedic-gold/20">
-          <span class="text-vedic-sandstone/50 block text-[10px] uppercase">Ayana (Solar Course)</span>
-          <span class="font-headline text-vedic-gold text-base font-bold">${isUttarayana ? 'उत्तरायण' : 'दक्षिणायन'}</span>
-          <span class="text-vedic-sandstone block">${isUttarayana ? 'Uttarayana (Northern Ascension)' : 'Dakshinayana (Southern Descent)'}</span>
-        </div>
-        <div class="p-3 rounded-lg bg-vedic-midnight/60 border border-vedic-gold/20 col-span-2">
-          <span class="text-vedic-sandstone/50 block text-[10px] uppercase">Ayurvedic Seasonal Prana</span>
-          <span class="text-vedic-gold font-medium">${currentRitu.dosha}</span>
-          <p class="text-[11px] text-vedic-sandstone/70 mt-1">Align with the cosmic rhythm by eating seasonally harvested, spiced sattvic preparations.</p>
-        </div>
+    wisdomEl.innerHTML = `
+      <div class="p-3.5 rounded-xl bg-[#F5EFEB] border border-[#E2D7C5]">
+        <div class="text-[9px] font-mono uppercase tracking-wider text-[#AC3B28] font-bold">Subhashita (Timeless Wisdom)</div>
+        <div class="font-headline text-xs sm:text-sm text-[#1E2E48] mt-1">${item.text}</div>
+        <div class="text-[10px] text-[#57534E] text-right mt-1 italic">— ${item.source}</div>
       </div>
     `;
   }
 }
-

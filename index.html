@@ -3,76 +3,77 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sanskriti: The Living Matrix | Vedic Neo-Futurism Showcase</title>
+  <title>Sanskriti: The Living Matrix | 2.5D Brush Cultural Expedition</title>
   
-  <meta name="description" content="A production-ready, 3D-vectorized showcase exploring Indian Culture, Sacred Geometry, Natya Shastra Mudras, Subterranean Stepwells, and Living Traditions." />
-  <meta name="keywords" content="Indian Culture, Sanskriti, Sacred Geometry, Sri Yantra, Kolam, Natya Shastra, Navarasa, Mudras, Chand Baori, Stepwell, Ayurveda, Three.js, WebGL" />
-  <meta name="theme-color" content="#140A06" />
+  <meta name="description" content="A 2.5D educational showcase in p5.brush painterly style exploring Indian Culture, Culinary Science, 6 Ritus Climate, People, Languages, and Living Traditions." />
+  <meta name="keywords" content="Indian Culture, Sanskriti, p5.brush, 2.5D, Shad Rasa, Indian Food, Ayurveda, 6 Ritus, Monsoons, Indian Languages, Devanagari, Tamil, Folk Art, Madhubani, Warli" />
+  <meta name="theme-color" content="#FAF6EE" />
 
-  <!-- Favicon: Sacred Om & Lotus Vector in Reference Palette -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%23140A06' stroke='%23BB9457' stroke-width='4'/><path d='M50 20 C60 35 75 45 75 55 C75 70 60 80 50 80 C40 80 25 70 25 55 C25 45 40 35 50 20 Z' fill='%236F1D1B'/><circle cx='50' cy='55' r='8' fill='%23FFE6A7'/></svg>" />
+  <!-- Favicon: Sacred Lotus & Ink Drop on Khadi Paper -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%23FAF6EE' stroke='%23A87C38' stroke-width='4'/><path d='M50 20 C60 35 75 45 75 55 C75 70 60 80 50 80 C40 80 25 70 25 55 C25 45 40 35 50 20 Z' fill='%23AC3B28'/><circle cx='50' cy='55' r='8' fill='%23D97706'/></svg>" />
 
-  <!-- Google Fonts Preconnect & Load -->
+  <!-- Google Fonts: Display, Headline, and Clean UI Type -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Outfit:wght@300;400;500;600;700&family=Rozha+One&display=swap" rel="stylesheet" />
 </head>
-<body class="bg-vedic-abyss text-vedic-cream selection:bg-vedic-sandGold selection:text-vedic-abyss">
+<body class="bg-[#FAF6EE] text-[#292524] selection:bg-[#D97706]/20 selection:text-[#AC3B28]">
 
-  <!-- Full-Screen Organic Parchment & Silk Noise Overlay -->
+  <!-- Handmade Cotton Rag / Khadi Paper Fiber Overlay -->
   <canvas id="noise-canvas"></canvas>
 
-  <!-- Interactive Diya-Flame Ember Custom Cursor -->
+  <!-- Interactive Kalam (Reed Quill) & Natural Ink Cursor -->
   <canvas id="cursor-canvas"></canvas>
 
-  <!-- Navigation Bar -->
-  <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-md bg-vedic-abyss/85 border-b border-vedic-sandGold/20 shadow-[0_4px_25px_rgba(20,10,6,0.6)]">
+  <!-- Navigation Bar (Light Khadi Theme) -->
+  <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-md bg-[#FAF6EE]/90 border-b border-[#E2D7C5] shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       
       <!-- Brand & Crest -->
       <a href="#" class="flex items-center space-x-3.5 group" data-magnetic>
-        <div class="w-11 h-11 rounded-full border border-vedic-sandGold flex items-center justify-center relative overflow-hidden bg-vedic-crimson/30 group-hover:scale-105 transition-transform duration-300 shadow-[0_0_15px_rgba(187,148,87,0.3)]">
-          <svg class="w-7 h-7 text-vedic-sandGold animate-spin-slow" viewBox="0 0 100 100">
-            <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="2.5" stroke-dasharray="6 4" />
-            <polygon points="50,15 85,75 15,75" fill="none" stroke="#FFE6A7" stroke-width="2" />
-            <polygon points="50,85 85,25 15,25" fill="none" stroke="#99582A" stroke-width="2" />
-            <circle cx="50" cy="50" r="7" fill="#6F1D1B" stroke="#FFE6A7" stroke-width="1.5" />
+        <div class="w-11 h-11 rounded-full border-2 border-[#A87C38] flex items-center justify-center relative overflow-hidden bg-[#F5EFEB] group-hover:scale-105 transition-transform duration-300 shadow-paper-sm">
+          <svg class="w-7 h-7 text-[#AC3B28] animate-spin-slow" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="45" fill="none" stroke="#A87C38" stroke-width="2" stroke-dasharray="6 4" />
+            <polygon points="50,15 85,75 15,75" fill="none" stroke="#AC3B28" stroke-width="2.5" />
+            <polygon points="50,85 85,25 15,25" fill="none" stroke="#1E2E48" stroke-width="2.5" />
+            <circle cx="50" cy="50" r="7" fill="#D97706" />
           </svg>
         </div>
         <div>
           <div class="flex items-center space-x-2">
-            <span class="font-display font-bold text-lg text-vedic-cream tracking-wider">SANSKRITI</span>
-            <span class="text-[10px] tracking-widest text-vedic-sandGold uppercase font-mono px-2 py-0.5 rounded-full bg-vedic-crimson/40 border border-vedic-sandGold/40 font-semibold">Vedic Matrix</span>
+            <span class="font-display font-bold text-lg text-[#1E2E48] tracking-wider">SANSKRITI</span>
+            <span class="text-[10px] tracking-widest text-[#AC3B28] uppercase font-mono px-2 py-0.5 rounded-full bg-[#AC3B28]/10 border border-[#AC3B28]/30 font-semibold">2.5D Brush</span>
           </div>
-          <p class="text-[11px] font-headline text-vedic-sandGold/80 tracking-wider">संस्कृतिः परमो धर्मः</p>
+          <p class="text-[11px] font-headline text-[#A87C38] tracking-wider">संस्कृतिः परमो धर्मः</p>
         </div>
       </a>
 
       <!-- Desktop Navigation Links -->
-      <nav class="hidden lg:flex items-center space-x-7 text-xs tracking-widest uppercase font-medium">
-        <a href="#hero-section" class="text-vedic-cream/80 hover:text-vedic-cream transition-colors duration-200">Parampara</a>
-        <a href="#kolam-section" class="text-vedic-cream/80 hover:text-vedic-cream transition-colors duration-200">Geometry & Kolam</a>
-        <a href="#classical-arts" class="text-vedic-cream/80 hover:text-vedic-cream transition-colors duration-200">9 Rasas & Mudras</a>
-        <a href="#stepwell-section" class="text-vedic-cream/80 hover:text-vedic-cream transition-colors duration-200">The Baoli</a>
-        <a href="#weaves-ayurveda-section" class="text-vedic-cream/80 hover:text-vedic-cream transition-colors duration-200">Weaves & Ayurveda</a>
+      <nav class="hidden lg:flex items-center space-x-7 text-xs tracking-wider uppercase font-medium">
+        <a href="#hero-section" class="text-[#292524] hover:text-[#AC3B28] transition-colors">01. Parampara</a>
+        <a href="#culinary-section" class="text-[#292524] hover:text-[#AC3B28] transition-colors">02. Food & 6 Rasas</a>
+        <a href="#climate-section" class="text-[#292524] hover:text-[#AC3B28] transition-colors">03. 6 Ritus Climate</a>
+        <a href="#people-section" class="text-[#292524] hover:text-[#AC3B28] transition-colors">04. People & Scripts</a>
+        <a href="#diorama-section" class="text-[#292524] hover:text-[#AC3B28] transition-colors">05. 2.5D Diorama</a>
+        <a href="#studio-section" class="text-[#292524] hover:text-[#AC3B28] transition-colors font-semibold text-[#AC3B28]">06. Folk Art Studio</a>
       </nav>
 
       <!-- Utility Actions -->
       <div class="hidden sm:flex items-center space-x-3">
         
         <!-- Procedural Tanpura Audio Synthesizer Button -->
-        <button id="sound-toggle-btn" class="flex items-center space-x-2 px-3 py-1.5 rounded-full border border-vedic-sandGold/35 bg-vedic-surface/80 text-vedic-cream text-xs hover:border-vedic-sandGold transition-all duration-300" data-magnetic title="Toggle Procedural Tanpura Drone">
+        <button id="sound-toggle-btn" class="flex items-center space-x-2 px-3 py-1.5 rounded-full border border-[#E2D7C5] bg-[#FFFDF9] text-[#292524] text-xs hover:border-[#1E2E48] transition-all duration-300 shadow-sm cursor-pointer" data-magnetic title="Toggle Ambient Acoustic Tanpura">
           <div class="flex items-end space-x-0.5 h-3.5 w-3.5">
-            <span class="sound-bar w-0.5 bg-vedic-sandGold rounded-full h-[20%] transition-all duration-100"></span>
-            <span class="sound-bar w-0.5 bg-vedic-sandGold rounded-full h-[60%] transition-all duration-100"></span>
-            <span class="sound-bar w-0.5 bg-vedic-sandGold rounded-full h-[30%] transition-all duration-100"></span>
-            <span class="sound-bar w-0.5 bg-vedic-sandGold rounded-full h-[80%] transition-all duration-100"></span>
+            <span class="sound-bar w-0.5 bg-[#AC3B28] rounded-full h-[20%] transition-all duration-100"></span>
+            <span class="sound-bar w-0.5 bg-[#AC3B28] rounded-full h-[60%] transition-all duration-100"></span>
+            <span class="sound-bar w-0.5 bg-[#AC3B28] rounded-full h-[30%] transition-all duration-100"></span>
+            <span class="sound-bar w-0.5 bg-[#AC3B28] rounded-full h-[80%] transition-all duration-100"></span>
           </div>
           <span id="sound-status-text" class="text-[11px] font-mono">Tanpura: OFF</span>
         </button>
 
         <!-- Pitch Selector -->
-        <select id="sound-pitch-select" class="text-[11px] font-mono bg-vedic-surface border border-vedic-sandGold/35 rounded-full px-2.5 py-1 text-vedic-sandGold outline-none hover:border-vedic-sandGold" title="Tanpura Fundamental Pitch">
+        <select id="sound-pitch-select" class="text-[11px] font-mono bg-[#FFFDF9] border border-[#E2D7C5] rounded-full px-2.5 py-1 text-[#8E6E38] outline-none hover:border-[#8E6E38] shadow-sm cursor-pointer" title="Tanpura Fundamental Pitch">
           <option value="138.59">C#3 (138.6 Hz)</option>
           <option value="146.83" selected>D3 (146.8 Hz)</option>
           <option value="155.56">D#3 (155.6 Hz)</option>
@@ -80,19 +81,14 @@
         </select>
 
         <!-- Gyan Kosha Cultural Modal Trigger -->
-        <button data-open-gyan-kosha class="px-3.5 py-1.5 rounded-full bg-vedic-crimson text-vedic-cream border border-vedic-sandGold/50 text-xs font-semibold hover:shadow-[0_0_20px_rgba(111,29,27,0.7)] transition-all flex items-center space-x-1.5" data-magnetic>
+        <button data-open-gyan-kosha class="px-3.5 py-1.5 rounded-full bg-[#AC3B28] text-[#FFFDF9] border border-[#AC3B28] text-xs font-semibold hover:bg-[#7E2616] transition-all flex items-center space-x-1.5 shadow-paper-sm cursor-pointer" data-magnetic>
           <span class="font-headline">ज्ञान कोष</span>
-          <span class="text-[10px] uppercase font-mono tracking-wider font-bold">Trivia</span>
-        </button>
-
-        <!-- Motion Toggle -->
-        <button id="motion-toggle-btn" class="text-[10px] uppercase tracking-wider font-mono px-2.5 py-1 rounded-full border border-vedic-sandGold/25 text-vedic-sandGold hover:text-vedic-cream hover:border-vedic-sandGold transition-colors" title="Toggle Motion FX">
-          Cinematic: On
+          <span class="text-[10px] uppercase font-mono tracking-wider font-bold">Wisdom</span>
         </button>
       </div>
 
       <!-- Mobile Hamburger Button -->
-      <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg text-vedic-sandGold hover:bg-vedic-surface" aria-label="Open Navigation Menu">
+      <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg text-[#1E2E48] hover:bg-[#F5EFEB]" aria-label="Open Navigation Menu">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
@@ -102,881 +98,706 @@
   </header>
 
   <!-- Mobile Drawer Menu -->
-  <div id="mobile-drawer" class="fixed inset-y-0 right-0 w-80 bg-vedic-abyss border-l border-vedic-sandGold/30 z-50 p-6 flex flex-col justify-between transform translate-x-full transition-transform duration-300 lg:hidden shadow-2xl">
+  <div id="mobile-drawer" class="fixed inset-y-0 right-0 w-80 bg-[#FAF6EE] border-l border-[#E2D7C5] z-50 p-6 flex flex-col justify-between transform translate-x-full transition-transform duration-300 lg:hidden shadow-2xl">
     <div>
-      <div class="flex items-center justify-between pb-6 border-b border-vedic-sandGold/20">
-        <span class="font-display font-bold text-vedic-cream text-lg">SANSKRITI</span>
-        <button id="mobile-drawer-close" class="p-2 text-vedic-cream/70 hover:text-vedic-sandGold">✕</button>
+      <div class="flex items-center justify-between pb-6 border-b border-[#E2D7C5]">
+        <span class="font-display font-bold text-[#1E2E48] text-lg">SANSKRITI</span>
+        <button id="mobile-drawer-close" class="p-2 text-[#57534E] hover:text-[#AC3B28]">✕</button>
       </div>
       <div class="mt-8 flex flex-col space-y-5 text-sm tracking-wider uppercase">
-        <a href="#hero-section" class="mobile-nav-link text-vedic-cream hover:text-vedic-sandGold">01. Parampara (Hero 3D)</a>
-        <a href="#kolam-section" class="mobile-nav-link text-vedic-cream hover:text-vedic-sandGold">02. Sacred Geometry & Kolam</a>
-        <a href="#classical-arts" class="mobile-nav-link text-vedic-cream hover:text-vedic-sandGold">03. 9 Rasas & Mudras</a>
-        <a href="#stepwell-section" class="mobile-nav-link text-vedic-cream hover:text-vedic-sandGold">04. The Baoli (Stepwell)</a>
-        <a href="#weaves-ayurveda-section" class="mobile-nav-link text-vedic-cream hover:text-vedic-sandGold">05. Weaves & Ayurveda</a>
+        <a href="#hero-section" class="mobile-nav-link text-[#292524] hover:text-[#AC3B28]">01. Parampara (2.5D Panorama)</a>
+        <a href="#culinary-section" class="mobile-nav-link text-[#292524] hover:text-[#AC3B28]">02. Food & 6 Rasas</a>
+        <a href="#climate-section" class="mobile-nav-link text-[#292524] hover:text-[#AC3B28]">03. 6 Ritus Climate</a>
+        <a href="#people-section" class="mobile-nav-link text-[#292524] hover:text-[#AC3B28]">04. People & Scripts</a>
+        <a href="#diorama-section" class="mobile-nav-link text-[#292524] hover:text-[#AC3B28]">05. 2.5D Diorama</a>
+        <a href="#studio-section" class="mobile-nav-link text-[#AC3B28] font-bold">06. Folk Art Studio</a>
       </div>
     </div>
-    <div class="pt-6 border-t border-vedic-sandGold/20 flex flex-col space-y-3">
-      <button data-open-gyan-kosha class="w-full py-2.5 rounded-xl bg-vedic-crimson border border-vedic-sandGold text-vedic-cream font-bold text-xs uppercase tracking-widest text-center shadow-lg">
-        Open Gyan Kosha (Trivia)
+    <div class="pt-6 border-t border-[#E2D7C5] flex flex-col space-y-3">
+      <button data-open-gyan-kosha class="w-full py-2.5 rounded-xl bg-[#AC3B28] border border-[#AC3B28] text-white font-bold text-xs uppercase tracking-widest text-center shadow-md">
+        ज्ञान कोष • Trivia Vault
       </button>
-      <p class="text-[11px] text-center text-vedic-sandGold/70 font-mono">Vedic Neo-Futurism Matrix</p>
     </div>
   </div>
 
-  <main>
-    <!-- ============================================================== -->
-    <!-- 1. HERO SECTION: "PARAMPARA" (Deep Crimson Lotus & Cream Title) -->
-    <!-- ============================================================== -->
-    <section id="hero-section" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+  <!-- MAIN SCROLL CONTAINER -->
+  <main class="relative z-10 pt-20">
+
+    <!-- ==========================================
+         SECTION 1: HERO SECTION ("PARAMPARA")
+         2.5D Living Canvas & p5.brush Watercolor Panorama
+         ========================================== -->
+    <section id="hero-section" class="relative min-h-[92vh] flex items-center justify-center overflow-hidden py-16 px-4 sm:px-6 lg:px-8 border-b border-[#E2D7C5]">
       
-      <!-- Interactive Three.js WebGL Canvas Container -->
-      <div id="hero-canvas-container" class="absolute inset-0 z-0 pointer-events-auto"></div>
+      <!-- p5.brush Living Canvas Layer (Behind) -->
+      <div id="hero-canvas-container" class="absolute inset-0 w-full h-full pointer-events-auto z-0 opacity-90"></div>
 
-      <!-- Atmospheric Ambient Blooms (Crimson & Amber Glow) -->
-      <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-vedic-crimson/25 rounded-full blur-[140px] pointer-events-none z-10"></div>
-      <div class="absolute bottom-10 left-10 w-96 h-96 bg-vedic-cinnamon/20 rounded-full blur-[120px] pointer-events-none z-10"></div>
-
-      <!-- 2D Animated Vector Graphic: Ornate Floating Mandala Watermark -->
-      <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-10 opacity-25">
-        <svg class="w-[620px] h-[620px] text-vedic-sandGold animate-spin-reverse" viewBox="0 0 200 200">
-          <circle cx="100" cy="100" r="95" fill="none" stroke="currentColor" stroke-width="0.75" stroke-dasharray="4 4" />
-          <circle cx="100" cy="100" r="75" fill="none" stroke="currentColor" stroke-width="0.5" />
-          <polygon points="100,10 190,100 100,190 10,100" fill="none" stroke="currentColor" stroke-width="0.5" />
-          <polygon points="100,20 180,100 100,180 20,100" fill="none" stroke="currentColor" stroke-width="0.5" transform="rotate(45 100 100)" />
-          <circle cx="100" cy="100" r="45" fill="none" stroke="currentColor" stroke-width="0.5" stroke-dasharray="2 3" />
-        </svg>
-      </div>
-
-      <!-- Vignette Gradient for Depth -->
-      <div class="absolute inset-0 z-10 pointer-events-none bg-gradient-to-b from-vedic-abyss/60 via-transparent to-vedic-abyss"></div>
-
-      <!-- Foreground Typography Content: Complementary High-Contrast Cream & Ivory -->
-      <div class="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 text-center py-16 pointer-events-none">
+      <!-- 2.5D Foreground Papercraft Diorama Content Wrapper -->
+      <div id="hero-diorama-wrapper" class="relative z-10 max-w-5xl mx-auto w-full text-center transition-transform duration-300 preserve-3d">
         
-        <!-- Sanskrit Invocatory Badge with Ornate Corners -->
-        <div id="hero-shloka" class="inline-flex items-center space-x-2.5 px-5 py-2 rounded-full border border-vedic-sandGold/45 bg-vedic-surface/85 backdrop-blur-md mb-8 pointer-events-auto shadow-[0_0_25px_rgba(111,29,27,0.35)]">
-          <span class="w-2.5 h-2.5 rounded-full bg-vedic-sandGold animate-pulse"></span>
-          <span class="font-headline text-vedic-cream text-sm sm:text-base tracking-wide">यतो हस्तस्ततो दृष्टिः, यतो दृष्टिस्ततो मनः</span>
-          <span class="text-xs text-vedic-sandGold/80 font-mono">| Natya Shastra</span>
+        <!-- Depth Layer: Distant Cultural Stamp Badge -->
+        <div data-depth="back" class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-[#FFFDF9]/90 border border-[#E2D7C5] shadow-paper-sm mb-6">
+          <span class="w-2 h-2 rounded-full bg-[#AC3B28] animate-ping"></span>
+          <span class="text-xs uppercase font-mono tracking-widest text-[#7E2616] font-semibold">An Educational 2.5D Expedition</span>
         </div>
 
-        <!-- Main Display Typography: Maximum Legibility with High Contrast Cream & Shadow -->
-        <div class="relative inline-block max-w-4xl mx-auto py-3 px-6 sm:px-10 rounded-3xl bg-vedic-abyss/40 backdrop-blur-[3px] border border-vedic-sandGold/15 shadow-[0_10px_40px_rgba(0,0,0,0.85)]">
-          
-          <!-- Ornate Corner Accents on the Title Frame -->
-          <div class="ornate-corner-tl"></div>
-          <div class="ornate-corner-tr"></div>
-          <div class="ornate-corner-bl"></div>
-          <div class="ornate-corner-br"></div>
+        <!-- High-Contrast Main Headline -->
+        <h1 class="font-display font-black text-4xl sm:text-6xl lg:text-7xl text-[#1E2E48] tracking-tight leading-none mb-4 drop-shadow-sm">
+          SANSKRITI
+        </h1>
 
-          <h1 id="hero-main-title" class="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-vedic-creamLight leading-[1.08] mb-3 filter drop-shadow-[0_8px_20px_rgba(0,0,0,0.9)]">
-            SANSKRITI <br />
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-vedic-creamLight via-vedic-cream to-vedic-sandGold">THE LIVING MATRIX</span>
-          </h1>
+        <!-- Sanskrit Sub-headline -->
+        <div class="font-headline text-2xl sm:text-3xl lg:text-4xl text-[#AC3B28] mb-6">
+          संस्कृतिः परमो धर्मः • The Living Matrix
+        </div>
 
-          <p id="hero-subtitle" class="font-sans text-base sm:text-lg md:text-xl text-vedic-cream/90 max-w-2xl mx-auto font-light leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
-            Traverse parametric sacred geometries, dynamic temple mudras, the depth of subterranean stepwells, and ancient living traditions.
+        <!-- Educational Abstract Card in 2.5D Midground -->
+        <div data-depth="mid" class="max-w-2xl mx-auto deckle-card p-6 bg-[#FAF6EE]/95 border border-[#E2D7C5] mb-8 shadow-paper-md text-left sm:text-center">
+          <p class="text-sm sm:text-base text-[#44403C] leading-relaxed">
+            Step into an organic, hand-inked exploration of the Indian Subcontinent. Painted in natural pigments of madder red, lapis indigo, and turmeric wash — discover the sacred balance of the <strong class="text-[#AC3B28]">Six Tastes (Shad Rasa)</strong>, the climatic rhythms of the <strong class="text-[#1E2E48]">Six Ritus</strong>, ancient scripts, and living artisan traditions.
           </p>
+          <div class="mt-4 flex flex-wrap items-center justify-center gap-2 pt-3 border-t border-[#EADBCA]">
+            <span class="paper-badge">Ayurvedic Biology</span>
+            <span class="paper-badge">Microclimate Seasons</span>
+            <span class="paper-badge">Calligraphic Heritage</span>
+            <span class="paper-badge">p5.brush Generative Canvas</span>
+          </div>
         </div>
 
-        <!-- CTA Action Buttons -->
-        <div id="hero-cta-group" class="flex flex-wrap items-center justify-center gap-4 mt-10 pointer-events-auto">
-          <a href="#kolam-section" class="px-8 py-3.5 rounded-full bg-vedic-crimson text-vedic-cream border border-vedic-sandGold/60 font-semibold text-xs sm:text-sm tracking-wider uppercase hover:shadow-[0_0_30px_rgba(111,29,27,0.8)] hover:scale-105 transition-all duration-300" data-magnetic>
-            Explore Sacred Matrix ↓
+        <!-- Call to Action Controls in 2.5D Foreground -->
+        <div data-depth="front" class="flex flex-wrap items-center justify-center gap-4">
+          <a href="#culinary-section" class="px-6 py-3 rounded-full bg-[#AC3B28] text-[#FFFDF9] font-semibold text-xs uppercase tracking-widest hover:bg-[#7E2616] transition-all shadow-paper-md" data-magnetic>
+            Explore Food & 6 Rasas →
           </a>
-          <button data-open-gyan-kosha class="px-7 py-3.5 rounded-full border border-vedic-sandGold/50 bg-vedic-surface/80 text-vedic-cream font-medium text-xs sm:text-sm tracking-wider uppercase hover:border-vedic-sandGold hover:bg-vedic-crimson/30 backdrop-blur-md transition-all duration-300" data-magnetic>
-            Enter Wisdom Vault
-          </button>
-        </div>
-
-        <!-- Cultural Telemetry Stats -->
-        <div class="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-4xl mx-auto pt-7 border-t border-vedic-sandGold/25 text-center pointer-events-auto">
-          <div class="p-3 rounded-2xl bg-vedic-surface/50 border border-vedic-sandGold/15">
-            <span class="font-display text-2xl sm:text-3xl font-bold text-vedic-cream">5,000+</span>
-            <span class="text-xs text-vedic-sandGold uppercase tracking-widest block mt-0.5">Years Continuum</span>
-          </div>
-          <div class="p-3 rounded-2xl bg-vedic-surface/50 border border-vedic-sandGold/15">
-            <span class="font-display text-2xl sm:text-3xl font-bold text-vedic-cream">9</span>
-            <span class="text-xs text-vedic-sandGold uppercase tracking-widest block mt-0.5">Natya Rasas</span>
-          </div>
-          <div class="p-3 rounded-2xl bg-vedic-surface/50 border border-vedic-sandGold/15">
-            <span class="font-display text-2xl sm:text-3xl font-bold text-vedic-cream">Eulerian</span>
-            <span class="text-xs text-vedic-sandGold uppercase tracking-widest block mt-0.5">Kolam Loops</span>
-          </div>
-          <div class="p-3 rounded-2xl bg-vedic-surface/50 border border-vedic-sandGold/15">
-            <span class="font-display text-2xl sm:text-3xl font-bold text-vedic-cream">-28m</span>
-            <span class="text-xs text-vedic-sandGold uppercase tracking-widest block mt-0.5">Baoli Depth</span>
-          </div>
+          <a href="#studio-section" class="px-6 py-3 rounded-full bg-[#FFFDF9] border border-[#1E2E48] text-[#1E2E48] font-semibold text-xs uppercase tracking-widest hover:bg-[#1E2E48] hover:text-white transition-all shadow-paper-sm" data-magnetic>
+            Open Folk Art Studio ✎
+          </a>
         </div>
 
       </div>
 
-      <!-- Bottom Scroll Indicator -->
-      <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20 flex flex-col items-center pointer-events-none opacity-80 animate-bounce">
-        <span class="text-[10px] uppercase tracking-widest text-vedic-sandGold font-mono mb-1">Descend</span>
-        <svg class="w-4 h-4 text-vedic-sandGold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+      <!-- Scroll Down Indicator -->
+      <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-center text-[#8E6E38] z-10 pointer-events-none">
+        <span class="text-[10px] font-mono uppercase tracking-widest block mb-1">Scroll to Journey</span>
+        <svg class="w-4 h-4 mx-auto animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
         </svg>
       </div>
 
     </section>
 
-    <!-- =================================================== -->
-    <!-- 2. SACRED GEOMETRY & KOLAM MATRIX ("Bindu to Mandala") -->
-    <!-- =================================================== -->
-    <section id="kolam-section" class="relative py-28 px-4 sm:px-6 lg:px-8 border-t border-vedic-sandGold/20 bg-vedic-deep jaali-pattern">
-      
-      <!-- Ambient Bloom Glows -->
-      <div class="absolute top-1/4 left-10 w-96 h-96 bg-vedic-crimson/20 rounded-full blur-[130px] pointer-events-none"></div>
-      <div class="absolute bottom-10 right-10 w-96 h-96 bg-vedic-cinnamon/25 rounded-full blur-[120px] pointer-events-none"></div>
 
-      <div class="max-w-7xl mx-auto relative z-10">
+    <!-- ==========================================
+         SECTION 2: CULINARY MATRIX & THE SIX RASAS
+         Ayurvedic Science of Food, Spices & Interactive Thali
+         ========================================== -->
+    <section id="culinary-section" class="py-24 px-4 sm:px-6 lg:px-8 border-b border-[#E2D7C5] bg-[#FDFBF7]">
+      <div class="max-w-7xl mx-auto">
         
         <!-- Section Header -->
         <div class="text-center max-w-3xl mx-auto mb-16">
-          <div class="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full border border-vedic-sandGold/40 bg-vedic-crimson/30 text-vedic-cream text-xs uppercase tracking-widest font-mono mb-3">
-            <span>Pillar II</span>
-            <span>•</span>
-            <span>Sacred Geometry</span>
-          </div>
-          <h2 class="font-display text-3xl sm:text-5xl font-bold text-vedic-cream mb-4">
-            THE KOLAM & MANDALA MATRIX
+          <span class="paper-badge mb-3">Pillar 01 • Culinary Geography & Food Science</span>
+          <h2 class="font-display font-bold text-3xl sm:text-5xl text-[#1E2E48] tracking-tight">
+            The Six Rasas: Food as Sacred Medicine
           </h2>
-          <p class="font-headline text-lg text-vedic-sandGold mb-3">बिन्दुनादकलारूपं — From the Singular Bindu to Cosmic Fractal</p>
-          <p class="text-sm sm:text-base text-vedic-cream/80">
-            For millennia in Tamil Nadu and across the subcontinent, dawn begins with drawing mathematical Kolams on thresholds. These procedural patterns weave Eulerian graph cycles around dot lattices (*pullis*), embodying divine equilibrium and sacred cosmic order.
+          <p class="font-headline text-lg sm:text-xl text-[#AC3B28] mt-2">
+            षड्रसाः सर्वदोषशमनाः • The Chemistry of Anna Brahma
+          </p>
+          <p class="text-sm text-[#57534E] mt-3 leading-relaxed">
+            In Ayurvedic philosophy, food is not merely caloric fuel — it is cosmic medicine. A complete meal harmonizes all six biological tastes (*Shad Rasa*), regulating cellular digestion (*Agni*), tissue nourishment (*Dhatus*), and emotional equilibrium.
           </p>
         </div>
 
-        <!-- Interactive Workbench Layout -->
+        <!-- Interactive 2.5D Brass Thali & Flavor Compass -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          
+          <!-- Column 1: Interactive Brass Thali Plate (2.5D Perspective) -->
+          <div class="lg:col-span-6 deckle-card p-6 bg-[#FAF6EE] border border-[#E2D7C5] flex flex-col items-center">
+            <div class="w-full flex items-center justify-between pb-3 border-b border-[#EADBCA] mb-4">
+              <div>
+                <span class="text-[10px] font-mono uppercase text-[#AC3B28] font-bold">Interactive Thali Simulator</span>
+                <h3 class="font-display font-bold text-lg text-[#1E2E48]">Select Heritage Spices</h3>
+              </div>
+              <span class="text-xs font-mono text-[#57534E]">Click bowls to drop spices</span>
+            </div>
+
+            <!-- Thali DOM Canvas Mount -->
+            <div id="thali-canvas-container" class="w-full py-4 flex items-center justify-center"></div>
+
+            <p class="text-[11px] text-center text-[#57534E] mt-2 italic">
+              Tap any of the outer katoris to add or remove regional ingredients from the central thali.
+            </p>
+          </div>
+
+          <!-- Column 2: Flavor Balance Radar & Deep Wisdom Panel -->
+          <div class="lg:col-span-6 flex flex-col space-y-6">
+            
+            <!-- Radar Canvas Card -->
+            <div class="deckle-card p-6 bg-[#FAF6EE] border border-[#E2D7C5]">
+              <div class="flex items-center justify-between pb-3 border-b border-[#EADBCA]">
+                <div>
+                  <span class="text-[10px] font-mono uppercase text-[#D97706] font-bold">Six-Taste Equilibrium</span>
+                  <h3 class="font-display font-bold text-base text-[#1E2E48]">Shad Rasa Flavor Radar</h3>
+                </div>
+                <span class="paper-badge">Real-Time Calculus</span>
+              </div>
+
+              <div class="py-4 flex justify-center">
+                <canvas id="thali-radar-canvas" width="280" height="280" class="max-w-full"></canvas>
+              </div>
+
+              <div class="grid grid-cols-3 gap-2 text-center text-[10px] font-mono text-[#57534E] border-t border-[#EADBCA] pt-3">
+                <div>Madhura: Sweet</div>
+                <div>Amla: Sour</div>
+                <div>Lavana: Salty</div>
+                <div>Katu: Pungent</div>
+                <div>Tikta: Bitter</div>
+                <div>Kashaya: Astringent</div>
+              </div>
+            </div>
+
+            <!-- Dynamic Active Spice Detail Panel -->
+            <div id="thali-details-panel"></div>
+
+          </div>
+
+        </div>
+
+        <!-- Educational Deep Dive: 3 Culinary Pillars -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+          
+          <div class="deckle-card p-6 bg-[#FAF6EE] border border-[#E2D7C5]">
+            <div class="w-10 h-10 rounded-xl bg-[#AC3B28]/10 text-[#AC3B28] flex items-center justify-center font-bold text-lg mb-3">01</div>
+            <h4 class="font-display font-bold text-base text-[#1E2E48]">2,000-Year Biofermentation</h4>
+            <p class="text-xs text-[#57534E] mt-2 leading-relaxed">
+              Dosa and Idli batters represent humanity's oldest continuous symbiotic fermentation. Leuconostoc mesenteroides and wild yeasts proliferate in crushed black gram and parboiled rice, synthesizing Vitamin B12 and unlocking plant proteins without added commercial yeast.
+            </p>
+          </div>
+
+          <div class="deckle-card p-6 bg-[#FAF6EE] border border-[#E2D7C5]">
+            <div class="w-10 h-10 rounded-xl bg-[#D97706]/10 text-[#D97706] flex items-center justify-center font-bold text-lg mb-3">02</div>
+            <h4 class="font-display font-bold text-base text-[#1E2E48]">Thermodynamics of Clay Pots</h4>
+            <p class="text-xs text-[#57534E] mt-2 leading-relaxed">
+              Earthen Handis and conical clay Tandoor ovens circulate natural infrared thermal waves. Porous baked clay retains steam, recycling volatile aromatic oils back into slow-cooking grains and pulses, requiring zero artificial fat or chemical tenderizers.
+            </p>
+          </div>
+
+          <div class="deckle-card p-6 bg-[#FAF6EE] border border-[#E2D7C5]">
+            <div class="w-10 h-10 rounded-xl bg-[#1E2E48]/10 text-[#1E2E48] flex items-center justify-center font-bold text-lg mb-3">03</div>
+            <h4 class="font-display font-bold text-base text-[#1E2E48]">Temple Mahaprasad Ethics</h4>
+            <p class="text-xs text-[#57534E] mt-2 leading-relaxed">
+              At Jagannath Temple in Puri, 56 daily offerings are cooked in seven earthenware pots stacked directly atop each other over a single wood fire. Remarkably, the topmost pot cooks first. The entire kitchen serves 50,000 pilgrims daily with zero food waste.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ==========================================
+         SECTION 3: CLIMATE & THE SIX RITUS
+         Microclimate Seasons, Monsoons & Diverse Biomes
+         ========================================== -->
+    <section id="climate-section" class="py-24 px-4 sm:px-6 lg:px-8 border-b border-[#E2D7C5] bg-[#FAF6EE]">
+      <div class="max-w-7xl mx-auto">
+        
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="paper-badge mb-3">Pillar 02 • Subcontinental Climatology</span>
+          <h2 class="font-display font-bold text-3xl sm:text-5xl text-[#1E2E48] tracking-tight">
+            The Six Ritus: Climate & Monsoonal Rhythms
+          </h2>
+          <p class="font-headline text-lg sm:text-xl text-[#AC3B28] mt-2">
+            षड्ऋतु चक्र • The Microclimatic Symphony of India
+          </p>
+          <p class="text-sm text-[#57534E] mt-3 leading-relaxed">
+            Unlike Western four-season models, India's subcontinental climate follows the ancient solar-lunar *Shad Ritu* cycle. Each season transforms botanical life, diet (*Ritucharya*), and musical ragas.
+          </p>
+        </div>
+
+        <!-- Ritu Switcher Navigation Tabs -->
+        <div id="ritu-nav-tabs" class="flex flex-wrap items-center justify-center gap-2 mb-8"></div>
+
+        <!-- Weather Canvas & Educational Details -->
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
-          <!-- Left: Procedural SVG Display Stage with Ornate Frame -->
-          <div class="lg:col-span-7 flex flex-col items-center justify-center p-6 sm:p-8 rounded-3xl vedic-glass-gold relative overflow-hidden">
-            
-            <div class="ornate-corner-tl"></div>
-            <div class="ornate-corner-tr"></div>
-            <div class="ornate-corner-bl"></div>
-            <div class="ornate-corner-br"></div>
-
-            <div class="absolute top-4 left-6 text-xs font-mono uppercase text-vedic-sandGold tracking-wider flex items-center space-x-1.5">
-              <span class="w-2 h-2 rounded-full bg-vedic-crimson animate-pulse"></span>
-              <span>Procedural Vector Engine</span>
+          <!-- 2.5D Animated Weather Canvas -->
+          <div class="lg:col-span-7 deckle-card p-4 bg-[#FAF6EE] border border-[#E2D7C5] shadow-paper-md overflow-hidden">
+            <div class="relative w-full aspect-[16/10] rounded-xl overflow-hidden border border-[#EADBCA]">
+              <canvas id="ritu-weather-canvas" class="w-full h-full block"></canvas>
             </div>
-
-            <!-- SVG Container -->
-            <div id="kolam-svg-container" class="w-full flex items-center justify-center min-h-[400px] sm:min-h-[500px]"></div>
-
-            <div class="w-full pt-4 mt-2 border-t border-vedic-sandGold/20 flex items-center justify-between text-xs text-vedic-cream/70 font-mono">
-              <span id="kolam-status-badge">Animation: Anime.js stroke-dashoffset</span>
-              <span class="text-vedic-sandGold">60 FPS Realtime Render</span>
-            </div>
-
           </div>
 
-          <!-- Right: Interactive Control Console -->
-          <div class="lg:col-span-5 flex flex-col space-y-6">
-            
-            <!-- Symmetry Modes -->
-            <div class="p-6 rounded-2xl vedic-glass relative">
-              <div class="ornate-corner-tl"></div>
-              <div class="ornate-corner-tr"></div>
-              <label class="block text-xs uppercase tracking-widest text-vedic-sandGold font-mono mb-3 font-semibold">
-                Geometric Symmetries
-              </label>
-              <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                <button data-kolam-symmetry="4-fold" class="px-3 py-2 rounded-xl border border-vedic-sandGold/35 text-vedic-cream text-xs hover:border-vedic-sandGold hover:bg-vedic-crimson/20 transition-all" data-magnetic>
-                  4-Fold (Brahma)
-                </button>
-                <button data-kolam-symmetry="8-fold" class="px-3 py-2 rounded-xl bg-vedic-sandGold text-vedic-abyss font-bold border border-vedic-sandGold text-xs transition-all shadow-md" data-magnetic>
-                  8-Fold (Ashtalakshmi)
-                </button>
-                <button data-kolam-symmetry="12-fold" class="px-3 py-2 rounded-xl border border-vedic-sandGold/35 text-vedic-cream text-xs hover:border-vedic-sandGold hover:bg-vedic-crimson/20 transition-all" data-magnetic>
-                  12-Fold (Surya)
-                </button>
-                <button data-kolam-symmetry="sri-yantra" class="px-3 py-2 rounded-xl border border-vedic-sandGold/35 text-vedic-cream text-xs hover:border-vedic-sandGold hover:bg-vedic-crimson/20 transition-all col-span-2 sm:col-span-1" data-magnetic>
-                  Sri Yantra
-                </button>
-                <button data-kolam-symmetry="sikku-knot" class="px-3 py-2 rounded-xl border border-vedic-sandGold/35 text-vedic-cream text-xs hover:border-vedic-sandGold hover:bg-vedic-crimson/20 transition-all col-span-2" data-magnetic>
-                  Sikku Knot (Eulerian Loop)
-                </button>
-              </div>
-            </div>
-
-            <!-- Parameters: Concentric Rings & Speed -->
-            <div class="p-6 rounded-2xl vedic-glass space-y-5">
-              
-              <div>
-                <div class="flex items-center justify-between text-xs mb-2">
-                  <span class="text-vedic-cream font-mono uppercase">Concentric Complexity (Rings)</span>
-                  <span id="kolam-rings-value" class="text-vedic-sandGold font-bold font-mono">5</span>
-                </div>
-                <input id="kolam-rings-slider" type="range" min="3" max="8" value="5" class="w-full accent-vedic-sandGold bg-vedic-abyss h-1.5 rounded-lg cursor-pointer" />
-              </div>
-
-              <div>
-                <div class="flex items-center justify-between text-xs mb-2">
-                  <span class="text-vedic-cream font-mono uppercase">Tracing Duration</span>
-                  <span class="text-vedic-sandGold font-mono">Slow ↔ Fast</span>
-                </div>
-                <input id="kolam-speed-slider" type="range" min="1000" max="4500" value="2400" step="200" class="w-full accent-vedic-sandGold bg-vedic-abyss h-1.5 rounded-lg cursor-pointer" />
-              </div>
-
-              <!-- Color Palette Matching Reference -->
-              <div>
-                <span class="block text-xs uppercase tracking-widest text-vedic-cream/80 font-mono mb-2">Vedic Pigments (Reference Palette)</span>
-                <div class="flex items-center space-x-3">
-                  <button data-kolam-color="#BB9457" class="w-7 h-7 rounded-full bg-[#BB9457] ring-2 ring-white transition-all shadow-md" title="Sand Gold"></button>
-                  <button data-kolam-color="#6F1D1B" class="w-7 h-7 rounded-full bg-[#6F1D1B] hover:scale-110 transition-all border border-vedic-sandGold/50" title="Royal Crimson"></button>
-                  <button data-kolam-color="#99582A" class="w-7 h-7 rounded-full bg-[#99582A] hover:scale-110 transition-all" title="Burnt Cinnamon"></button>
-                  <button data-kolam-color="#FFE6A7" class="w-7 h-7 rounded-full bg-[#FFE6A7] hover:scale-110 transition-all border border-vedic-sandGold" title="Warm Silk Cream"></button>
-                </div>
-              </div>
-
-            </div>
-
-            <!-- Action Controls -->
-            <div class="flex items-center space-x-4">
-              <button id="kolam-regenerate-btn" class="flex-1 py-3.5 rounded-xl bg-vedic-crimson text-vedic-cream border border-vedic-sandGold font-bold text-xs uppercase tracking-wider hover:shadow-[0_0_25px_rgba(111,29,27,0.7)] transition-all flex items-center justify-center space-x-2" data-magnetic>
-                <span>⚡ Evolve & Trace Path</span>
-              </button>
-              <button id="kolam-export-btn" class="px-5 py-3.5 rounded-xl border border-vedic-sandGold/50 text-vedic-cream bg-vedic-surface text-xs font-mono uppercase tracking-wider hover:bg-vedic-sandGold hover:text-vedic-abyss transition-all" data-magnetic title="Download SVG file">
-                ↓ Export SVG
-              </button>
-            </div>
-
-            <!-- Mathematical Philosophy Insight -->
-            <div class="p-4 rounded-xl bg-vedic-crimson/25 border border-vedic-sandGold/30 text-xs">
-              <span class="font-bold text-vedic-sandGold block mb-1">Ethnomathematics Insight:</span>
-              <p class="text-vedic-cream/80 leading-relaxed">
-                Computer scientists and topologists study the South Indian Kolam as an ancient manifestation of picture languages, L-systems, and Array Grammars that precede modern algorithmic recursion.
-              </p>
-            </div>
-
-          </div>
+          <!-- Dynamic Season Detail Card -->
+          <div class="lg:col-span-5" id="ritu-detail-card"></div>
 
         </div>
 
-      </div>
+        <!-- The 5 Great Ecological Biomes of India -->
+        <div class="mt-16">
+          <h3 class="font-display font-bold text-xl text-[#1E2E48] mb-6 text-center">
+            Five Diverse Biomes Across the Matrix
+          </h3>
 
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+            
+            <div class="deckle-card p-4 bg-[#F5EFEB] border border-[#E2D7C5]">
+              <span class="text-[9px] uppercase font-mono text-[#8E6E38] font-bold">Biome 01</span>
+              <h5 class="font-display font-bold text-sm text-[#1E2E48] mt-1">Trans-Himalayan Alpine</h5>
+              <p class="text-[11px] text-[#57534E] mt-1">Ladakh & Spiti. Cold desert with extreme UV radiation, rare medicinal herbs, and Buddhist prayer flags flutter.</p>
+            </div>
+
+            <div class="deckle-card p-4 bg-[#F5EFEB] border border-[#E2D7C5]">
+              <span class="text-[9px] uppercase font-mono text-[#8E6E38] font-bold">Biome 02</span>
+              <h5 class="font-display font-bold text-sm text-[#1E2E48] mt-1">The Great Thar Desert</h5>
+              <p class="text-[11px] text-[#57534E] mt-1">Rajasthan. Shifting barkhan sand dunes, Khejri trees, and subterranean rainwater harvesting stepwells.</p>
+            </div>
+
+            <div class="deckle-card p-4 bg-[#F5EFEB] border border-[#E2D7C5]">
+              <span class="text-[9px] uppercase font-mono text-[#8E6E38] font-bold">Biome 03</span>
+              <h5 class="font-display font-bold text-sm text-[#1E2E48] mt-1">Western Ghats (Sahyadri)</h5>
+              <p class="text-[11px] text-[#57534E] mt-1">UNESCO Biodiversity Hotspot. Dense evergreen rainforests, wild spices, and origin of peninsular rivers.</p>
+            </div>
+
+            <div class="deckle-card p-4 bg-[#F5EFEB] border border-[#E2D7C5]">
+              <span class="text-[9px] uppercase font-mono text-[#8E6E38] font-bold">Biome 04</span>
+              <h5 class="font-display font-bold text-sm text-[#1E2E48] mt-1">Indo-Gangetic Basin</h5>
+              <p class="text-[11px] text-[#57534E] mt-1">World's most fertile alluvial breadbasket, replenished annually by glacial silt from the Ganga and Yamuna.</p>
+            </div>
+
+            <div class="deckle-card p-4 bg-[#F5EFEB] border border-[#E2D7C5]">
+              <span class="text-[9px] uppercase font-mono text-[#8E6E38] font-bold">Biome 05</span>
+              <h5 class="font-display font-bold text-sm text-[#1E2E48] mt-1">Sunderbans Mangrove</h5>
+              <p class="text-[11px] text-[#57534E] mt-1">Largest mangrove delta on Earth. Tidal estuarine forests of Sundari trees and royal Bengal tigers.</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
     </section>
 
-    <!-- ========================================================= -->
-    <!-- 3. CLASSICAL ARTS & MUDRAS: THE 9 RASAS (Natya Shastra) -->
-    <!-- ========================================================= -->
-    <section id="classical-arts" class="relative py-28 px-4 sm:px-6 lg:px-8 border-t border-vedic-sandGold/20 bg-vedic-abyss">
-      
-      <!-- Bloom Glow -->
-      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-vedic-crimson/15 rounded-full blur-[140px] pointer-events-none"></div>
 
-      <div class="max-w-7xl mx-auto relative z-10">
+    <!-- ==========================================
+         SECTION 4: PEOPLE, LANGUAGES & LIVING SCRIPTS
+         Interactive Calligraphy Workshop & Artisan Guilds
+         ========================================== -->
+    <section id="people-section" class="py-24 px-4 sm:px-6 lg:px-8 border-b border-[#E2D7C5] bg-[#FDFBF7]">
+      <div class="max-w-7xl mx-auto">
         
-        <!-- Header -->
+        <!-- Section Header -->
         <div class="text-center max-w-3xl mx-auto mb-16">
-          <div class="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full border border-vedic-sandGold/40 bg-vedic-crimson/30 text-vedic-cream text-xs uppercase tracking-widest font-mono mb-3">
-            <span>Pillar III</span>
-            <span>•</span>
-            <span>Natya Shastra</span>
-          </div>
-          <h2 class="font-display text-3xl sm:text-5xl font-bold text-vedic-cream mb-4">
-            NAVARASA: THE NINE EMOTIONAL ESSENCES
+          <span class="paper-badge mb-3">Pillar 03 • Living Traditions & Linguistics</span>
+          <h2 class="font-display font-bold text-3xl sm:text-5xl text-[#1E2E48] tracking-tight">
+            People, Dialects & The Living Scripts
           </h2>
-          <p class="font-headline text-lg text-vedic-sandGold mb-3">रसात्मके काव्ये — The Aesthetic Matrix of Human Consciousness</p>
-          <p class="text-sm sm:text-base text-vedic-cream/80">
-            Authored by Sage Bharata Muni over two millennia ago, the *Natya Shastra* codifies the emotional spectrum into nine universal *Rasas* and hand gestures (*Asamyutta Hastas*). Each Rasa is linked to a cosmological deity, color, and physiological state.
+          <p class="font-headline text-lg sm:text-xl text-[#AC3B28] mt-2">
+            अनेकतायां एकता • 22 Scheduled Tongues, One Matrix
+          </p>
+          <p class="text-sm text-[#57534E] mt-3 leading-relaxed">
+            India is home to over 121 major languages and 1,500 dialects across four distinct language families. Explore the visual calligraphy and sacred etymology of foundational Indian words across diverse scripts.
           </p>
         </div>
 
-        <!-- 3D Carousel Horizontal Card Selector -->
-        <div class="relative mb-12">
-          
-          <div id="navarasa-carousel-container" class="relative">
-            <div id="navarasa-cards-track" class="flex space-x-4 overflow-x-auto pb-6 scrollbar-none snap-x snap-mandatory pt-4"></div>
-          </div>
-
-          <!-- Carousel Controls -->
-          <div class="flex items-center justify-between mt-4">
-            <div id="navarasa-indicators" class="flex items-center space-x-1.5"></div>
-            <div class="flex items-center space-x-2">
-              <button id="navarasa-prev-btn" class="w-10 h-10 rounded-full border border-vedic-sandGold/40 flex items-center justify-center text-vedic-cream bg-vedic-surface hover:border-vedic-sandGold hover:bg-vedic-crimson/40 transition-all" data-magnetic aria-label="Previous Rasa">
-                ←
-              </button>
-              <button id="navarasa-next-btn" class="w-10 h-10 rounded-full border border-vedic-sandGold/40 flex items-center justify-center text-vedic-cream bg-vedic-surface hover:border-vedic-sandGold hover:bg-vedic-crimson/40 transition-all" data-magnetic aria-label="Next Rasa">
-                →
-              </button>
-            </div>
-          </div>
-
+        <!-- Word Selector -->
+        <div class="flex flex-col items-center justify-center mb-8">
+          <span class="text-xs uppercase font-mono text-[#8E6E38] font-bold mb-3">Choose a Sacred Word to Inscribe:</span>
+          <div id="script-words-selector" class="flex flex-wrap items-center justify-center gap-2"></div>
         </div>
 
-        <!-- Active Rasa & Dynamic Mudra Morphing Spotlight -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center p-8 sm:p-12 rounded-3xl vedic-glass-gold relative overflow-hidden">
-          
-          <div class="ornate-corner-tl"></div>
-          <div class="ornate-corner-tr"></div>
-          <div class="ornate-corner-bl"></div>
-          <div class="ornate-corner-br"></div>
+        <!-- Active Word Metadata Banner -->
+        <div id="script-word-metadata" class="max-w-4xl mx-auto mb-8"></div>
 
-          <!-- Left: Vectorized Hand Gesture (Mudra) with Temple Alcove Frame -->
-          <div class="lg:col-span-5 flex flex-col items-center justify-center relative">
+        <!-- 6 Scripts Calligraphy Grid -->
+        <div id="script-render-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto"></div>
+
+        <!-- Master Artisan Guilds of India -->
+        <div class="mt-20 border-t border-[#E2D7C5] pt-12">
+          <h3 class="font-display font-bold text-2xl text-[#1E2E48] text-center mb-8">
+            Living Artisan Guilds: Guardians of Heritage
+          </h3>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             
-            <!-- Ornate Temple Alcove Frame Vector -->
-            <div class="w-72 h-72 sm:w-84 sm:h-84 relative flex items-center justify-center">
-              
-              <!-- Double Filigree Halo -->
-              <div class="absolute inset-0 rounded-full border-2 border-dashed border-vedic-sandGold/35 animate-spin-slow"></div>
-              <div class="absolute inset-6 rounded-full border border-vedic-crimson/60 bg-vedic-crimson/10 shadow-[inset_0_0_30px_rgba(111,29,27,0.3)]"></div>
-
-              <!-- Morphing SVG Hand Silhouette -->
-              <svg id="navarasa-mudra-svg" class="w-56 h-56 filter drop-shadow-[0_0_24px_rgba(187,148,87,0.5)]" viewBox="0 0 300 300">
-                <path id="navarasa-mudra-path" d="" fill="#FFE6A7" />
-              </svg>
-            </div>
-
-            <div class="mt-4 text-center">
-              <span class="text-xs uppercase tracking-widest text-vedic-sandGold/80 font-mono block">Associated Temple Gesture</span>
-              <h4 id="navarasa-mudra-name" class="font-display text-2xl text-vedic-cream font-bold">Alapadma</h4>
-              <p id="navarasa-mudra-meaning" class="text-xs text-vedic-sandGold">Full Blooming Lotus</p>
-            </div>
-
-          </div>
-
-          <!-- Right: Detailed Philosophical & Aesthetic Breakdown -->
-          <div class="lg:col-span-7 flex flex-col space-y-5">
-            
-            <div class="flex items-center justify-between pb-3 border-b border-vedic-sandGold/25">
-              <div>
-                <h3 id="navarasa-detail-title" class="font-display text-3xl sm:text-4xl font-bold text-vedic-cream">Shringara</h3>
-                <p id="navarasa-detail-trans" class="text-xs text-vedic-sandGold tracking-wider uppercase font-mono mt-1">The Aesthetic of Love & Beauty</p>
-              </div>
-              <span id="navarasa-detail-sanskrit" class="font-headline text-3xl sm:text-4xl text-vedic-cream font-bold">शृङ्गार</span>
-            </div>
-
-            <!-- Deity & Color Indicators -->
-            <div class="grid grid-cols-2 gap-4">
-              <div class="p-4 rounded-xl bg-vedic-surface/85 border border-vedic-sandGold/25">
-                <span class="text-[10px] uppercase tracking-widest text-vedic-sandGold/80 block font-mono">Ruling Presiding Deity</span>
-                <span id="navarasa-detail-deity" class="font-display text-base font-semibold text-vedic-cream">Lord Vishnu</span>
-              </div>
-              <div class="p-4 rounded-xl bg-vedic-surface/85 border border-vedic-sandGold/25">
-                <span class="text-[10px] uppercase tracking-widest text-vedic-sandGold/80 block font-mono">Cosmic Aura Color</span>
-                <span id="navarasa-detail-color" class="font-display text-base font-semibold text-vedic-cream">Shyama (Lotus Green)</span>
-              </div>
-            </div>
-
-            <!-- Shloka quote -->
-            <div class="p-4 rounded-xl bg-vedic-crimson/25 border-l-4 border-vedic-sandGold">
-              <p id="navarasa-detail-shloka" class="font-headline text-base text-vedic-cream italic">
-                “शृङ्गारः शुचिरुज्ज्वलः — Natya Shastra”
+            <div class="deckle-card p-5 bg-[#FAF6EE] border border-[#E2D7C5]">
+              <span class="paper-badge text-[9px] mb-2">Patan, Gujarat</span>
+              <h4 class="font-display font-bold text-base text-[#1E2E48]">Double-Ikat Patola</h4>
+              <p class="text-xs text-[#57534E] mt-2 leading-relaxed">
+                Both warp and weft silk yarns are mathematically tie-dyed before weaving. The fabric is reversible, takes 6 months to weave, and colors remain vibrant for three centuries. Only 3 families preserve this craft.
               </p>
             </div>
 
-            <!-- Narrative Description -->
-            <p id="navarasa-detail-desc" class="text-sm text-vedic-cream/80 leading-relaxed">
-              The monarch of all rasas (Rasaraja). Represents pure aesthetic romance, divine adoration, maternal devotion (Vatsalya), and the sublime beauty of creation.
-            </p>
+            <div class="deckle-card p-5 bg-[#FAF6EE] border border-[#E2D7C5]">
+              <span class="paper-badge text-[9px] mb-2">Bastar, Chhattisgarh</span>
+              <h4 class="font-display font-bold text-base text-[#1E2E48]">Dhokra Bronze Casting</h4>
+              <p class="text-xs text-[#57534E] mt-2 leading-relaxed">
+                4,000-year-old lost-wax (*cire perdue*) metalcasting unchanged since the Mohenjo-daro Dancing Girl. Beeswax cords wrap clay cores before molten brass fills the cavity.
+              </p>
+            </div>
 
-            <div class="pt-2 text-xs text-vedic-sandGold font-mono">
-              Use arrow keys or click the cards above to morph between all 9 Rasas.
+            <div class="deckle-card p-5 bg-[#FAF6EE] border border-[#E2D7C5]">
+              <span class="paper-badge text-[9px] mb-2">Andhra Pradesh</span>
+              <h4 class="font-display font-bold text-base text-[#1E2E48]">Kalamkari Botanical Art</h4>
+              <p class="text-xs text-[#57534E] mt-2 leading-relaxed">
+                Drawn by hand using pointed bamboo pens (*Kalam*) with natural fermented iron jaggery ink and alum mordants on unbleached cotton, steeped in buffalo milk.
+              </p>
+            </div>
+
+            <div class="deckle-card p-5 bg-[#FAF6EE] border border-[#E2D7C5]">
+              <span class="paper-badge text-[9px] mb-2">Jaipur, Rajasthan</span>
+              <h4 class="font-display font-bold text-base text-[#1E2E48]">Jaipur Blue Pottery</h4>
+              <p class="text-xs text-[#57534E] mt-2 leading-relaxed">
+                The only pottery made without clay! Craftsmen mix ground quartz stone, Fuller\'s earth, and natural gum, hand-painting turquoise cobalt oxide motifs fired only once.
+              </p>
             </div>
 
           </div>
-
         </div>
 
       </div>
-
     </section>
 
-    <!-- ============================================================== -->
-    <!-- 4. ARCHITECTURE & STEPWELLS: THE DEPTH OF TIME (The Baoli 3D)  -->
-    <!-- ============================================================== -->
-    <section id="stepwell-section" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-vedic-deep">
-      
-      <!-- Three.js 3D Subterranean Canvas Container -->
-      <div id="baoli-canvas-container" class="absolute inset-0 z-0 pointer-events-auto"></div>
 
-      <!-- 2D Vector Graphic Overlay: Ornate Jharokha Arch Framing Over the Stepwell Canvas -->
-      <div class="absolute inset-0 pointer-events-none z-10 flex items-center justify-between p-4 sm:p-8 opacity-40">
-        <!-- Left Arch Pillar Silhouette -->
-        <svg class="h-full max-h-[80vh] w-16 text-vedic-sandGold hidden md:block" viewBox="0 0 50 400" preserveAspectRatio="none">
-          <line x1="25" y1="0" x2="25" y2="400" stroke="currentColor" stroke-width="2" stroke-dasharray="8 6"/>
-          <circle cx="25" cy="50" r="12" fill="none" stroke="currentColor" stroke-width="2"/>
-          <circle cx="25" cy="200" r="12" fill="none" stroke="currentColor" stroke-width="2"/>
-          <circle cx="25" cy="350" r="12" fill="none" stroke="currentColor" stroke-width="2"/>
-        </svg>
-        <!-- Right Arch Pillar Silhouette -->
-        <svg class="h-full max-h-[80vh] w-16 text-vedic-sandGold hidden md:block" viewBox="0 0 50 400" preserveAspectRatio="none">
-          <line x1="25" y1="0" x2="25" y2="400" stroke="currentColor" stroke-width="2" stroke-dasharray="8 6"/>
-          <circle cx="25" cy="50" r="12" fill="none" stroke="currentColor" stroke-width="2"/>
-          <circle cx="25" cy="200" r="12" fill="none" stroke="currentColor" stroke-width="2"/>
-          <circle cx="25" cy="350" r="12" fill="none" stroke="currentColor" stroke-width="2"/>
-        </svg>
-      </div>
-
-      <!-- Vignette & Horizon Fade -->
-      <div class="absolute inset-0 z-10 pointer-events-none bg-gradient-to-t from-vedic-abyss via-transparent to-vedic-abyss/85"></div>
-
-      <!-- Foreground Architectural HUD and Scroll Indicators -->
-      <div class="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 w-full py-16 pointer-events-none flex flex-col justify-between min-h-screen">
+    <!-- ==========================================
+         SECTION 5: 2.5D DIORAMA CHAMBER
+         Multi-Layered Pop-Up Papercraft Subcontinent
+         ========================================== -->
+    <section id="diorama-section" class="py-24 px-4 sm:px-6 lg:px-8 border-b border-[#E2D7C5] bg-[#FAF6EE]">
+      <div class="max-w-7xl mx-auto">
         
-        <!-- Top HUD Header -->
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pointer-events-auto">
-          <div class="p-4 sm:p-5 rounded-2xl vedic-glass max-w-md relative">
-            <div class="ornate-corner-tl"></div>
-            <div class="ornate-corner-tr"></div>
-            <div class="inline-flex items-center space-x-2 px-2.5 py-0.5 rounded-full border border-vedic-sandGold/40 bg-vedic-crimson/30 text-vedic-cream text-[10px] uppercase font-mono tracking-widest mb-1.5 font-semibold">
-              <span>Pillar IV</span>
-              <span>•</span>
-              <span>Subterranean Hydraulics</span>
-            </div>
-            <h2 class="font-display text-2xl sm:text-3xl font-bold text-vedic-cream">
-              THE BAOLI: DEPTH OF TIME
-            </h2>
-            <p class="text-xs text-vedic-cream/80 mt-1">
-              Scroll down to descend through tiered fractal sandstone corridors into the sacred subterranean water mirror.
-            </p>
-          </div>
-
-          <!-- Real-Time Subterranean Depth Telemetry Badge -->
-          <div class="p-4 sm:p-5 rounded-2xl vedic-glass flex items-center space-x-5 border-l-4 border-l-vedic-sandGold">
-            <div>
-              <span class="text-[10px] uppercase tracking-widest text-vedic-sandGold/80 font-mono block">Subterranean Depth</span>
-              <span id="baoli-hud-depth" class="font-display text-3xl sm:text-4xl font-bold text-vedic-cream">0m</span>
-            </div>
-            <div class="h-10 w-px bg-vedic-sandGold/25"></div>
-            <div>
-              <span class="text-[10px] uppercase tracking-widest text-vedic-sandGold/80 font-mono block">Microclimate Agni</span>
-              <span class="text-sm font-semibold text-vedic-sandGold font-mono">-7°C Cooler</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Bottom Dynamic Milestone Card & Manual Depth Scrub -->
-        <div class="pointer-events-auto max-w-xl mx-auto w-full">
-          <div class="p-6 sm:p-7 rounded-2xl vedic-glass-gold shadow-2xl backdrop-blur-xl border border-vedic-sandGold/45 relative">
-            <div class="ornate-corner-tl"></div>
-            <div class="ornate-corner-tr"></div>
-            <div class="ornate-corner-bl"></div>
-            <div class="ornate-corner-br"></div>
-
-            <div class="flex items-center justify-between mb-2">
-              <span class="text-[11px] uppercase tracking-wider text-vedic-sandGold font-mono font-semibold">Architectural Milestone</span>
-              <span class="text-[10px] text-vedic-cream/70 font-mono">Chand Baori Engineering</span>
-            </div>
-            <h3 id="baoli-hud-milestone" class="font-display text-xl sm:text-2xl font-bold text-vedic-cream mb-2">
-              Terrace I: The Gathering Mandapa
-            </h3>
-            <p id="baoli-hud-desc" class="text-xs sm:text-sm text-vedic-cream/80 leading-relaxed mb-4">
-              Where desert pilgrims once paused before descending into the sanctuary of living rock.
-            </p>
-            
-            <!-- Manual Depth Scrubber -->
-            <div class="pt-3 border-t border-vedic-sandGold/25">
-              <div class="flex items-center justify-between text-[10px] font-mono text-vedic-sandGold mb-1">
-                <span>Sky Terrace (0m)</span>
-                <span>Water Mirror (-28m)</span>
-              </div>
-              <input id="baoli-depth-slider" type="range" min="0" max="1" step="0.01" value="0" class="w-full accent-vedic-sandGold bg-vedic-abyss h-1.5 rounded-lg cursor-pointer" />
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-    </section>
-
-    <!-- ======================================================== -->
-    <!-- 5. LIVING TRADITIONS, WEAVES & AYURVEDA                   -->
-    <!-- ======================================================== -->
-    <section id="weaves-ayurveda-section" class="relative py-28 px-4 sm:px-6 lg:px-8 border-t border-vedic-sandGold/20 bg-vedic-abyss jaali-pattern">
-      
-      <!-- Ambient Bloom -->
-      <div class="absolute top-1/3 right-10 w-96 h-96 bg-vedic-crimson/20 rounded-full blur-[130px] pointer-events-none"></div>
-
-      <div class="max-w-7xl mx-auto relative z-10">
-        
-        <!-- Header -->
+        <!-- Section Header -->
         <div class="text-center max-w-3xl mx-auto mb-12">
-          <div class="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full border border-vedic-sandGold/40 bg-vedic-crimson/30 text-vedic-cream text-xs uppercase tracking-widest font-mono mb-3 font-semibold">
-            <span>Pillar V</span>
-            <span>•</span>
-            <span>Living Traditions</span>
-          </div>
-          <h2 class="font-display text-3xl sm:text-5xl font-bold text-vedic-cream mb-4">
-            WEAVES OF ETERNITY & AYURVEDA
+          <span class="paper-badge mb-3">Pillar 04 • Spatial Architecture</span>
+          <h2 class="font-display font-bold text-3xl sm:text-5xl text-[#1E2E48] tracking-tight">
+            2.5D Subcontinent Pop-Up Diorama
           </h2>
-          <p class="font-headline text-lg text-vedic-sandGold mb-3">तन्तुसंतानम् — The Interlocking Threads of Matter & Vitality</p>
-          <p class="text-sm sm:text-base text-vedic-cream/80">
-            Indian culture preserves an unbroken continuity of living material technologies: the sacred pit looms that weave spun silver into silk, and the biological matrix of Ayurveda that harmonizes the five universal elements (*Pancha Mahabhutas*).
+          <p class="font-headline text-lg sm:text-xl text-[#AC3B28] mt-2">
+            त्रिविम चित्र • Layered Architectural Depth
           </p>
+          <p class="text-sm text-[#57534E] mt-3 leading-relaxed">
+            Move your cursor across the diorama box to experience papercraft parallax depth. Click <strong>"Explode 2.5D Layers"</strong> to pull the cutout planes apart along the Z-axis in 3D perspective.
+          </p>
+        </div>
 
-          <!-- Tab Selector Buttons -->
-          <div class="mt-8 inline-flex p-1 rounded-full bg-vedic-surface border border-vedic-sandGold/40 shadow-inner">
-            <button id="tab-btn-textiles" class="px-6 py-2.5 rounded-full bg-vedic-sandGold text-vedic-abyss font-bold text-xs uppercase tracking-wider transition-all shadow-md" data-magnetic>
-              Sacred Textiles (Vastra)
+        <!-- Controls Toolbar -->
+        <div class="flex flex-wrap items-center justify-center gap-3 mb-8">
+          <button id="diorama-explode-btn" class="px-4 py-2 rounded-xl text-xs font-semibold bg-[#1E2E48] text-white shadow-paper-md transition-all cursor-pointer">
+            Explode 2.5D Layers
+          </button>
+          <div class="flex items-center space-x-1 bg-[#F5EFEB] p-1 rounded-xl border border-[#E2D7C5]">
+            <button id="diorama-region-north" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-[#1E2E48] text-white cursor-pointer">
+              Northern Ghats & Forts
             </button>
-            <button id="tab-btn-ayurveda" class="px-6 py-2.5 rounded-full text-vedic-cream font-medium text-xs uppercase tracking-wider hover:text-vedic-sandGold transition-all" data-magnetic>
-              Ayurveda (Tridosha)
+            <button id="diorama-region-south" class="px-3 py-1.5 rounded-lg text-xs font-medium text-[#292524] hover:bg-[#EADBCA] cursor-pointer">
+              Southern Coasts & Gopurams
             </button>
           </div>
         </div>
 
-        <!-- VIEW 1: SACRED TEXTILES -->
-        <div id="view-textiles" class="space-y-12">
+        <!-- 2.5D Pop-Up Box Stage -->
+        <div class="relative w-full max-w-4xl mx-auto aspect-[16/10] sm:aspect-[16/9] perspective-diorama flex items-center justify-center">
           
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center p-6 sm:p-10 rounded-3xl vedic-glass-gold relative">
-            <div class="ornate-corner-tl"></div>
-            <div class="ornate-corner-tr"></div>
-            <div class="ornate-corner-bl"></div>
-            <div class="ornate-corner-br"></div>
-
-            <div class="lg:col-span-6 flex flex-col items-center">
-              <div class="w-full relative rounded-2xl overflow-hidden border border-vedic-sandGold/40 shadow-2xl bg-black">
-                <canvas id="micro-weave-canvas" class="w-full h-64 sm:h-72 block"></canvas>
-                <div class="absolute bottom-2 left-3 px-2 py-0.5 rounded bg-black/75 text-[10px] font-mono text-vedic-sandGold border border-vedic-sandGold/40">
-                  Microscopic Thread Weave Simulator
+          <div id="diorama-3d-box" class="relative w-full h-full rounded-2xl bg-[#FFFDF9] border-2 border-[#E2D7C5] shadow-paper-diorama overflow-hidden preserve-3d transition-transform duration-300">
+            
+            <!-- Layer 1: Background Mountains & Sky (Z: 0px / -120px) -->
+            <div data-layer="1" class="absolute inset-0 w-full h-full transition-transform duration-500 pointer-events-none">
+              <!-- North: Himalayan Peaks -->
+              <div class="diorama-north-content w-full h-full relative">
+                <div class="absolute inset-0 bg-gradient-to-b from-[#E0E7FF] to-[#FAF6EE]"></div>
+                <!-- Distant Peak Silhouette in Indigo Wash -->
+                <svg class="absolute bottom-0 w-full h-3/5 text-[#385278]/25" viewBox="0 0 1000 400" preserveAspectRatio="none">
+                  <polygon points="0,400 150,120 300,240 480,80 650,220 850,50 1000,200 1000,400" fill="currentColor" />
+                </svg>
+                <div class="absolute top-8 right-12 text-right">
+                  <span class="font-headline text-lg text-[#1E2E48]/60">हिमालयः</span>
+                  <div class="text-[10px] font-mono text-[#57534E]">8,848m Crown</div>
                 </div>
               </div>
 
-              <!-- Controls for Warp/Weft/Pattern -->
-              <div class="w-full grid grid-cols-3 gap-2 mt-4 text-xs">
-                <div>
-                  <label class="block text-[10px] uppercase font-mono text-vedic-sandGold mb-1">Warp Thread</label>
-                  <select id="weave-warp-color" class="w-full bg-vedic-surface border border-vedic-sandGold/40 rounded-lg p-1.5 text-vedic-cream font-mono text-xs">
-                    <option value="#BB9457">Sand Gold</option>
-                    <option value="#6F1D1B">Royal Crimson</option>
-                    <option value="#FFE6A7">Warm Cream</option>
-                    <option value="#99582A">Cinnamon</option>
-                  </select>
-                </div>
-                <div>
-                  <label class="block text-[10px] uppercase font-mono text-vedic-sandGold mb-1">Weft Thread</label>
-                  <select id="weave-weft-color" class="w-full bg-vedic-surface border border-vedic-sandGold/40 rounded-lg p-1.5 text-vedic-cream font-mono text-xs">
-                    <option value="#6F1D1B" selected>Royal Crimson</option>
-                    <option value="#BB9457">Sand Gold</option>
-                    <option value="#99582A">Cinnamon</option>
-                    <option value="#FFE6A7">Warm Cream</option>
-                  </select>
-                </div>
-                <div>
-                  <label class="block text-[10px] uppercase font-mono text-vedic-sandGold mb-1">Weave Geometry</label>
-                  <select id="weave-pattern-select" class="w-full bg-vedic-surface border border-vedic-sandGold/40 rounded-lg p-1.5 text-vedic-cream font-mono text-xs">
-                    <option value="twill" selected>2/1 Twill</option>
-                    <option value="plain">Plain Weave</option>
-                    <option value="satin">5-Shaft Satin</option>
-                    <option value="korvai">Korvai Interlock</option>
-                  </select>
+              <!-- South: Tropical Monsoon Skies -->
+              <div class="diorama-south-content hidden w-full h-full relative">
+                <div class="absolute inset-0 bg-gradient-to-b from-[#E0F2FE] to-[#FAF6EE]"></div>
+                <svg class="absolute bottom-0 w-full h-3/5 text-[#2D5A27]/20" viewBox="0 0 1000 400" preserveAspectRatio="none">
+                  <path d="M0,400 Q250,150 500,280 T1000,200 L1000,400 Z" fill="currentColor" />
+                </svg>
+                <div class="absolute top-8 right-12 text-right">
+                  <span class="font-headline text-lg text-[#2D5A27]/70">सह्याद्रिः</span>
+                  <div class="text-[10px] font-mono text-[#57534E]">Western Ghats Mist</div>
                 </div>
               </div>
             </div>
 
-            <div class="lg:col-span-6 flex flex-col space-y-4">
-              <div class="flex items-center justify-between pb-2 border-b border-vedic-sandGold/25">
-                <div>
-                  <h3 id="textile-detail-title" class="font-display text-2xl sm:text-3xl font-bold text-vedic-cream">Banarasi Brocade & Zari</h3>
-                  <p id="textile-detail-region" class="text-xs text-vedic-sandGold font-mono mt-0.5">Varanasi, Uttar Pradesh</p>
-                </div>
-                <span id="textile-detail-sanskrit" class="font-headline text-2xl text-vedic-cream">काशि-पट्टाम्बर</span>
+            <!-- Layer 2: Mid-Back Architecture & Stepwells (Z: 30px / -20px) -->
+            <div data-layer="2" class="absolute inset-0 w-full h-full transition-transform duration-500 pointer-events-none">
+              <!-- North: Chand Baori Stepwell & Fortress Steps -->
+              <div class="diorama-north-content w-full h-full relative">
+                <svg class="absolute bottom-0 w-full h-3/4 text-[#9A4526]/40" viewBox="0 0 1000 500" preserveAspectRatio="none">
+                  <!-- Stepped pyramid geometry -->
+                  <polygon points="200,500 250,380 300,380 350,280 400,280 500,160 600,280 650,280 700,380 750,380 800,500" fill="none" stroke="currentColor" stroke-width="4" />
+                  <polygon points="350,500 400,400 450,400 500,320 550,400 600,400 650,500" fill="currentColor" opacity="0.3" />
+                </svg>
               </div>
 
-              <div class="grid grid-cols-2 gap-3 text-xs">
-                <div class="p-3.5 rounded-xl bg-vedic-surface/85 border border-vedic-sandGold/25">
-                  <span class="text-[10px] uppercase text-vedic-sandGold/80 block font-mono">Historical Era</span>
-                  <span id="textile-detail-era" class="font-medium text-vedic-cream">Vedic & Mughal Renaissance</span>
-                </div>
-                <div class="p-3.5 rounded-xl bg-vedic-surface/85 border border-vedic-sandGold/25">
-                  <span class="text-[10px] uppercase text-vedic-sandGold/80 block font-mono">Material Purity</span>
-                  <span id="textile-detail-material" class="font-medium text-vedic-cream">Katan Silk & Real Gold/Silver Zari</span>
-                </div>
-              </div>
-
-              <p id="textile-detail-desc" class="text-xs sm:text-sm text-vedic-cream/80 leading-relaxed">
-                Woven along the banks of the sacred Ganga, Banarasi sarees require up to 6 months of arduous manual labor on wooden pit looms. The master weaver interlaces pure spun silver dipped in 24k gold through warp threads, producing a shimmering metallic brocade.
-              </p>
-
-              <div>
-                <span class="text-[10px] uppercase tracking-widest text-vedic-sandGold/80 font-mono block mb-1.5">Sacred Motifs</span>
-                <div id="textile-detail-motifs" class="flex flex-wrap gap-2">
-                  <span class="px-2.5 py-1 rounded-full text-xs bg-vedic-crimson/35 border border-vedic-sandGold/40 text-vedic-cream">Kalka (Paisley)</span>
-                  <span class="px-2.5 py-1 rounded-full text-xs bg-vedic-crimson/35 border border-vedic-sandGold/40 text-vedic-cream">Jhallar (Floral Lace)</span>
-                  <span class="px-2.5 py-1 rounded-full text-xs bg-vedic-crimson/35 border border-vedic-sandGold/40 text-vedic-cream">Shikargah (Sacred Hunt)</span>
-                </div>
+              <!-- South: Dravidian Gopuram Spire & Palm Groves -->
+              <div class="diorama-south-content hidden w-full h-full relative">
+                <svg class="absolute bottom-0 w-full h-3/4 text-[#A87C38]/45" viewBox="0 0 1000 500" preserveAspectRatio="none">
+                  <!-- Gopuram stepped temple crown -->
+                  <polygon points="400,500 420,200 460,120 500,80 540,120 580,200 600,500" fill="currentColor" opacity="0.4" stroke="#8E6E38" stroke-width="3" />
+                  <circle cx="500" cy="70" r="14" fill="#D97706" />
+                </svg>
               </div>
             </div>
 
-          </div>
-
-          <!-- Master Textile Selectors Grid -->
-          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-            <button data-textile-id="banarasi" class="p-4 rounded-2xl vedic-glass text-left border border-vedic-sandGold bg-vedic-crimson/30 transition-all shadow-md" data-magnetic>
-              <span class="text-[10px] font-mono text-vedic-sandGold block">01 / Brocade</span>
-              <h4 class="font-display font-bold text-sm text-vedic-cream mt-1">Banarasi</h4>
-              <p class="text-[11px] text-vedic-sandGold/80">Real Zari & Pit Loom</p>
-            </button>
-            <button data-textile-id="kanjeevaram" class="p-4 rounded-2xl vedic-glass text-left border border-vedic-sandGold/30 hover:border-vedic-sandGold hover:bg-vedic-crimson/20 transition-all" data-magnetic>
-              <span class="text-[10px] font-mono text-vedic-sandGold block">02 / Temple</span>
-              <h4 class="font-display font-bold text-sm text-vedic-cream mt-1">Kanjeevaram</h4>
-              <p class="text-[11px] text-vedic-sandGold/80">Korvai Interlock</p>
-            </button>
-            <button data-textile-id="kalamkari" class="p-4 rounded-2xl vedic-glass text-left border border-vedic-sandGold/30 hover:border-vedic-sandGold hover:bg-vedic-crimson/20 transition-all" data-magnetic>
-              <span class="text-[10px] font-mono text-vedic-sandGold block">03 / Narrative</span>
-              <h4 class="font-display font-bold text-sm text-vedic-cream mt-1">Kalamkari</h4>
-              <p class="text-[11px] text-vedic-sandGold/80">Bamboo Reed Pen</p>
-            </button>
-            <button data-textile-id="chanderi" class="p-4 rounded-2xl vedic-glass text-left border border-vedic-sandGold/30 hover:border-vedic-sandGold hover:bg-vedic-crimson/20 transition-all" data-magnetic>
-              <span class="text-[10px] font-mono text-vedic-sandGold block">04 / Gossamer</span>
-              <h4 class="font-display font-bold text-sm text-vedic-cream mt-1">Chanderi</h4>
-              <p class="text-[11px] text-vedic-sandGold/80">Woven Light Silk</p>
-            </button>
-            <button data-textile-id="pashmina" class="p-4 rounded-2xl vedic-glass text-left border border-vedic-sandGold/30 hover:border-vedic-sandGold hover:bg-vedic-crimson/20 transition-all" data-magnetic>
-              <span class="text-[10px] font-mono text-vedic-sandGold block">05 / Sovereign</span>
-              <h4 class="font-display font-bold text-sm text-vedic-cream mt-1">Pashmina</h4>
-              <p class="text-[11px] text-vedic-sandGold/80">Changthangi Wool</p>
-            </button>
-          </div>
-
-        </div>
-
-        <!-- VIEW 2: AYURVEDA & TRIDOSHA -->
-        <div id="view-ayurveda" class="hidden space-y-12">
-          
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center p-6 sm:p-10 rounded-3xl vedic-glass-gold relative">
-            <div class="ornate-corner-tl"></div>
-            <div class="ornate-corner-tr"></div>
-            <div class="ornate-corner-bl"></div>
-            <div class="ornate-corner-br"></div>
-
-            <div class="lg:col-span-5 flex flex-col items-center justify-center p-6 rounded-2xl bg-vedic-surface/85 border border-vedic-sandGold/30">
-              <span class="text-xs uppercase font-mono text-vedic-sandGold mb-4 font-semibold">Constitutional Energy Matrix</span>
-              
-              <div class="flex items-end justify-center space-x-8 h-48 w-full pb-4 border-b border-vedic-sandGold/25">
-                <div class="flex flex-col items-center space-y-2">
-                  <div class="w-12 bg-vedic-abyss rounded-t-xl overflow-hidden h-40 flex items-end border border-vedic-sandGold/30">
-                    <div id="dosha-chart-vata" class="w-full bg-gradient-to-t from-vedic-cinnamon to-vedic-cream transition-all duration-300" style="height: 33%"></div>
-                  </div>
-                  <span class="text-xs font-mono font-bold text-vedic-cream">Vata</span>
-                  <span class="text-[10px] text-vedic-sandGold">Air/Space</span>
+            <!-- Layer 3: Mid-Front Ghats, River & Diyas (Z: 65px / 80px) -->
+            <div data-layer="3" class="absolute inset-0 w-full h-full transition-transform duration-500 pointer-events-none">
+              <div class="diorama-north-content w-full h-full relative">
+                <!-- River Ganga Waters and Floating Diyas -->
+                <div class="absolute bottom-0 inset-x-0 h-1/4 bg-[#1E2E48]/20 border-t-2 border-[#1E2E48]/30"></div>
+                <!-- Floating Earthen Diya with flickering flame -->
+                <div class="absolute bottom-8 left-1/3 flex flex-col items-center">
+                  <div class="w-3 h-5 rounded-full bg-[#D97706] animate-pulse"></div>
+                  <div class="w-7 h-3 rounded-b-full bg-[#9A4526]"></div>
                 </div>
-
-                <div class="flex flex-col items-center space-y-2">
-                  <div class="w-12 bg-vedic-abyss rounded-t-xl overflow-hidden h-40 flex items-end border border-vedic-sandGold/30">
-                    <div id="dosha-chart-pitta" class="w-full bg-gradient-to-t from-vedic-crimson to-vedic-sandGold transition-all duration-300" style="height: 33%"></div>
-                  </div>
-                  <span class="text-xs font-mono font-bold text-vedic-cream">Pitta</span>
-                  <span class="text-[10px] text-vedic-sandGold">Fire/Water</span>
-                </div>
-
-                <div class="flex flex-col items-center space-y-2">
-                  <div class="w-12 bg-vedic-abyss rounded-t-xl overflow-hidden h-40 flex items-end border border-vedic-sandGold/30">
-                    <div id="dosha-chart-kapha" class="w-full bg-gradient-to-t from-vedic-espresso to-vedic-cinnamon transition-all duration-300" style="height: 34%"></div>
-                  </div>
-                  <span class="text-xs font-mono font-bold text-vedic-cream">Kapha</span>
-                  <span class="text-[10px] text-vedic-sandGold">Water/Earth</span>
+                <div class="absolute bottom-12 right-1/4 flex flex-col items-center">
+                  <div class="w-3.5 h-6 rounded-full bg-[#F59E0B] animate-pulse"></div>
+                  <div class="w-9 h-3.5 rounded-b-full bg-[#9A4526]"></div>
                 </div>
               </div>
 
-              <div class="w-full space-y-3 mt-6">
-                <div>
-                  <div class="flex justify-between text-[11px] text-vedic-cream mb-1 font-mono">
-                    <span>Vata Intensity (Motion)</span>
-                  </div>
-                  <input id="dosha-slider-vata" type="range" min="10" max="80" value="33" class="w-full accent-vedic-cream bg-vedic-abyss h-1.5 rounded-lg cursor-pointer" />
-                </div>
-                <div>
-                  <div class="flex justify-between text-[11px] text-vedic-cream mb-1 font-mono">
-                    <span>Pitta Intensity (Transformation)</span>
-                  </div>
-                  <input id="dosha-slider-pitta" type="range" min="10" max="80" value="33" class="w-full accent-vedic-crimson bg-vedic-abyss h-1.5 rounded-lg cursor-pointer" />
-                </div>
-                <div>
-                  <div class="flex justify-between text-[11px] text-vedic-cream mb-1 font-mono">
-                    <span>Kapha Intensity (Structure)</span>
-                  </div>
-                  <input id="dosha-slider-kapha" type="range" min="10" max="80" value="34" class="w-full accent-vedic-cinnamon bg-vedic-abyss h-1.5 rounded-lg cursor-pointer" />
-                </div>
+              <div class="diorama-south-content hidden w-full h-full relative">
+                <!-- Kerala Backwaters with Kettuvallam Boat -->
+                <div class="absolute bottom-0 inset-x-0 h-1/4 bg-[#2D5A27]/20 border-t-2 border-[#2D5A27]/30"></div>
+                <svg class="absolute bottom-6 left-1/4 w-32 h-16 text-[#44403C]" viewBox="0 0 120 60">
+                  <path d="M10,45 Q60,55 110,45 L100,30 Q60,35 20,30 Z" fill="currentColor" />
+                  <path d="M35,30 Q60,10 85,30 Z" fill="#D4A373" />
+                </svg>
               </div>
-
             </div>
 
-            <div class="lg:col-span-7 flex flex-col space-y-4">
-              <div>
-                <span class="text-[10px] uppercase font-mono tracking-widest text-vedic-sandGold block">Ayurvedic Prakriti Archetype</span>
-                <h3 id="dosha-archetype-title" class="font-display text-2xl sm:text-3xl font-bold text-vedic-cream">Tridoshic (Sama Dosha - Pristine Equilibrium)</h3>
-              </div>
-              <p id="dosha-archetype-desc" class="text-xs sm:text-sm text-vedic-cream/80 leading-relaxed">
-                A rare constitutional balance of universal forces. Maintains longevity by tuning seasonal rhythms (Ritucharya) and sattvic mindfulness.
-              </p>
+            <!-- Layer 4: Foreground Carved Jharokha Archway & Banyan Tendrils (Z: 100px / 180px) -->
+            <div data-layer="4" class="absolute inset-0 w-full h-full transition-transform duration-500 pointer-events-none">
+              <!-- Intricate Mughal/Rajasthani Carved Jharokha Framing -->
+              <svg class="absolute inset-0 w-full h-full text-[#292524]" viewBox="0 0 1000 600" preserveAspectRatio="none">
+                <!-- Left Carved Pillar -->
+                <rect x="0" y="0" width="80" height="600" fill="#FAF6EE" stroke="#A87C38" stroke-width="4" />
+                <!-- Right Carved Pillar -->
+                <rect x="920" y="0" width="80" height="600" fill="#FAF6EE" stroke="#A87C38" stroke-width="4" />
+                <!-- Top Cusped Archway -->
+                <path d="M0,0 L1000,0 L1000,120 Q850,140 700,90 Q500,20 300,90 Q150,140 0,120 Z" fill="#FAF6EE" stroke="#A87C38" stroke-width="4" />
+                <!-- Cusped scalloped arch inner edge -->
+                <path d="M80,120 Q200,180 320,130 Q500,40 680,130 Q800,180 920,120" fill="none" stroke="#AC3B28" stroke-width="3" />
+              </svg>
 
-              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
-                <div class="p-3.5 rounded-xl bg-vedic-surface/85 border border-vedic-sandGold/25">
-                  <span class="text-xs font-bold text-vedic-cream block">💨 Vata Balancing</span>
-                  <p class="text-[11px] text-vedic-sandGold/80 mt-1">Warm sesame oil, grounding ashwagandha, sweet root vegetables.</p>
-                </div>
-                <div class="p-3.5 rounded-xl bg-vedic-surface/85 border border-vedic-sandGold/25">
-                  <span class="text-xs font-bold text-vedic-cream block">🔥 Pitta Balancing</span>
-                  <p class="text-[11px] text-vedic-sandGold/80 mt-1">Cooling coconut water, pure cow ghee, fresh coriander and mint.</p>
-                </div>
-                <div class="p-3.5 rounded-xl bg-vedic-surface/85 border border-vedic-sandGold/25">
-                  <span class="text-xs font-bold text-vedic-cream block">🌊 Kapha Balancing</span>
-                  <p class="text-[11px] text-vedic-sandGold/80 mt-1">Pungent black pepper, dry ginger, morning sun salutations.</p>
-                </div>
+              <!-- Hanging Brass Temple Bells -->
+              <div class="absolute top-16 left-32 flex flex-col items-center">
+                <div class="w-0.5 h-12 bg-[#8E6E38]"></div>
+                <div class="w-6 h-6 rounded-t-full bg-[#A87C38] border border-[#8E6E38] shadow-sm"></div>
               </div>
-
+              <div class="absolute top-16 right-32 flex flex-col items-center">
+                <div class="w-0.5 h-12 bg-[#8E6E38]"></div>
+                <div class="w-6 h-6 rounded-t-full bg-[#A87C38] border border-[#8E6E38] shadow-sm"></div>
+              </div>
             </div>
 
-          </div>
-
-          <!-- Botanical Pharmacopeia (Dravyaguna Deck) -->
-          <div>
-            <h4 class="font-display text-xl font-bold text-vedic-cream mb-4">Sacred Botanical Pharmacopeia (Dravyaguna)</h4>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-              
-              <div class="p-4 rounded-2xl vedic-glass flex flex-col justify-between">
-                <div>
-                  <span class="text-xs text-vedic-sandGold font-mono block">तुलसी</span>
-                  <h5 class="font-display font-bold text-sm text-vedic-cream mt-0.5">Tulsi (Holy Basil)</h5>
-                  <p class="text-[10px] text-vedic-sandGold/70 font-mono italic">Ocimum sanctum</p>
-                  <p class="text-xs text-vedic-cream/80 mt-2">Queen of herbs. Adaptogen, purifies cellular respiratory channels, dispels mental fog.</p>
-                </div>
-                <span class="mt-3 text-[10px] text-vedic-sandGold uppercase font-mono font-semibold">Warming • Vata/Kapha</span>
-              </div>
-
-              <div class="p-4 rounded-2xl vedic-glass flex flex-col justify-between">
-                <div>
-                  <span class="text-xs text-vedic-sandGold font-mono block">अश्वगन्धा</span>
-                  <h5 class="font-display font-bold text-sm text-vedic-cream mt-0.5">Ashwagandha</h5>
-                  <p class="text-[10px] text-vedic-sandGold/70 font-mono italic">Withania somnifera</p>
-                  <p class="text-xs text-vedic-cream/80 mt-2">Vitality of ten stallions. Deep adrenal restore, grounding stress regulator, neuroprotector.</p>
-                </div>
-                <span class="mt-3 text-[10px] text-vedic-sandGold uppercase font-mono font-semibold">Warming • Vata/Kapha</span>
-              </div>
-
-              <div class="p-4 rounded-2xl vedic-glass flex flex-col justify-between">
-                <div>
-                  <span class="text-xs text-vedic-sandGold font-mono block">निम्ब / अरिष्ट</span>
-                  <h5 class="font-display font-bold text-sm text-vedic-cream mt-0.5">Neem</h5>
-                  <p class="text-[10px] text-vedic-sandGold/70 font-mono italic">Azadirachta indica</p>
-                  <p class="text-xs text-vedic-cream/80 mt-2">The supreme blood purifier. Cleanses dermatological tissues and pacifies inflammatory heat.</p>
-                </div>
-                <span class="mt-3 text-[10px] text-vedic-sandGold uppercase font-mono font-semibold">Cooling • Pitta/Kapha</span>
-              </div>
-
-              <div class="p-4 rounded-2xl vedic-glass flex flex-col justify-between">
-                <div>
-                  <span class="text-xs text-vedic-sandGold font-mono block">ब्राह्मी</span>
-                  <h5 class="font-display font-bold text-sm text-vedic-cream mt-0.5">Brahmi</h5>
-                  <p class="text-[10px] text-vedic-sandGold/70 font-mono italic">Bacopa monnieri</p>
-                  <p class="text-xs text-vedic-cream/80 mt-2">Supreme brain tonic (Medhya Rasayana). Enhances synaptic plasticity and memory retention.</p>
-                </div>
-                <span class="mt-3 text-[10px] text-vedic-sandGold uppercase font-mono font-semibold">Cooling • Tridoshic</span>
-              </div>
-
-              <div class="p-4 rounded-2xl vedic-glass flex flex-col justify-between">
-                <div>
-                  <span class="text-xs text-vedic-sandGold font-mono block">शतावरी</span>
-                  <h5 class="font-display font-bold text-sm text-vedic-cream mt-0.5">Shatavari</h5>
-                  <p class="text-[10px] text-vedic-sandGold/70 font-mono italic">Asparagus racemosus</p>
-                  <p class="text-xs text-vedic-cream/80 mt-2">Feminine lunar elixir. Nourishes vital reproductive Ojas, cooling cellular hydration.</p>
-                </div>
-                <span class="mt-3 text-[10px] text-vedic-sandGold uppercase font-mono font-semibold">Cooling • Vata/Pitta</span>
-              </div>
-
-            </div>
           </div>
 
         </div>
 
       </div>
-
     </section>
 
-    <!-- ======================================================== -->
-    <!-- 6. GYAN KOSHA MODAL ENGINE (Cultural Trivia & Riddles)     -->
-    <!-- ======================================================== -->
-    <div id="gyan-kosha-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
-      
-      <div id="gyan-kosha-backdrop" class="absolute inset-0 bg-black/85 backdrop-blur-xl"></div>
 
-      <div class="relative z-10 w-full max-w-2xl bg-vedic-surface border border-vedic-sandGold/50 rounded-3xl p-6 sm:p-8 shadow-[0_0_60px_rgba(111,29,27,0.45)] max-h-[90vh] overflow-y-auto">
+    <!-- ==========================================
+         SECTION 6: INTERACTIVE FOLK ART STUDIO
+         p5.brush Creative Canvas on Handmade Khadi Paper
+         ========================================== -->
+    <section id="studio-section" class="py-24 px-4 sm:px-6 lg:px-8 border-b border-[#E2D7C5] bg-[#FDFBF7]">
+      <div class="max-w-7xl mx-auto">
         
-        <div class="ornate-corner-tl"></div>
-        <div class="ornate-corner-tr"></div>
-        <div class="ornate-corner-bl"></div>
-        <div class="ornate-corner-br"></div>
-
-        <div class="flex items-center justify-between pb-4 border-b border-vedic-sandGold/25 mb-6">
-          <div class="flex items-center space-x-3">
-            <span class="w-9 h-9 rounded-full bg-vedic-crimson border border-vedic-sandGold text-vedic-cream flex items-center justify-center font-bold text-sm shadow-md">ॐ</span>
-            <div>
-              <h3 class="font-display font-bold text-xl text-vedic-cream">GYAN KOSHA (ज्ञान कोष)</h3>
-              <p class="text-[11px] text-vedic-sandGold font-mono">The Treasury of Vedic Cultural Riddles & Astronomy</p>
-            </div>
-          </div>
-          <button id="gyan-kosha-close" class="w-8 h-8 rounded-full border border-vedic-sandGold/40 flex items-center justify-center text-vedic-cream hover:text-vedic-sandGold hover:border-vedic-sandGold transition-colors">
-            ✕
-          </button>
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <span class="paper-badge mb-3">Pillar 05 • Living Folk Arts Studio</span>
+          <h2 class="font-display font-bold text-3xl sm:text-5xl text-[#1E2E48] tracking-tight">
+            The Khadi Folk Art Studio
+          </h2>
+          <p class="font-headline text-lg sm:text-xl text-[#AC3B28] mt-2">
+            हस्तकला कार्यशाला • Draw with p5.brush on Cotton Rag Paper
+          </p>
+          <p class="text-sm text-[#57534E] mt-3 leading-relaxed">
+            Create your own traditional Indian folk artwork. Select natural mineral dyes, drafting pencils, technical pens, or watercolor washes. Stamp authentic Warli, Madhubani, and Kolam archetypes directly onto the canvas.
+          </p>
         </div>
 
-        <div id="vedic-astro-details" class="mb-6"></div>
+        <!-- Studio Workstation -->
+        <div class="deckle-card p-6 bg-[#FAF6EE] border border-[#E2D7C5] shadow-paper-lg max-w-5xl mx-auto">
+          
+          <!-- Toolbar Controls -->
+          <div class="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-[#EADBCA] mb-4">
+            
+            <!-- Dye Color Pickers -->
+            <div class="flex items-center space-x-2">
+              <span class="text-xs uppercase font-mono text-[#8E6E38] font-bold mr-1">Dye:</span>
+              <button data-studio-color="#AC3B28" class="w-7 h-7 rounded-full bg-[#AC3B28] shadow-sm border border-white cursor-pointer ring-2 ring-offset-2 ring-[#292524]" title="Madder Sindoor Vermilion"></button>
+              <button data-studio-color="#1E2E48" class="w-7 h-7 rounded-full bg-[#1E2E48] shadow-sm border border-white cursor-pointer" title="Lapis Indigo"></button>
+              <button data-studio-color="#D97706" class="w-7 h-7 rounded-full bg-[#D97706] shadow-sm border border-white cursor-pointer" title="Turmeric Haldi Ochre"></button>
+              <button data-studio-color="#2D5A27" class="w-7 h-7 rounded-full bg-[#2D5A27] shadow-sm border border-white cursor-pointer" title="Sacred Tulsi Green"></button>
+              <button data-studio-color="#9A4526" class="w-7 h-7 rounded-full bg-[#9A4526] shadow-sm border border-white cursor-pointer" title="Baked Terracotta Clay"></button>
+              <button data-studio-color="#292524" class="w-7 h-7 rounded-full bg-[#292524] shadow-sm border border-white cursor-pointer" title="Lampblack Charcoal"></button>
+            </div>
 
-        <div class="p-5 rounded-2xl vedic-glass">
-          <div class="flex items-center justify-between mb-3 text-xs font-mono text-vedic-sandGold">
-            <span id="quiz-progress">Question 1 of 5</span>
-            <span class="text-vedic-cream font-bold">Philosophical Trial</span>
+            <!-- Brush Selection -->
+            <div class="flex items-center space-x-1.5">
+              <span class="text-xs uppercase font-mono text-[#8E6E38] font-bold mr-1">Tool:</span>
+              <button data-studio-brush="rotring" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-[#1E2E48] text-white cursor-pointer transition-colors">
+                Fine Ink
+              </button>
+              <button data-studio-brush="HB" class="px-2.5 py-1 rounded-lg text-xs font-semibold text-[#292524] hover:bg-[#EADBCA] cursor-pointer transition-colors">
+                Pencil
+              </button>
+              <button data-studio-brush="charcoal" class="px-2.5 py-1 rounded-lg text-xs font-semibold text-[#292524] hover:bg-[#EADBCA] cursor-pointer transition-colors">
+                Charcoal
+              </button>
+              <button data-studio-brush="wash" class="px-2.5 py-1 rounded-lg text-xs font-semibold text-[#292524] hover:bg-[#EADBCA] cursor-pointer transition-colors">
+                Wash Bleed
+              </button>
+              <button data-studio-brush="hatch" class="px-2.5 py-1 rounded-lg text-xs font-semibold text-[#292524] hover:bg-[#EADBCA] cursor-pointer transition-colors">
+                Hatching
+              </button>
+            </div>
+
+            <!-- Motif Stamps -->
+            <div class="flex items-center space-x-1.5">
+              <span class="text-xs uppercase font-mono text-[#8E6E38] font-bold mr-1">Stamp:</span>
+              <button data-studio-stamp="warli" class="px-2.5 py-1 rounded-lg text-xs font-semibold text-[#292524] hover:bg-[#EADBCA] cursor-pointer" title="Stamp Warli Dancing Human">
+                Warli 𐂂
+              </button>
+              <button data-studio-stamp="lotus" class="px-2.5 py-1 rounded-lg text-xs font-semibold text-[#292524] hover:bg-[#EADBCA] cursor-pointer" title="Stamp Madhubani Sacred Lotus">
+                Lotus 𑁍
+              </button>
+              <button data-studio-stamp="paisley" class="px-2.5 py-1 rounded-lg text-xs font-semibold text-[#292524] hover:bg-[#EADBCA] cursor-pointer" title="Stamp Indian Kalka Paisley">
+                Kalka ❦
+              </button>
+              <button data-studio-stamp="kolam" class="px-2.5 py-1 rounded-lg text-xs font-semibold text-[#292524] hover:bg-[#EADBCA] cursor-pointer" title="Stamp Sikku Kolam Knot">
+                Kolam ࿊
+              </button>
+            </div>
+
+            <!-- Canvas Actions -->
+            <div class="flex items-center space-x-2">
+              <button id="studio-clear-btn" class="px-3 py-1 rounded-lg text-xs font-semibold text-[#AC3B28] hover:bg-[#AC3B28]/10 border border-[#AC3B28]/30 cursor-pointer">
+                Clear Paper
+              </button>
+              <button id="studio-download-btn" class="px-3 py-1 rounded-lg text-xs font-semibold bg-[#2D5A27] text-white hover:bg-[#1F432B] shadow-sm cursor-pointer">
+                Download PNG ⤓
+              </button>
+            </div>
+
           </div>
 
-          <h4 id="quiz-question" class="font-headline text-lg sm:text-xl text-vedic-cream mb-4 font-semibold">
-            What mathematical property characterizes the complex continuous loop Kolams (Sikku Kolam)?
-          </h4>
+          <!-- Drawing Canvas Container -->
+          <div id="folk-art-canvas-container" class="w-full aspect-[16/10] sm:aspect-[16/9] max-h-[500px] rounded-xl overflow-hidden border border-[#E2D7C5] bg-[#FAF6EE] shadow-inner cursor-crosshair relative"></div>
 
-          <div id="quiz-options" class="flex flex-col space-y-2.5"></div>
+          <div class="mt-4 flex flex-col sm:flex-row items-center justify-between text-[11px] text-[#57534E] pt-2 border-t border-[#EADBCA]">
+            <span>Tip: Drag to sketch with chosen brush or click once with a stamp active to imprint traditional motifs.</span>
+            <span class="font-mono">Engine: p5.brush WebGL2 Vector Engine</span>
+          </div>
 
-          <div id="quiz-feedback" class="mt-4 hidden"></div>
-
-          <button id="quiz-next-btn" class="mt-4 w-full py-3 rounded-xl bg-vedic-crimson text-vedic-cream border border-vedic-sandGold font-bold text-xs uppercase tracking-wider hidden hover:shadow-[0_0_20px_rgba(111,29,27,0.7)] transition-all">
-            Next Question →
-          </button>
         </div>
 
       </div>
-
-    </div>
+    </section>
 
   </main>
 
-  <!-- ========================================== -->
-  <!-- FOOTER: TRADITION CONTINUUM & CREDITS     -->
-  <!-- ========================================== -->
-  <footer class="relative border-t border-vedic-sandGold/25 bg-vedic-abyss py-16 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+
+  <!-- ==========================================
+       FOOTER & CULTURAL VAULT
+       ========================================== -->
+  <footer class="relative z-10 bg-[#F5EFEB] border-t border-[#E2D7C5] py-16 px-4 sm:px-6 lg:px-8 text-[#57534E]">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
       
-      <div>
+      <!-- Brand & Mission -->
+      <div class="max-w-md text-center md:text-left">
         <div class="flex items-center justify-center md:justify-start space-x-3 mb-2">
-          <span class="font-display font-bold text-xl text-vedic-cream">SANSKRITI</span>
-          <span class="text-xs font-headline text-vedic-sandGold">The Living Matrix</span>
+          <span class="font-display font-bold text-xl text-[#1E2E48]">SANSKRITI</span>
+          <span class="paper-badge text-[10px]">2.5D Brush Edition</span>
         </div>
-        <p class="text-xs text-vedic-cream/70 max-w-md leading-relaxed font-light">
-          An interactive, 3D-vectorized digital monument celebrating the mathematical sacred geometry, subterranean civil engineering, and aesthetic philosophy of the Indian subcontinent.
+        <p class="text-xs text-[#57534E] leading-relaxed">
+          An open educational matrix celebrating the living heritage, culinary biochemistry, microclimatic seasons, and linguistic diversity of the Indian Subcontinent.
         </p>
       </div>
 
-      <div class="flex flex-col items-center md:items-end space-y-2">
-        <p class="font-headline text-vedic-sandGold text-base">सर्वे भवन्तु सुखिनः सर्वे सन्तु निरामयाः</p>
-        <p class="text-[11px] text-vedic-cream/50 font-mono">
-          Engineered with Three.js • GSAP ScrollTrigger • Anime.js • Lenis • Tailwind CSS
-        </p>
-        <div class="flex items-center space-x-3 text-xs text-vedic-sandGold pt-1">
-          <a href="#hero-section" class="hover:underline">Return to Summit ↑</a>
-          <span>•</span>
-          <button data-open-gyan-kosha class="hover:underline">Knowledge Vault</button>
+      <!-- Quick Links & Trivia Button -->
+      <div class="flex flex-col sm:flex-row items-center gap-4">
+        <button data-open-gyan-kosha class="px-5 py-2.5 rounded-full bg-[#AC3B28] text-white font-bold text-xs uppercase tracking-widest hover:bg-[#7E2616] transition-all shadow-paper-sm cursor-pointer" data-magnetic>
+          ज्ञान कोष • Trivia Quiz
+        </button>
+        <a href="#hero-section" class="px-5 py-2.5 rounded-full bg-[#FFFDF9] border border-[#E2D7C5] text-[#292524] text-xs font-semibold hover:border-[#1E2E48] transition-all" data-magnetic>
+          Back to Top ↑
+        </a>
+      </div>
+
+    </div>
+
+    <div class="max-w-7xl mx-auto mt-12 pt-6 border-t border-[#E2D7C5] flex flex-col sm:flex-row items-center justify-between text-[11px] text-[#8E6E38]">
+      <p>© Sanskriti: The Living Matrix • Dedicated to the living artisans, farmers, and scholars of India.</p>
+      <p class="font-mono mt-2 sm:mt-0">Rendered with p5.brush & Web Audio Tanpura</p>
+    </div>
+  </footer>
+
+
+  <!-- ==========================================
+       GYAN KOSHA: KNOWLEDGE VAULT MODAL
+       ========================================== -->
+  <div id="gyan-kosha-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
+    <!-- Backdrop -->
+    <div id="gyan-kosha-backdrop" class="fixed inset-0 bg-[#292524]/40 backdrop-blur-sm transition-opacity"></div>
+
+    <!-- Modal Card on Handmade Paper -->
+    <div class="relative deckle-card bg-[#FAF6EE] border-2 border-[#E2D7C5] w-full max-w-2xl p-6 sm:p-8 rounded-2xl shadow-paper-diorama z-10 max-h-[90vh] overflow-y-auto">
+      
+      <!-- Modal Header -->
+      <div class="flex items-center justify-between pb-4 border-b border-[#EADBCA]">
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 rounded-full bg-[#AC3B28] text-white flex items-center justify-center font-headline text-lg shadow-sm">
+            ज्ञान
+          </div>
+          <div>
+            <h3 class="font-display font-bold text-xl text-[#1E2E48]">ज्ञान कोष (Gyan Kosha)</h3>
+            <p class="text-xs text-[#8E6E38] font-mono">The Living Vedic Knowledge Vault</p>
+          </div>
+        </div>
+        <button id="gyan-kosha-close" class="p-2 text-[#57534E] hover:text-[#AC3B28] text-xl font-bold cursor-pointer">✕</button>
+      </div>
+
+      <!-- Subhashita Daily Proverb Display -->
+      <div id="astronomical-display" class="my-4"></div>
+
+      <!-- Trivia Quiz Container -->
+      <div class="mt-4">
+        <div class="flex items-center justify-between text-xs font-mono text-[#8E6E38] mb-2">
+          <span id="quiz-progress">Question 1 of 5</span>
+          <span class="paper-badge text-[9px]">Interactive Test</span>
+        </div>
+
+        <h4 id="quiz-question" class="font-display font-semibold text-base sm:text-lg text-[#1E2E48] mb-4 leading-snug"></h4>
+
+        <div id="quiz-options" class="flex flex-col space-y-2.5 mb-4"></div>
+
+        <div id="quiz-feedback" class="hidden mb-4"></div>
+
+        <div class="flex justify-end pt-3 border-t border-[#EADBCA]">
+          <button id="quiz-next-btn" class="hidden px-5 py-2 rounded-xl bg-[#1E2E48] text-white text-xs font-semibold hover:bg-[#385278] shadow-paper-sm transition-all cursor-pointer">
+            Next Question →
+          </button>
         </div>
       </div>
 
     </div>
-  </footer>
+  </div>
 
-  <script type="module" src="./src/main.js"></script>
+  <script type="module" src="/src/main.js"></script>
 </body>
 </html>

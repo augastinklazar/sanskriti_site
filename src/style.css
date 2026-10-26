@@ -1,65 +1,50 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Outfit:wght@300;400;500;600;700&family=Rozha+One&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --color-crimson: #6F1D1B;
-  --color-sand-gold: #BB9457;
-  --color-espresso: #432818;
-  --color-cinnamon: #99582A;
-  --color-cream: #FFE6A7;
-  --color-abyss: #140A06;
-}
+@layer base {
+  :root {
+    --color-paper: #FAF6EE;
+    --color-paper-light: #FFFDF9;
+    --color-paper-dark: #F1E9DB;
+    --color-charcoal: #292524;
+    --color-indigo: #1E2E48;
+    --color-sindoor: #AC3B28;
+    --color-turmeric: #D97706;
+    --color-neem: #2D5A27;
+    --color-terracotta: #9A4526;
+    --color-brass: #A87C38;
+  }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 9px;
-}
-::-webkit-scrollbar-track {
-  background: #140A06;
-}
-::-webkit-scrollbar-thumb {
-  background: #432818;
-  border-radius: 4px;
-  border: 1px solid rgba(187, 148, 87, 0.3);
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #99582A;
-}
-
-/* Base resets & typography */
-html {
-  scroll-behavior: smooth;
-  background-color: #140A06;
-  color: #FFE6A7;
-  font-family: 'Outfit', sans-serif;
-  overflow-x: hidden;
-}
-
-body {
-  background-color: #140A06;
-  overflow-x: hidden;
-  position: relative;
-  background-image: 
-    radial-gradient(circle at 15% 20%, rgba(111, 29, 27, 0.18) 0%, transparent 40%),
-    radial-gradient(circle at 85% 65%, rgba(153, 88, 42, 0.14) 0%, transparent 45%),
-    radial-gradient(circle at 50% 90%, rgba(187, 148, 87, 0.12) 0%, transparent 50%);
-  background-attachment: fixed;
-}
-
-/* Custom cursor hide default only on non-touch pointer devices */
-@media (pointer: fine) {
   body {
-    cursor: none;
+    background-color: var(--color-paper);
+    color: var(--color-charcoal);
+    font-family: 'Outfit', sans-serif;
+    overflow-x: hidden;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
-  a, button, input, select, textarea, [role="button"], .cursor-pointer {
-    cursor: none;
+
+  /* Custom Light-Theme Scrollbar */
+  ::-webkit-scrollbar {
+    width: 9px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #FAF6EE;
+    border-left: 1px solid #EADBCA;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #D9CBB7;
+    border-radius: 4px;
+    border: 2px solid #FAF6EE;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #BFA990;
   }
 }
 
-/* Noise overlay canvas */
+/* Handmade Paper Fiber & Noise Canvas */
 #noise-canvas {
   position: fixed;
   top: 0;
@@ -67,12 +52,12 @@ body {
   width: 100vw;
   height: 100vh;
   pointer-events: none;
-  z-index: 9990;
-  opacity: 0.055;
-  mix-blend-mode: overlay;
+  z-index: 99;
+  opacity: 0.45;
+  mix-blend-mode: multiply;
 }
 
-/* Custom cursor canvas */
+/* Custom Ink / Quill Cursor Canvas */
 #cursor-canvas {
   position: fixed;
   top: 0;
@@ -80,141 +65,138 @@ body {
   width: 100vw;
   height: 100vh;
   pointer-events: none;
-  z-index: 9999;
+  z-index: 100;
 }
 
-/* Vedic Card and Glassmorphism */
-.vedic-glass {
-  background: rgba(38, 21, 13, 0.78);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border: 1px solid rgba(187, 148, 87, 0.22);
-  box-shadow: 0 12px 35px -8px rgba(10, 5, 2, 0.8), 0 0 25px -5px rgba(111, 29, 27, 0.12);
+/* 2.5D Layer & Perspective Classes */
+.perspective-diorama {
+  perspective: 1200px;
+  perspective-origin: 50% 50%;
 }
 
-.vedic-glass-gold {
-  background: radial-gradient(circle at 50% 0%, rgba(187, 148, 87, 0.15), rgba(38, 21, 13, 0.88));
-  backdrop-filter: blur(22px);
-  -webkit-backdrop-filter: blur(22px);
-  border: 1px solid rgba(187, 148, 87, 0.38);
-  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.85), 0 0 35px -5px rgba(187, 148, 87, 0.18), inset 0 1px 0 rgba(255, 230, 167, 0.15);
+.preserve-3d {
+  transform-style: preserve-3d;
 }
 
-.vedic-glass-crimson {
-  background: radial-gradient(circle at 50% 0%, rgba(111, 29, 27, 0.3), rgba(28, 15, 9, 0.92));
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(111, 29, 27, 0.5);
-  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.9), 0 0 35px 2px rgba(111, 29, 27, 0.25);
+.translate-z-10 {
+  transform: translateZ(10px);
+}
+.translate-z-20 {
+  transform: translateZ(20px);
+}
+.translate-z-30 {
+  transform: translateZ(30px);
+}
+.translate-z-40 {
+  transform: translateZ(40px);
+}
+.translate-z-60 {
+  transform: translateZ(60px);
 }
 
-/* High Contrast Gold & Cream Typography */
-.vedic-gold-text {
-  background: linear-gradient(135deg, #FFF4D4 0%, #FFE6A7 35%, #BB9457 70%, #99582A 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.85));
+/* Deckled Torn-Paper Border and Card Styles */
+.deckle-card {
+  background-color: #FBF8F2;
+  border: 1px solid #E4D7C4;
+  border-radius: 12px;
+  box-shadow: 
+    0 4px 14px -2px rgba(60, 45, 30, 0.06),
+    0 1px 4px -1px rgba(60, 45, 30, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.3s ease;
 }
 
-.vedic-crimson-text {
-  background: linear-gradient(135deg, #FF8E8B 0%, #E54B4B 40%, #6F1D1B 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.deckle-card:hover {
+  box-shadow: 
+    0 16px 32px -6px rgba(60, 45, 30, 0.12),
+    0 6px 14px -3px rgba(60, 45, 30, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
-.vedic-glow-hover {
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.vedic-glow-hover:hover {
-  border-color: rgba(187, 148, 87, 0.7);
-  box-shadow: 0 0 30px rgba(187, 148, 87, 0.3), 0 0 15px rgba(111, 29, 27, 0.25), inset 0 0 15px rgba(187, 148, 87, 0.15);
-  transform: translateY(-3px);
+/* Paper Stamp / Wax Seal */
+.wax-seal {
+  background: radial-gradient(circle at 35% 35%, #CA5743 0%, #AC3B28 50%, #7E2616 100%);
+  box-shadow: 0 4px 10px rgba(172, 59, 40, 0.35), inset 0 2px 3px rgba(255,255,255,0.4);
 }
 
-/* Ornate Corner Accents */
-.ornate-corner-tl {
+/* Ornate Corner Brackets in Light Brass */
+.ornate-corner {
+  position: relative;
+}
+.ornate-corner::before,
+.ornate-corner::after {
+  content: '';
   position: absolute;
-  top: -1px;
-  left: -1px;
-  width: 18px;
-  height: 18px;
-  border-top: 2px solid #BB9457;
-  border-left: 2px solid #BB9457;
-  border-top-left-radius: 4px;
+  width: 14px;
+  height: 14px;
+  border-color: #A87C38;
+  opacity: 0.6;
+  pointer-events: none;
 }
-.ornate-corner-tr {
-  position: absolute;
-  top: -1px;
-  right: -1px;
-  width: 18px;
-  height: 18px;
-  border-top: 2px solid #BB9457;
-  border-right: 2px solid #BB9457;
-  border-top-right-radius: 4px;
+.ornate-corner::before {
+  top: -2px;
+  left: -2px;
+  border-top: 2px solid #A87C38;
+  border-left: 2px solid #A87C38;
 }
-.ornate-corner-bl {
-  position: absolute;
-  bottom: -1px;
-  left: -1px;
-  width: 18px;
-  height: 18px;
-  border-bottom: 2px solid #BB9457;
-  border-left: 2px solid #BB9457;
-  border-bottom-left-radius: 4px;
-}
-.ornate-corner-br {
-  position: absolute;
-  bottom: -1px;
-  right: -1px;
-  width: 18px;
-  height: 18px;
-  border-bottom: 2px solid #BB9457;
-  border-right: 2px solid #BB9457;
-  border-bottom-right-radius: 4px;
+.ornate-corner::after {
+  bottom: -2px;
+  right: -2px;
+  border-bottom: 2px solid #A87C38;
+  border-right: 2px solid #A87C38;
 }
 
-/* Jharokha Arch Clip Path */
-.jharokha-frame {
-  clip-path: polygon(
-    0% 25%,
-    15% 15%,
-    30% 7%,
-    50% 0%,
-    70% 7%,
-    85% 15%,
-    100% 25%,
-    100% 100%,
-    0% 100%
-  );
+/* Hand-Drawn Jaali Motif Background */
+.jaali-texture-light {
+  background-image: radial-gradient(#A87C38 0.75px, transparent 0.75px), radial-gradient(#AC3B28 0.5px, #FAF6EE 0.5px);
+  background-size: 24px 24px;
+  background-position: 0 0, 12px 12px;
+  opacity: 0.4;
 }
 
-/* Indian Lattice / Jaali Screen Background */
-.jaali-pattern {
-  background-image: radial-gradient(circle, rgba(187, 148, 87, 0.15) 1.5px, transparent 1.5px),
-                    radial-gradient(circle, rgba(111, 29, 27, 0.12) 1.5px, transparent 1.5px);
-  background-size: 32px 32px;
-  background-position: 0 0, 16px 16px;
+/* Brush-Stroked Section Divider */
+.brush-divider {
+  height: 24px;
+  background-repeat: repeat-x;
+  background-position: center;
+  background-size: auto 100%;
 }
 
-/* Subtle Glowing Breathing Keyframes */
-@keyframes subtle-breath {
-  0%, 100% { opacity: 0.85; filter: drop-shadow(0 0 10px rgba(187, 148, 87, 0.35)); }
-  50% { opacity: 1; filter: drop-shadow(0 0 25px rgba(187, 148, 87, 0.7)) drop-shadow(0 0 15px rgba(111, 29, 27, 0.5)); }
+/* Red Wax Seal Badge */
+.paper-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background-color: #F3EBE0;
+  color: #7E2616;
+  border: 1px solid #D9CBB7;
 }
 
-.animate-breath {
-  animation: subtle-breath 4.5s ease-in-out infinite;
+/* Subtle Watercolor Wash Bleed Animations */
+@keyframes washDrift {
+  0% { transform: scale(1) translate(0, 0); }
+  50% { transform: scale(1.05) translate(8px, -6px); }
+  100% { transform: scale(1) translate(0, 0); }
 }
 
-/* Respect prefers-reduced-motion */
+.animate-wash-drift {
+  animation: washDrift 16s ease-in-out infinite;
+}
+
+/* Reduced Motion Support */
 @media (prefers-reduced-motion: reduce) {
-  * {
+  *, ::before, ::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
-  }
-  #cursor-canvas {
-    display: none !important;
   }
 }
