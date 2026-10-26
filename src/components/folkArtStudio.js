@@ -1,6 +1,6 @@
 /**
- * Interactive Indian Folk Art Studio using p5.brush
- * Draw on handmade Khadi paper with natural inks, watercolor washes, and traditional motif stamps
+ * Event-Driven Khadi Folk Art Studio using p5.brush
+ * Renders only on user stroke/stamp action (noLoop) for maximum efficiency
  */
 import p5 from 'p5';
 import * as brush from 'p5.brush';
@@ -9,8 +9,8 @@ export function initFolkArtStudio() {
   const container = document.getElementById('folk-art-canvas-container');
   if (!container) return;
 
-  let activeColor = '#AC3B28'; // Default: Madder Sindoor
-  let activeBrush = 'rotring'; // Default: Fine ink
+  let activeColor = '#AC3B28';
+  let activeBrush = 'rotring';
   let activeWeight = 2;
   let activeStamp = null;
 
@@ -25,6 +25,7 @@ export function initFolkArtStudio() {
       const canvas = p.createCanvas(width, height, p.WEBGL);
       canvas.parent(container);
       p.background('#FAF6EE');
+      p.noLoop(); // Event-driven drawing only!
       brush.scaleBrushes(1.2);
     };
 
@@ -34,37 +35,29 @@ export function initFolkArtStudio() {
       p.background('#FAF6EE');
     };
 
-    // Stamping logic
     function drawStamp(x, y, stampType) {
       p.push();
       p.translate(x, y);
 
       if (stampType === 'warli') {
-        // Warli human dance archetype (two triangles meeting at apex)
         brush.fill(activeColor, 180);
         brush.set(activeBrush, activeColor, activeWeight);
-        // Upper torso triangle
         brush.polygon([
           [-14, -28],
           [14, -28],
           [0, -8],
         ]);
-        // Lower pelvis triangle
         brush.polygon([
           [0, -8],
           [-14, 12],
           [14, 12],
         ]);
-        // Head
         brush.circle(0, -36, 12);
-        // Linked arms
         brush.line(-14, -28, -26, -14);
         brush.line(14, -28, 26, -14);
-        // Legs
         brush.line(-10, 12, -18, 30);
         brush.line(10, 12, 18, 30);
       } else if (stampType === 'lotus') {
-        // Madhubani Sacred Lotus
         brush.fill(activeColor, 140);
         brush.set('rotring', activeColor, 1.5);
         brush.circle(0, 0, 16);
@@ -80,7 +73,6 @@ export function initFolkArtStudio() {
           p.pop();
         }
       } else if (stampType === 'paisley') {
-        // Indian Kalka / Paisley motif
         brush.fill(activeColor, 130);
         brush.set('rotring', activeColor, 1.8);
         brush.polygon([
@@ -95,7 +87,6 @@ export function initFolkArtStudio() {
         ]);
         brush.circle(0, -5, 10);
       } else if (stampType === 'kolam') {
-        // Auspicious Sikku Kolam loop knot
         brush.noFill();
         brush.set('rotring', activeColor, 2);
         brush.circle(-18, -18, 24);
@@ -109,33 +100,48 @@ export function initFolkArtStudio() {
       p.pop();
     }
 
-    p.draw = () => {
-      // Interactive drawing with mouse on canvas
-      if (p.mouseIsPressed) {
-        // Bounds check
-        if (p.mouseX >= 0 && p.mouseX <= width && p.mouseY >= 0 && p.mouseY <= height) {
-          const webglX = p.mouseX - width / 2;
-          const webglY = p.mouseY - height / 2;
-          const prevWebglX = p.pmouseX - width / 2;
-          const prevWebglY = p.pmouseY - height / 2;
+    p.mousePressed = () => {
+      if (p.mouseX >= 0 && p.mouseX <= width && p.mouseY >= 0 && p.mouseY <= height) {
+        const webglX = p.mouseX - width / 2;
+        const webglY = p.mouseY - height / 2;
 
-          if (activeStamp) {
-            drawStamp(webglX, webglY, activeStamp);
-            p.mouseIsPressed = false; // single stamp per click
+        if (activeStamp) {
+          drawStamp(webglX, webglY, activeStamp);
+        } else {
+          brush.set(activeBrush, activeColor, activeWeight);
+          if (activeBrush === 'wash') {
+            brush.fill(activeColor, 40);
+            brush.noStroke();
+            brush.circle(webglX, webglY, 32);
+          } else if (activeBrush === 'hatch') {
+            brush.noFill();
+            brush.hatch(6, 45);
+            brush.circle(webglX, webglY, 28);
           } else {
-            brush.set(activeBrush, activeColor, activeWeight);
-            if (activeBrush === 'wash') {
-              brush.fill(activeColor, 40);
-              brush.noStroke();
-              brush.circle(webglX, webglY, 32);
-            } else if (activeBrush === 'hatch') {
-              brush.noFill();
-              brush.hatch(6, 45);
-              brush.circle(webglX, webglY, 28);
-            } else {
-              brush.line(prevWebglX, prevWebglY, webglX, webglY);
-            }
+            brush.circle(webglX, webglY, activeWeight * 1.5);
           }
+        }
+      }
+    };
+
+    p.mouseDragged = () => {
+      if (!activeStamp && p.mouseX >= 0 && p.mouseX <= width && p.mouseY >= 0 && p.mouseY <= height) {
+        const webglX = p.mouseX - width / 2;
+        const webglY = p.mouseY - height / 2;
+        const prevWebglX = p.pmouseX - width / 2;
+        const prevWebglY = p.pmouseY - height / 2;
+
+        brush.set(activeBrush, activeColor, activeWeight);
+        if (activeBrush === 'wash') {
+          brush.fill(activeColor, 25);
+          brush.noStroke();
+          brush.circle(webglX, webglY, 28);
+        } else if (activeBrush === 'hatch') {
+          brush.noFill();
+          brush.hatch(6, 45);
+          brush.circle(webglX, webglY, 24);
+        } else {
+          brush.line(prevWebglX, prevWebglY, webglX, webglY);
         }
       }
     };
@@ -144,11 +150,10 @@ export function initFolkArtStudio() {
   try {
     p5Instance = new p5(sketch);
   } catch (e) {
-    console.warn('p5 folk studio initialized:', e);
+    console.warn('p5 folk studio:', e);
   }
 
   // Hook UI Controls
-  // 1. Color Palette Buttons
   const colorBtns = document.querySelectorAll('[data-studio-color]');
   colorBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
@@ -158,19 +163,17 @@ export function initFolkArtStudio() {
     });
   });
 
-  // 2. Brush Style Buttons
   const brushBtns = document.querySelectorAll('[data-studio-brush]');
   brushBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
       activeBrush = btn.getAttribute('data-studio-brush');
-      activeStamp = null; // deactivate stamp when choosing brush
+      activeStamp = null;
       brushBtns.forEach(b => b.classList.remove('bg-[#1E2E48]', 'text-white'));
       btn.classList.add('bg-[#1E2E48]', 'text-white');
       document.querySelectorAll('[data-studio-stamp]').forEach(s => s.classList.remove('bg-[#AC3B28]', 'text-white'));
     });
   });
 
-  // 3. Stamp Motif Buttons
   const stampBtns = document.querySelectorAll('[data-studio-stamp]');
   stampBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
@@ -181,7 +184,6 @@ export function initFolkArtStudio() {
     });
   });
 
-  // 4. Clear Canvas Button
   const clearBtn = document.getElementById('studio-clear-btn');
   if (clearBtn) {
     clearBtn.addEventListener('click', () => {
@@ -191,7 +193,6 @@ export function initFolkArtStudio() {
     });
   }
 
-  // 5. Download Canvas PNG Button
   const downloadBtn = document.getElementById('studio-download-btn');
   if (downloadBtn) {
     downloadBtn.addEventListener('click', () => {

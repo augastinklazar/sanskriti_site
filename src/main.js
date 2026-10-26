@@ -12,26 +12,25 @@ import { initCulinaryMatrix } from './components/culinaryMatrix.js';
 import { initClimateRitus } from './components/climateRitus.js';
 import { initPeopleLanguages } from './components/peopleLanguages.js';
 import { initDioramaChamber } from './components/dioramaChamber.js';
-import { initFolkArtStudio } from './components/folkArtStudio.js';
 import { initGyanKoshaModal } from './components/gyanKoshaModal.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Initialize Handmade Paper Grain Overlay & Kalam Ink Cursor
+  // 1. Initialize Lightweight Handmade Paper Texture & Ink Cursor
   initNoiseOverlay();
   initCustomCursor();
 
-  // 2. Initialize Lenis Smooth Scroll with GSAP ScrollTrigger Integration
+  // 2. Lenis Smooth Scroll with GSAP ScrollTrigger Integration
   let lenis = null;
   const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   if (!isReducedMotion) {
     lenis = new Lenis({
-      duration: 1.2,
+      duration: 1.0,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
-      touchMultiplier: 1.5,
+      touchMultiplier: 1.2,
     });
 
     lenis.on('scroll', ScrollTrigger.update);
@@ -90,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 4. Mobile Drawer Menu Navigation
+  // 4. Mobile Drawer Navigation
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
   const mobileDrawer = document.getElementById('mobile-drawer');
   const mobileDrawerClose = document.getElementById('mobile-drawer-close');
@@ -110,27 +109,48 @@ document.addEventListener('DOMContentLoaded', () => {
   if (mobileDrawerClose) mobileDrawerClose.addEventListener('click', closeDrawer);
   mobileNavLinks.forEach((link) => link.addEventListener('click', closeDrawer));
 
-  // 5. Initialize Core Educational Modules
+  // 5. Initialize Above-the-Fold & Core Interactive Modules
   initHeroDiorama();
   initCulinaryMatrix();
   initClimateRitus();
   initPeopleLanguages();
   initDioramaChamber();
-  initFolkArtStudio();
   initGyanKoshaModal();
 
-  // 6. GSAP Scroll Entrance Stagger for Section Cards
+  // 6. Lazy-load Folk Art Studio when user scrolls near it
+  const studioSection = document.getElementById('studio-section');
+  if (studioSection && 'IntersectionObserver' in window) {
+    let studioLoaded = false;
+    const studioObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !studioLoaded) {
+          studioLoaded = true;
+          import('./components/folkArtStudio.js').then((module) => {
+            module.initFolkArtStudio();
+          });
+          studioObserver.disconnect();
+        }
+      });
+    }, { rootMargin: '300px' });
+    studioObserver.observe(studioSection);
+  } else {
+    import('./components/folkArtStudio.js').then((module) => {
+      module.initFolkArtStudio();
+    });
+  }
+
+  // 7. Lightweight GSAP Scroll Entrance Stagger
   if (!isReducedMotion) {
     gsap.utils.toArray('.deckle-card').forEach((card) => {
       gsap.from(card, {
         scrollTrigger: {
           trigger: card,
-          start: 'top 88%',
+          start: 'top 92%',
           toggleActions: 'play none none reverse',
         },
-        y: 28,
+        y: 20,
         opacity: 0,
-        duration: 0.8,
+        duration: 0.6,
         ease: 'power2.out',
       });
     });

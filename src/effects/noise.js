@@ -1,6 +1,6 @@
 /**
- * Handmade Khadi / Cotton Rag Paper Texture Overlay
- * Generates organic fiber flecks and delicate paper tooth on a 2D canvas
+ * Lightweight Static Handmade Paper Texture
+ * Generates once on offscreen canvas and tiles pattern without continuous GPU redraw
  */
 export function initNoiseOverlay() {
   const canvas = document.getElementById('noise-canvas');
@@ -10,44 +10,24 @@ export function initNoiseOverlay() {
   let width = (canvas.width = window.innerWidth);
   let height = (canvas.height = window.innerHeight);
 
-  // Generate static paper grain offscreen for 60 FPS performance
+  // Generate 256x256 seamless paper grain pattern once
   const offscreen = document.createElement('canvas');
-  offscreen.width = 512;
-  offscreen.height = 512;
+  offscreen.width = 256;
+  offscreen.height = 256;
   const offCtx = offscreen.getContext('2d');
 
-  const imgData = offCtx.createImageData(512, 512);
+  const imgData = offCtx.createImageData(256, 256);
   const data = imgData.data;
 
   for (let i = 0; i < data.length; i += 4) {
-    // Warm fiber grain
-    const noise = (Math.random() - 0.5) * 22;
-    const base = 245 + noise;
-    data[i] = Math.min(255, Math.max(220, base - 6));     // R (warm)
-    data[i + 1] = Math.min(255, Math.max(215, base - 10)); // G (golden paper)
-    data[i + 2] = Math.min(255, Math.max(205, base - 18)); // B (khadi cream)
-    data[i + 3] = Math.random() < 0.08 ? 55 : 25;           // Occasional dark pulp fiber
+    const noise = (Math.random() - 0.5) * 16;
+    const base = 240 + noise;
+    data[i] = base - 6;     // R
+    data[i + 1] = base - 10; // G
+    data[i + 2] = base - 18; // B
+    data[i + 3] = Math.random() < 0.05 ? 50 : 20; // Subtle fiber flecks
   }
   offCtx.putImageData(imgData, 0, 0);
-
-  // Draw natural pulp fiber streaks
-  offCtx.strokeStyle = 'rgba(120, 95, 70, 0.15)';
-  offCtx.lineWidth = 1;
-  for (let j = 0; j < 35; j++) {
-    const sx = Math.random() * 512;
-    const sy = Math.random() * 512;
-    offCtx.beginPath();
-    offCtx.moveTo(sx, sy);
-    offCtx.bezierCurveTo(
-      sx + (Math.random() - 0.5) * 15,
-      sy + (Math.random() - 0.5) * 15,
-      sx + (Math.random() - 0.5) * 25,
-      sy + (Math.random() - 0.5) * 25,
-      sx + (Math.random() - 0.5) * 35,
-      sy + (Math.random() - 0.5) * 35
-    );
-    offCtx.stroke();
-  }
 
   function render() {
     ctx.clearRect(0, 0, width, height);
@@ -56,10 +36,14 @@ export function initNoiseOverlay() {
     ctx.fillRect(0, 0, width, height);
   }
 
+  let resizeTimer = null;
   window.addEventListener('resize', () => {
-    width = canvas.width = window.innerWidth;
-    height = canvas.height = window.innerHeight;
-    render();
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+      render();
+    }, 150);
   });
 
   render();

@@ -28,7 +28,7 @@
 
   /* Custom Light-Theme Scrollbar */
   ::-webkit-scrollbar {
-    width: 9px;
+    width: 8px;
   }
   ::-webkit-scrollbar-track {
     background: #FAF6EE;
@@ -44,7 +44,7 @@
   }
 }
 
-/* Handmade Paper Fiber & Noise Canvas */
+/* Lightweight Handmade Paper Grain Overlay - No mix-blend-mode for instant scroll */
 #noise-canvas {
   position: fixed;
   top: 0;
@@ -53,8 +53,7 @@
   height: 100vh;
   pointer-events: none;
   z-index: 99;
-  opacity: 0.45;
-  mix-blend-mode: multiply;
+  opacity: 0.16;
 }
 
 /* Custom Ink / Quill Cursor Canvas */
@@ -68,102 +67,40 @@
   z-index: 100;
 }
 
-/* 2.5D Layer & Perspective Classes */
+/* 2.5D Layer & Perspective Classes with Hardware Acceleration */
 .perspective-diorama {
   perspective: 1200px;
   perspective-origin: 50% 50%;
+  transform: translateZ(0);
 }
 
 .preserve-3d {
   transform-style: preserve-3d;
+  will-change: transform;
 }
 
-.translate-z-10 {
-  transform: translateZ(10px);
-}
-.translate-z-20 {
-  transform: translateZ(20px);
-}
-.translate-z-30 {
-  transform: translateZ(30px);
-}
-.translate-z-40 {
-  transform: translateZ(40px);
-}
-.translate-z-60 {
-  transform: translateZ(60px);
-}
-
-/* Deckled Torn-Paper Border and Card Styles */
+/* Deckled Paper Cards - Optimized performant shadows */
 .deckle-card {
   background-color: #FBF8F2;
   border: 1px solid #E4D7C4;
   border-radius: 12px;
-  box-shadow: 
-    0 4px 14px -2px rgba(60, 45, 30, 0.06),
-    0 1px 4px -1px rgba(60, 45, 30, 0.04),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 12px rgba(60, 45, 30, 0.05);
   position: relative;
-  transition: transform 0.3s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.3s ease;
+  transition: transform 0.25s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.25s ease;
+  contain: content;
 }
 
 .deckle-card:hover {
-  box-shadow: 
-    0 16px 32px -6px rgba(60, 45, 30, 0.12),
-    0 6px 14px -3px rgba(60, 45, 30, 0.06),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  box-shadow: 0 12px 24px -4px rgba(60, 45, 30, 0.10);
 }
 
 /* Paper Stamp / Wax Seal */
 .wax-seal {
   background: radial-gradient(circle at 35% 35%, #CA5743 0%, #AC3B28 50%, #7E2616 100%);
-  box-shadow: 0 4px 10px rgba(172, 59, 40, 0.35), inset 0 2px 3px rgba(255,255,255,0.4);
+  box-shadow: 0 3px 8px rgba(172, 59, 40, 0.3);
 }
 
-/* Ornate Corner Brackets in Light Brass */
-.ornate-corner {
-  position: relative;
-}
-.ornate-corner::before,
-.ornate-corner::after {
-  content: '';
-  position: absolute;
-  width: 14px;
-  height: 14px;
-  border-color: #A87C38;
-  opacity: 0.6;
-  pointer-events: none;
-}
-.ornate-corner::before {
-  top: -2px;
-  left: -2px;
-  border-top: 2px solid #A87C38;
-  border-left: 2px solid #A87C38;
-}
-.ornate-corner::after {
-  bottom: -2px;
-  right: -2px;
-  border-bottom: 2px solid #A87C38;
-  border-right: 2px solid #A87C38;
-}
-
-/* Hand-Drawn Jaali Motif Background */
-.jaali-texture-light {
-  background-image: radial-gradient(#A87C38 0.75px, transparent 0.75px), radial-gradient(#AC3B28 0.5px, #FAF6EE 0.5px);
-  background-size: 24px 24px;
-  background-position: 0 0, 12px 12px;
-  opacity: 0.4;
-}
-
-/* Brush-Stroked Section Divider */
-.brush-divider {
-  height: 24px;
-  background-repeat: repeat-x;
-  background-position: center;
-  background-size: auto 100%;
-}
-
-/* Red Wax Seal Badge */
+/* Paper Badge */
 .paper-badge {
   display: inline-flex;
   align-items: center;
@@ -178,17 +115,6 @@
   background-color: #F3EBE0;
   color: #7E2616;
   border: 1px solid #D9CBB7;
-}
-
-/* Subtle Watercolor Wash Bleed Animations */
-@keyframes washDrift {
-  0% { transform: scale(1) translate(0, 0); }
-  50% { transform: scale(1.05) translate(8px, -6px); }
-  100% { transform: scale(1) translate(0, 0); }
-}
-
-.animate-wash-drift {
-  animation: washDrift 16s ease-in-out infinite;
 }
 
 /* Reduced Motion Support */

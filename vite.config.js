@@ -8,11 +8,20 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
-    sourcemap: true,
+    sourcemap: false,
+    chunkSizeWarningLimit: 1200,
+    minify: 'esbuild',
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'vendor-p5': ['p5', 'p5.brush'],
+          'vendor-animation': ['gsap', 'lenis'],
+        }
+      }
+    }
   },
   server: {
     port: 3000,
     open: true
   }
 });
-

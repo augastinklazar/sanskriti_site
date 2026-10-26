@@ -1,12 +1,13 @@
 /**
- * India's 6 Classical Seasons (Shad Ritu) & Diverse Mega-Biomes
- * Interactive 2.5D weather transformation engine and ecological geography explorer
+ * Viewport-Aware Climatology & 6 Ritus Weather Simulator
+ * Automatically pauses animation loop when scrolled out of view
  */
 
 export function initClimateRitus() {
   const weatherCanvas = document.getElementById('ritu-weather-canvas');
   const rituNavContainer = document.getElementById('ritu-nav-tabs');
   const rituDetailContainer = document.getElementById('ritu-detail-card');
+  const section = document.getElementById('climate-section');
   if (!weatherCanvas || !rituNavContainer || !rituDetailContainer) return;
 
   const ctx = weatherCanvas.getContext('2d');
@@ -94,23 +95,22 @@ export function initClimateRitus() {
     }
   ];
 
-  let currentRitu = RITUS_DATA[2]; // Default: Varsha (Monsoon)
+  let currentRitu = RITUS_DATA[2];
   let particles = [];
   let animId = null;
+  let isVisible = false;
 
-  // Generate weather particles
   function initParticles(type) {
     particles = [];
-    const count = type === 'rain' ? 80 : 35;
+    const count = type === 'rain' ? 35 : 18;
     for (let i = 0; i < count; i++) {
       particles.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        speed: Math.random() * 4 + 2,
-        length: Math.random() * 18 + 12,
-        size: Math.random() * 4 + 2,
+        speed: Math.random() * 3 + 2,
+        length: Math.random() * 14 + 10,
+        size: Math.random() * 3 + 2,
         angle: Math.random() * Math.PI * 2,
-        alpha: Math.random() * 0.7 + 0.3
       });
     }
   }
@@ -121,13 +121,13 @@ export function initClimateRitus() {
       const btn = document.createElement('button');
       btn.type = 'button';
       const isActive = r.id === currentRitu.id;
-      btn.className = `px-3.5 py-2 rounded-xl text-xs font-semibold transition-all duration-300 flex items-center space-x-2 cursor-pointer border ${
+      btn.className = `px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all duration-200 flex items-center space-x-2 cursor-pointer border ${
         isActive
-          ? 'bg-[#1E2E48] text-[#FFFDF9] border-[#1E2E48] shadow-paper-md'
+          ? 'bg-[#1E2E48] text-[#FFFDF9] border-[#1E2E48] shadow-sm'
           : 'bg-[#FFFDF9] text-[#292524] border-[#E2D7C5] hover:border-[#1E2E48]/40 hover:bg-[#F5EFEB]'
       }`;
       btn.innerHTML = `
-        <span class="w-2.5 h-2.5 rounded-full" style="background-color: ${r.accentColor}"></span>
+        <span class="w-2 h-2 rounded-full" style="background-color: ${r.accentColor}"></span>
         <span>${r.name.split(' ')[0]}</span>
       `;
       btn.addEventListener('click', () => {
@@ -172,19 +172,21 @@ export function initClimateRitus() {
     `;
   }
 
-  // Weather animation loop on 2.5D paper canvas
   function animate() {
+    if (!isVisible) {
+      animId = null;
+      return;
+    }
+
     ctx.clearRect(0, 0, width, height);
 
-    // Warm paper gradient sky
     const skyGrad = ctx.createLinearGradient(0, 0, 0, height);
     skyGrad.addColorStop(0, currentRitu.skyColor);
     skyGrad.addColorStop(1, '#FAF6EE');
     ctx.fillStyle = skyGrad;
     ctx.fillRect(0, 0, width, height);
 
-    // Render painterly landscape silhouettes in 2.5D depth
-    // Distant mountain or dune ridge
+    // Distant ridge
     ctx.beginPath();
     ctx.moveTo(0, height * 0.7);
     ctx.bezierCurveTo(width * 0.3, height * 0.6, width * 0.7, height * 0.8, width, height * 0.65);
@@ -193,7 +195,7 @@ export function initClimateRitus() {
     ctx.fillStyle = 'rgba(168, 124, 56, 0.12)';
     ctx.fill();
 
-    // Foreground lush terrace / steps
+    // Foreground terrace
     ctx.beginPath();
     ctx.moveTo(0, height * 0.85);
     ctx.bezierCurveTo(width * 0.4, height * 0.75, width * 0.6, height * 0.9, width, height * 0.8);
@@ -202,64 +204,59 @@ export function initClimateRitus() {
     ctx.fillStyle = 'rgba(45, 90, 39, 0.1)';
     ctx.fill();
 
-    // Render weather particle effects based on Ritu
     if (currentRitu.weatherType === 'rain') {
       ctx.strokeStyle = 'rgba(30, 46, 72, 0.5)';
       ctx.lineWidth = 1.2;
       particles.forEach((p) => {
         ctx.beginPath();
         ctx.moveTo(p.x, p.y);
-        ctx.lineTo(p.x - 3, p.y + p.length);
+        ctx.lineTo(p.x - 2, p.y + p.length);
         ctx.stroke();
 
         p.y += p.speed * 2.5;
-        p.x -= 0.8;
+        p.x -= 0.6;
         if (p.y > height) {
           p.y = -10;
           p.x = Math.random() * width;
         }
       });
-    } else if (currentRitu.weatherType === 'heatwave') {
-      // Shimmering mirage lines
-      ctx.strokeStyle = 'rgba(217, 119, 6, 0.25)';
-      ctx.lineWidth = 1.5;
-      const t = Date.now() * 0.003;
-      for (let i = 0; i < 6; i++) {
-        ctx.beginPath();
-        const baseY = height * 0.6 + i * 15;
-        ctx.moveTo(0, baseY);
-        for (let x = 0; x < width; x += 20) {
-          const waveY = baseY + Math.sin(x * 0.03 + t + i) * 6;
-          ctx.lineTo(x, waveY);
-        }
-        ctx.stroke();
-      }
     } else if (currentRitu.weatherType === 'petals') {
-      // Swirling red Palash blossoms
       ctx.fillStyle = 'rgba(172, 59, 40, 0.7)';
       particles.forEach((p) => {
         ctx.beginPath();
         ctx.ellipse(p.x, p.y, p.size, p.size * 0.6, p.angle, 0, Math.PI * 2);
         ctx.fill();
 
-        p.y += p.speed * 0.6;
-        p.x += Math.sin(p.angle) * 1.5;
+        p.y += p.speed * 0.5;
+        p.x += Math.sin(p.angle) * 1.2;
         p.angle += 0.03;
         if (p.y > height) {
           p.y = -10;
           p.x = Math.random() * width;
         }
       });
+    } else if (currentRitu.weatherType === 'heatwave') {
+      ctx.strokeStyle = 'rgba(217, 119, 6, 0.2)';
+      ctx.lineWidth = 1.5;
+      const t = Date.now() * 0.002;
+      for (let i = 0; i < 4; i++) {
+        ctx.beginPath();
+        const baseY = height * 0.65 + i * 18;
+        ctx.moveTo(0, baseY);
+        for (let x = 0; x < width; x += 30) {
+          const waveY = baseY + Math.sin(x * 0.03 + t + i) * 5;
+          ctx.lineTo(x, waveY);
+        }
+        ctx.stroke();
+      }
     } else if (currentRitu.weatherType === 'mist') {
-      // Gentle white paper mist
       ctx.fillStyle = 'rgba(255, 253, 249, 0.4)';
       particles.forEach((p) => {
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size * 5, 0, Math.PI * 2);
+        ctx.arc(p.x, p.y, p.size * 4, 0, Math.PI * 2);
         ctx.fill();
-
-        p.x += Math.cos(p.angle) * 0.5;
-        p.y += 0.2;
+        p.x += 0.3;
+        p.y += 0.15;
         if (p.x > width) p.x = 0;
         if (p.y > height) p.y = 0;
       });
@@ -268,14 +265,29 @@ export function initClimateRitus() {
     animId = requestAnimationFrame(animate);
   }
 
+  // IntersectionObserver pauses loop when off-screen
+  if (section && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        isVisible = entry.isIntersecting;
+        if (isVisible && !animId) {
+          animId = requestAnimationFrame(animate);
+        }
+      });
+    }, { rootMargin: '100px' });
+    observer.observe(section);
+  } else {
+    isVisible = true;
+    animate();
+  }
+
   window.addEventListener('resize', () => {
     width = weatherCanvas.width = weatherCanvas.parentElement.clientWidth || 600;
-  });
+  }, { passive: true });
 
   renderTabs();
   updateDetails();
   initParticles(currentRitu.weatherType);
-  animate();
 
   return {
     destroy: () => {
